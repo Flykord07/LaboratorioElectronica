@@ -1,5 +1,4 @@
 CREATE DATABASE Laboratorio
-
 USE Laboratorio
 
 CREATE SCHEMA Persona
@@ -127,6 +126,8 @@ CREATE TABLE Aula.Materia
 	Nivel BIGINT NOT NULL,
 )
 
+--Reglas
+
 CREATE RULE tipo_equipos
 AS 
 @tipo IN ('Osciloscopio', 'Multimetro', 'Fuente de voltaje', 'Pinzas de corte')
@@ -137,4 +138,18 @@ AS
 @nivel > 0 AND @range <= 10
 EXEC sp_bindrule 'nivel_range' , 'Aula.Materia.Nivel'
 	
+--Disparadores
+CREATE TRIGGER tr_hr_prestamo
+ON Aula.Prestamo
 
+FOR INSERT, DELETE, UPDATE AS
+		DECLARE @FechaPrestamo as DATE
+
+BEGIN
+	IF EXISTS (SELECT * FROM inserted)
+	BEGIN 
+		SELECT @FechaPrestamo = FechaPrestamo FROM inserted
+
+		UPDATE Aula.Prestamo SET @FechaPrestamo
+	END
+END
