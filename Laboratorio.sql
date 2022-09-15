@@ -11,7 +11,7 @@ CREATE TABLE Persona.Empleado
 	Nombre VARCHAR(40) NOT NULL,
 	Domicilio VARCHAR(100) NOT NULL,
 	Correo VARCHAR(50) NOT NULL,
-	Celular VARCHAR NOT NULL,
+	Celular VARCHAR(10) NOT NULL,
 	EmpleadoDesde DATE NOT NULL,
 	Antiguedad VARCHAR(20) NOT NULL,
 	TipoEmpleado VARCHAR(20) NOT NULL,
@@ -120,4 +120,21 @@ CREATE TABLE Aula.BitacoraEntrega
 	CONSTRAINT FK_IDPRESTAMO FOREIGN KEY (Id_Prestamo)
 		REFERENCES Aula.Prestamo (Id_Prestamo)
 )
+CREATE TABLE Aula.Materia
+(
+	ClaveMateria BIGINT IDENTITY(1,1),
+	Nombre VARCHAR(100) NOT NULL,
+	Nivel BIGINT NOT NULL,
+)
+
+CREATE RULE tipo_equipos
+AS 
+@tipo IN ('Osciloscopio', 'Multimetro', 'Fuente de voltaje', 'Pinzas de corte')
+EXEC sp_bindrule 'tipo_equipos' , 'Aula.Equipo.TipoEquipo'
+
+CREATE RULE nivel_range
+AS
+@nivel > 0 AND @range <= 10
+EXEC sp_bindrule 'nivel_range' , 'Aula.Materia.Nivel'
+	
 
