@@ -1,0 +1,10 @@
+C:\Users\danie\source\repos\Laboratorio Electronica\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe.config
+C:\Users\danie\source\repos\Laboratorio Electronica\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe
+C:\Users\danie\source\repos\Laboratorio Electronica\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.pdb
+C:\Users\danie\source\repos\Laboratorio Electronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csprojAssemblyReference.cache
+C:\Users\danie\source\repos\Laboratorio Electronica\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Properties.Resources.resources
+C:\Users\danie\source\repos\Laboratorio Electronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.GenerateResource.cache
+C:\Users\danie\source\repos\Laboratorio Electronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.CoreCompileInputs.cache
+C:\Users\danie\source\repos\Laboratorio Electronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.exe
+C:\Users\danie\source\repos\Laboratorio Electronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.pdb
+C:\Users\danie\source\repos\Laboratorio Electronica\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Form1.resources
