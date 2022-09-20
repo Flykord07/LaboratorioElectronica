@@ -21,9 +21,8 @@ CREATE TABLE Persona.Empleado
 CREATE TABLE Persona.Colaborador
 (
 	RPE_Colaborador BIGINT NOT NULL,
-	Fecha_nac DATE NOT NULL,
+	Desc_act TEXT NOT NULL,
 	Hrs_sem BIGINT NOT NULL,
-	Generacion VARCHAR(10) NOT NULL,
 
 	CONSTRAINT FK_COLABRADOR FOREIGN KEY (RPE_Colaborador)
 			REFERENCES Persona.Empleado(RPE_Empleado)
