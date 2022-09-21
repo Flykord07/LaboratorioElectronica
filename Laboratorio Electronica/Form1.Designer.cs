@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Empleado = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -75,8 +75,68 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.menuStrip3 = new System.Windows.Forms.MenuStrip();
+            this.label21 = new System.Windows.Forms.Label();
+            this.FechaBitacora = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.montoSansion = new System.Windows.Forms.TextBox();
+            this.fechaSansion = new System.Windows.Forms.TextBox();
+            this.fliquidacion = new System.Windows.Forms.TextBox();
+            this.descSansion = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.Alumno = new System.Windows.Forms.Panel();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.Asistencia = new System.Windows.Forms.Panel();
+            this.BitacoraEntrega = new System.Windows.Forms.Panel();
+            this.Prestamo = new System.Windows.Forms.Panel();
+            this.Sancion = new System.Windows.Forms.Panel();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.entregadoBitacora = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.Materia = new System.Windows.Forms.Panel();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.Datos = new System.Windows.Forms.ComboBox();
+            this.Equipo = new System.Windows.Forms.Panel();
+            this.Modelo = new System.Windows.Forms.TextBox();
+            this.descEquipo = new System.Windows.Forms.TextBox();
+            this.ubiLab = new System.Windows.Forms.TextBox();
+            this.marca = new System.Windows.Forms.TextBox();
+            this.tipoEquipo = new System.Windows.Forms.TextBox();
+            this.nombreEquipo = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
             this.Empleado.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgridVista)).BeginInit();
@@ -85,6 +145,13 @@
             this.Becario.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.Alumno.SuspendLayout();
+            this.Asistencia.SuspendLayout();
+            this.BitacoraEntrega.SuspendLayout();
+            this.Prestamo.SuspendLayout();
+            this.Sancion.SuspendLayout();
+            this.Materia.SuspendLayout();
+            this.Equipo.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -112,12 +179,14 @@
             this.tabPage1.Controls.Add(this.dgridVista);
             this.tabPage1.Controls.Add(this.btnAlta);
             this.tabPage1.Controls.Add(this.btnModificar);
+            this.tabPage1.Controls.Add(this.Colaborador);
             this.tabPage1.Controls.Add(this.Responsable);
+            this.tabPage1.Controls.Add(this.Becario);
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.btnEliminar);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1176, 809);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Empleado";
@@ -139,8 +208,8 @@
             this.dgridVista.RowHeadersVisible = false;
             this.dgridVista.RowHeadersWidth = 20;
             this.dgridVista.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dgridVista.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dgridVista.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgridVista.Size = new System.Drawing.Size(1120, 375);
             this.dgridVista.TabIndex = 41;
             // 
@@ -169,16 +238,14 @@
             this.Responsable.Controls.Add(this.fechafin);
             this.Responsable.Controls.Add(this.Fechainicio);
             this.Responsable.Controls.Add(this.antiguedadResponsable);
-            this.Responsable.Controls.Add(this.Colaborador);
-            this.Responsable.Controls.Add(this.Becario);
             this.Responsable.Controls.Add(this.label17);
             this.Responsable.Controls.Add(this.label16);
             this.Responsable.Controls.Add(this.label15);
             this.Responsable.Controls.Add(this.Grado);
             this.Responsable.Controls.Add(this.label10);
-            this.Responsable.Location = new System.Drawing.Point(804, 22);
+            this.Responsable.Location = new System.Drawing.Point(803, 22);
             this.Responsable.Name = "Responsable";
-            this.Responsable.Size = new System.Drawing.Size(345, 369);
+            this.Responsable.Size = new System.Drawing.Size(345, 168);
             this.Responsable.TabIndex = 36;
             // 
             // fechafin
@@ -211,7 +278,7 @@
             this.Colaborador.Controls.Add(this.Desc_act);
             this.Colaborador.Controls.Add(this.label13);
             this.Colaborador.Controls.Add(this.Hrssm);
-            this.Colaborador.Location = new System.Drawing.Point(0, 286);
+            this.Colaborador.Location = new System.Drawing.Point(803, 23);
             this.Colaborador.Name = "Colaborador";
             this.Colaborador.Size = new System.Drawing.Size(345, 89);
             this.Colaborador.TabIndex = 35;
@@ -256,7 +323,7 @@
             this.Becario.Controls.Add(this.Hrs_sem);
             this.Becario.Controls.Add(this.Generacion);
             this.Becario.Controls.Add(this.label11);
-            this.Becario.Location = new System.Drawing.Point(0, 166);
+            this.Becario.Location = new System.Drawing.Point(803, 23);
             this.Becario.Name = "Becario";
             this.Becario.Size = new System.Drawing.Size(345, 122);
             this.Becario.TabIndex = 36;
@@ -523,25 +590,27 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.Equipo);
+            this.tabPage2.Controls.Add(this.Datos);
+            this.tabPage2.Controls.Add(this.button3);
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.Materia);
+            this.tabPage2.Controls.Add(this.BitacoraEntrega);
+            this.tabPage2.Controls.Add(this.Prestamo);
+            this.tabPage2.Controls.Add(this.Sancion);
+            this.tabPage2.Controls.Add(this.Asistencia);
+            this.tabPage2.Controls.Add(this.Alumno);
             this.tabPage2.Controls.Add(this.menuStrip3);
             this.tabPage2.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1176, 809);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(152, 202);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 28);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // menuStrip3
             // 
@@ -551,6 +620,573 @@
             this.menuStrip3.Size = new System.Drawing.Size(1170, 24);
             this.menuStrip3.TabIndex = 0;
             this.menuStrip3.Text = "menuStrip3";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(5, 50);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(126, 20);
+            this.label21.TabIndex = 4;
+            this.label21.Text = "Fecha Prestamo";
+            // 
+            // FechaBitacora
+            // 
+            this.FechaBitacora.AutoSize = true;
+            this.FechaBitacora.Location = new System.Drawing.Point(17, 43);
+            this.FechaBitacora.Name = "FechaBitacora";
+            this.FechaBitacora.Size = new System.Drawing.Size(133, 20);
+            this.FechaBitacora.TabIndex = 8;
+            this.FechaBitacora.Text = "Fecha Entregado";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(89, 81);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(200, 26);
+            this.textBox3.TabIndex = 17;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(89, 49);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(200, 26);
+            this.textBox4.TabIndex = 18;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(123, 120);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(166, 26);
+            this.textBox5.TabIndex = 19;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(123, 88);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(166, 26);
+            this.textBox6.TabIndex = 20;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(142, 44);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(231, 26);
+            this.textBox7.TabIndex = 21;
+            // 
+            // montoSansion
+            // 
+            this.montoSansion.Location = new System.Drawing.Point(156, 149);
+            this.montoSansion.Name = "montoSansion";
+            this.montoSansion.Size = new System.Drawing.Size(201, 26);
+            this.montoSansion.TabIndex = 23;
+            // 
+            // fechaSansion
+            // 
+            this.fechaSansion.Location = new System.Drawing.Point(156, 117);
+            this.fechaSansion.Name = "fechaSansion";
+            this.fechaSansion.Size = new System.Drawing.Size(201, 26);
+            this.fechaSansion.TabIndex = 24;
+            // 
+            // fliquidacion
+            // 
+            this.fliquidacion.Location = new System.Drawing.Point(156, 85);
+            this.fliquidacion.Name = "fliquidacion";
+            this.fliquidacion.Size = new System.Drawing.Size(201, 26);
+            this.fliquidacion.TabIndex = 25;
+            // 
+            // descSansion
+            // 
+            this.descSansion.Location = new System.Drawing.Point(156, 53);
+            this.descSansion.Name = "descSansion";
+            this.descSansion.Size = new System.Drawing.Size(201, 26);
+            this.descSansion.TabIndex = 26;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(131, 156);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(268, 26);
+            this.textBox13.TabIndex = 27;
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(131, 124);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(265, 26);
+            this.textBox14.TabIndex = 28;
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(131, 92);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(265, 26);
+            this.textBox15.TabIndex = 29;
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(131, 60);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(265, 26);
+            this.textBox16.TabIndex = 30;
+            this.textBox16.TextChanged += new System.EventHandler(this.textBox16_TextChanged);
+            // 
+            // Alumno
+            // 
+            this.Alumno.Controls.Add(this.label24);
+            this.Alumno.Controls.Add(this.label31);
+            this.Alumno.Controls.Add(this.textBox13);
+            this.Alumno.Controls.Add(this.textBox14);
+            this.Alumno.Controls.Add(this.textBox15);
+            this.Alumno.Controls.Add(this.textBox16);
+            this.Alumno.Controls.Add(this.label30);
+            this.Alumno.Controls.Add(this.label29);
+            this.Alumno.Controls.Add(this.label28);
+            this.Alumno.Controls.Add(this.label27);
+            this.Alumno.Location = new System.Drawing.Point(476, 30);
+            this.Alumno.Name = "Alumno";
+            this.Alumno.Size = new System.Drawing.Size(399, 194);
+            this.Alumno.TabIndex = 31;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(24, 141);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(0, 20);
+            this.label27.TabIndex = 10;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(17, 159);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(62, 20);
+            this.label28.TabIndex = 11;
+            this.label28.Text = "Carrera";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(12, 130);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(92, 20);
+            this.label29.TabIndex = 12;
+            this.label29.Text = "Generacion";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(17, 98);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(65, 20);
+            this.label30.TabIndex = 13;
+            this.label30.Text = "Nombre";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(17, 60);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(93, 20);
+            this.label31.TabIndex = 14;
+            this.label31.Text = "Clave Unica";
+            // 
+            // Asistencia
+            // 
+            this.Asistencia.Controls.Add(this.label45);
+            this.Asistencia.Controls.Add(this.dateTimePicker1);
+            this.Asistencia.Controls.Add(this.label36);
+            this.Asistencia.Controls.Add(this.label26);
+            this.Asistencia.Controls.Add(this.label37);
+            this.Asistencia.Controls.Add(this.textBox6);
+            this.Asistencia.Controls.Add(this.textBox5);
+            this.Asistencia.Location = new System.Drawing.Point(476, 356);
+            this.Asistencia.Name = "Asistencia";
+            this.Asistencia.Size = new System.Drawing.Size(330, 149);
+            this.Asistencia.TabIndex = 32;
+            // 
+            // BitacoraEntrega
+            // 
+            this.BitacoraEntrega.Controls.Add(this.label22);
+            this.BitacoraEntrega.Controls.Add(this.entregadoBitacora);
+            this.BitacoraEntrega.Controls.Add(this.FechaBitacora);
+            this.BitacoraEntrega.Location = new System.Drawing.Point(473, 532);
+            this.BitacoraEntrega.Name = "BitacoraEntrega";
+            this.BitacoraEntrega.Size = new System.Drawing.Size(399, 72);
+            this.BitacoraEntrega.TabIndex = 33;
+            // 
+            // Prestamo
+            // 
+            this.Prestamo.Controls.Add(this.label19);
+            this.Prestamo.Controls.Add(this.label21);
+            this.Prestamo.Controls.Add(this.textBox7);
+            this.Prestamo.Location = new System.Drawing.Point(20, 304);
+            this.Prestamo.Name = "Prestamo";
+            this.Prestamo.Size = new System.Drawing.Size(393, 79);
+            this.Prestamo.TabIndex = 33;
+            // 
+            // Sancion
+            // 
+            this.Sancion.Controls.Add(this.label23);
+            this.Sancion.Controls.Add(this.label35);
+            this.Sancion.Controls.Add(this.label32);
+            this.Sancion.Controls.Add(this.label33);
+            this.Sancion.Controls.Add(this.label34);
+            this.Sancion.Controls.Add(this.montoSansion);
+            this.Sancion.Controls.Add(this.fechaSansion);
+            this.Sancion.Controls.Add(this.fliquidacion);
+            this.Sancion.Controls.Add(this.descSansion);
+            this.Sancion.Location = new System.Drawing.Point(20, 464);
+            this.Sancion.Name = "Sancion";
+            this.Sancion.Size = new System.Drawing.Size(365, 178);
+            this.Sancion.TabIndex = 33;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(16, 120);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(54, 20);
+            this.label32.TabIndex = 34;
+            this.label32.Text = "Fecha";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(12, 85);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(138, 20);
+            this.label33.TabIndex = 35;
+            this.label33.Text = "Fecha Liquidacion";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(16, 53);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(92, 20);
+            this.label34.TabIndex = 36;
+            this.label34.Text = "Descripcion";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(13, 149);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(54, 20);
+            this.label35.TabIndex = 37;
+            this.label35.Text = "Monto";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(14, 123);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(92, 20);
+            this.label36.TabIndex = 10;
+            this.label36.Text = "Hora Salida";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(17, 91);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(105, 20);
+            this.label26.TabIndex = 11;
+            this.label26.Text = "Hora Entrada";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(28, 56);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(54, 20);
+            this.label37.TabIndex = 12;
+            this.label37.Text = "Fecha";
+            // 
+            // entregadoBitacora
+            // 
+            this.entregadoBitacora.Location = new System.Drawing.Point(156, 43);
+            this.entregadoBitacora.Name = "entregadoBitacora";
+            this.entregadoBitacora.Size = new System.Drawing.Size(200, 26);
+            this.entregadoBitacora.TabIndex = 9;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(123, 56);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker1.TabIndex = 10;
+            // 
+            // Materia
+            // 
+            this.Materia.Controls.Add(this.label20);
+            this.Materia.Controls.Add(this.label38);
+            this.Materia.Controls.Add(this.label25);
+            this.Materia.Controls.Add(this.textBox4);
+            this.Materia.Controls.Add(this.textBox3);
+            this.Materia.Location = new System.Drawing.Point(476, 230);
+            this.Materia.Name = "Materia";
+            this.Materia.Size = new System.Drawing.Size(313, 120);
+            this.Materia.TabIndex = 34;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(12, 81);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(42, 20);
+            this.label25.TabIndex = 13;
+            this.label25.Text = "Nivel";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(12, 49);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(65, 20);
+            this.label38.TabIndex = 14;
+            this.label38.Text = "Nombre";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(969, 83);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(149, 33);
+            this.button1.TabIndex = 35;
+            this.button1.Text = "Agregar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(969, 164);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(149, 33);
+            this.button2.TabIndex = 36;
+            this.button2.Text = "Eliminar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(969, 125);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(149, 33);
+            this.button3.TabIndex = 37;
+            this.button3.Text = "Modificar";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // Datos
+            // 
+            this.Datos.AutoCompleteCustomSource.AddRange(new string[] {
+            "Asistencia",
+            "Equipo",
+            "Materia",
+            "Alumno",
+            "Sancion",
+            "Prestamo",
+            "Bitacora Entrega"});
+            this.Datos.FormattingEnabled = true;
+            this.Datos.Items.AddRange(new object[] {
+            "Asistencia",
+            "Materia",
+            "Equipo",
+            "Alumno",
+            "Sansion",
+            "Prestamo",
+            "Bitacora Entrega"});
+            this.Datos.Location = new System.Drawing.Point(925, 212);
+            this.Datos.Name = "Datos";
+            this.Datos.Size = new System.Drawing.Size(220, 28);
+            this.Datos.TabIndex = 38;
+            this.Datos.SelectedIndexChanged += new System.EventHandler(this.Datos_SelectedIndexChanged);
+            // 
+            // Equipo
+            // 
+            this.Equipo.Controls.Add(this.label18);
+            this.Equipo.Controls.Add(this.Modelo);
+            this.Equipo.Controls.Add(this.descEquipo);
+            this.Equipo.Controls.Add(this.ubiLab);
+            this.Equipo.Controls.Add(this.marca);
+            this.Equipo.Controls.Add(this.tipoEquipo);
+            this.Equipo.Controls.Add(this.nombreEquipo);
+            this.Equipo.Controls.Add(this.label39);
+            this.Equipo.Controls.Add(this.label40);
+            this.Equipo.Controls.Add(this.label41);
+            this.Equipo.Controls.Add(this.label42);
+            this.Equipo.Controls.Add(this.label43);
+            this.Equipo.Controls.Add(this.label44);
+            this.Equipo.Location = new System.Drawing.Point(20, 30);
+            this.Equipo.Name = "Equipo";
+            this.Equipo.Size = new System.Drawing.Size(429, 256);
+            this.Equipo.TabIndex = 39;
+            // 
+            // Modelo
+            // 
+            this.Modelo.Location = new System.Drawing.Point(203, 96);
+            this.Modelo.Name = "Modelo";
+            this.Modelo.Size = new System.Drawing.Size(207, 26);
+            this.Modelo.TabIndex = 26;
+            // 
+            // descEquipo
+            // 
+            this.descEquipo.Location = new System.Drawing.Point(203, 128);
+            this.descEquipo.Name = "descEquipo";
+            this.descEquipo.Size = new System.Drawing.Size(207, 26);
+            this.descEquipo.TabIndex = 25;
+            // 
+            // ubiLab
+            // 
+            this.ubiLab.Location = new System.Drawing.Point(203, 160);
+            this.ubiLab.Name = "ubiLab";
+            this.ubiLab.Size = new System.Drawing.Size(207, 26);
+            this.ubiLab.TabIndex = 24;
+            // 
+            // marca
+            // 
+            this.marca.Location = new System.Drawing.Point(203, 192);
+            this.marca.Name = "marca";
+            this.marca.Size = new System.Drawing.Size(207, 26);
+            this.marca.TabIndex = 23;
+            // 
+            // tipoEquipo
+            // 
+            this.tipoEquipo.Location = new System.Drawing.Point(203, 224);
+            this.tipoEquipo.Name = "tipoEquipo";
+            this.tipoEquipo.Size = new System.Drawing.Size(207, 26);
+            this.tipoEquipo.TabIndex = 22;
+            // 
+            // nombreEquipo
+            // 
+            this.nombreEquipo.Location = new System.Drawing.Point(203, 64);
+            this.nombreEquipo.Name = "nombreEquipo";
+            this.nombreEquipo.Size = new System.Drawing.Size(207, 26);
+            this.nombreEquipo.TabIndex = 21;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(1, 163);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(196, 20);
+            this.label39.TabIndex = 20;
+            this.label39.Text = "Ubicacion en el laboratorio";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(16, 96);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(61, 20);
+            this.label40.TabIndex = 19;
+            this.label40.Text = "Modelo";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(12, 128);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(92, 20);
+            this.label41.TabIndex = 18;
+            this.label41.Text = "Descripcion";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(24, 192);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(53, 20);
+            this.label42.TabIndex = 17;
+            this.label42.Text = "Marca";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(16, 224);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(89, 20);
+            this.label43.TabIndex = 16;
+            this.label43.Text = "TipoEquipo";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(12, 70);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(65, 20);
+            this.label44.TabIndex = 15;
+            this.label44.Text = "Nombre";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(155, 20);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(90, 29);
+            this.label18.TabIndex = 27;
+            this.label18.Text = "Equipo";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(109, 12);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(116, 29);
+            this.label19.TabIndex = 22;
+            this.label19.Text = "Prestamo";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(105, 17);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(93, 29);
+            this.label20.TabIndex = 19;
+            this.label20.Text = "Materia";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(84, 11);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(219, 29);
+            this.label22.TabIndex = 10;
+            this.label22.Text = "Bitacora Entregado";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(109, 12);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(100, 29);
+            this.label23.TabIndex = 40;
+            this.label23.Text = "Sanción";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(135, 24);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(94, 29);
+            this.label24.TabIndex = 31;
+            this.label24.Text = "Alumno";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(118, 13);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(122, 29);
+            this.label45.TabIndex = 21;
+            this.label45.Text = "Asistencia";
             // 
             // Form1
             // 
@@ -576,6 +1212,20 @@
             this.panel1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.Alumno.ResumeLayout(false);
+            this.Alumno.PerformLayout();
+            this.Asistencia.ResumeLayout(false);
+            this.Asistencia.PerformLayout();
+            this.BitacoraEntrega.ResumeLayout(false);
+            this.BitacoraEntrega.PerformLayout();
+            this.Prestamo.ResumeLayout(false);
+            this.Prestamo.PerformLayout();
+            this.Sancion.ResumeLayout(false);
+            this.Sancion.PerformLayout();
+            this.Materia.ResumeLayout(false);
+            this.Materia.PerformLayout();
+            this.Equipo.ResumeLayout(false);
+            this.Equipo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -588,7 +1238,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.MenuStrip menuStrip3;
         private System.Windows.Forms.TextBox RPE_Empleado;
         private System.Windows.Forms.Label label1;
@@ -631,6 +1280,67 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox Grado;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel Alumno;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox descSansion;
+        private System.Windows.Forms.TextBox fliquidacion;
+        private System.Windows.Forms.TextBox fechaSansion;
+        private System.Windows.Forms.TextBox montoSansion;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label FechaBitacora;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Panel Prestamo;
+        private System.Windows.Forms.Panel Sancion;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Panel Asistencia;
+        private System.Windows.Forms.Panel BitacoraEntrega;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.DateTimePicker entregadoBitacora;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel Materia;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox Datos;
+        private System.Windows.Forms.Panel Equipo;
+        private System.Windows.Forms.TextBox Modelo;
+        private System.Windows.Forms.TextBox descEquipo;
+        private System.Windows.Forms.TextBox ubiLab;
+        private System.Windows.Forms.TextBox marca;
+        private System.Windows.Forms.TextBox tipoEquipo;
+        private System.Windows.Forms.TextBox nombreEquipo;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label24;
     }
 }
 

@@ -117,6 +117,15 @@ namespace Laboratorio_Electronica
             Colaborador.Visible = false;
             Becario.Visible = false;
             Responsable.Visible = false;
+            Asistencia.Visible = false;
+            Materia.Visible = false;
+            Alumno.Visible = false;
+            Sancion.Visible = false;
+            Prestamo.Visible = false;
+            BitacoraEntrega.Visible = false;
+            Equipo.Visible = false;
+            
+            
         }
 
         private void btnAlta_Click(object sender, EventArgs e)
@@ -207,13 +216,13 @@ namespace Laboratorio_Electronica
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //MessageBox.Show(tipoempleado.SelectedItem.ToString());
+            MessageBox.Show(tipoempleado.SelectedItem.ToString());
             switch (tipoempleado.SelectedIndex)
             {
                 case 0:
-                    Colaborador.Visible = true;
                     Becario.Visible = false;
                     Responsable.Visible = false;
+                    Colaborador.Visible = true;
                     break;
                 case 1:
                     Colaborador.Visible = false;
@@ -227,6 +236,101 @@ namespace Laboratorio_Electronica
                     break;
                
             }
+        }
+
+        private void label26_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox16_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Datos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (Datos.SelectedIndex)
+            {
+                case 0:
+                    Asistencia.Visible = true;
+                    Materia.Visible = false;
+                    Alumno.Visible = false;
+                    Sancion.Visible = false;
+                    Prestamo.Visible = false;
+                    BitacoraEntrega.Visible = false;
+                    Equipo.Visible = false;
+                    break;
+                case 1:
+                    Asistencia.Visible = false;
+                    Materia.Visible = true;
+                    Alumno.Visible = false;
+                    Sancion.Visible = false;
+                    Prestamo.Visible = false;
+                    BitacoraEntrega.Visible = false;
+                    Equipo.Visible = false;
+                    break;
+                case 2:
+                    Asistencia.Visible = false;
+                    Materia.Visible = false;
+                    Alumno.Visible = false;
+                    Sancion.Visible = false;
+                    Prestamo.Visible = false;
+                    BitacoraEntrega.Visible = false;
+                    Equipo.Visible = true;
+                    break;
+                case 3:
+                    Asistencia.Visible = false;
+                    Materia.Visible = false;
+                    Alumno.Visible = true;
+                    Sancion.Visible = false;
+                    Prestamo.Visible = false;
+                    BitacoraEntrega.Visible = false;
+                    Equipo.Visible = false;
+                    break;
+                case 4:
+                    Asistencia.Visible = false;
+                    Materia.Visible = false;
+                    Alumno.Visible = false;
+                    Sancion.Visible = true;
+                    Prestamo.Visible = false;
+                    BitacoraEntrega.Visible = false;
+                    Equipo.Visible = false;
+                    break;
+                case 5:
+                    Asistencia.Visible = false;
+                    Materia.Visible = false;
+                    Alumno.Visible = false;
+                    Sancion.Visible = false;
+                    Prestamo.Visible = true;
+                    BitacoraEntrega.Visible = false;
+                    Equipo.Visible = false;
+                    break;
+                case 6:
+                    Asistencia.Visible = false;
+                    Materia.Visible = false;
+                    Alumno.Visible = false;
+                    Sancion.Visible = false;
+                    Prestamo.Visible = false;
+                    BitacoraEntrega.Visible = true;
+                    Equipo.Visible = false;
+                    break;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
