@@ -58,23 +58,23 @@ namespace Laboratorio_Electronica
             try
             {
                 conexion.Open();
-                string consulta = "INSERT INTO Persona.Empleado(Nombre,Domicilio,Correo,Celular,EmpleadoDesde,Antiguedad,TipoEmpleado) VALUES ('" + nombre.Text + "', '" + domicilio.Text + "', '" + correo.Text + "', '" + celular.Text + "','" + EmpleadoDesde.Text + "','" + Antiguedad.Text + "','" + tipoempleado.SelectedItem+"')";
+                string consulta = "INSERT INTO Persona.Empleado(RPE_Empleado,Nombre,Domicilio,Correo,Celular,EmpleadoDesde,Antiguedad,TipoEmpleado) VALUES ('"+RPE_Empleado.Text+"','" + nombre.Text + "', '" + domicilio.Text + "', '" + correo.Text + "', '" + celular.Text + "','" + EmpleadoDesde.Text + "','" + Antiguedad.Text + "','" + tipoempleado.SelectedItem+"')";
                 SqlCommand cmd = new SqlCommand(consulta, conexion);
                 cmd.ExecuteNonQuery();
                 switch (tipoempleado.SelectedIndex)
                 {
                     case 0:
-                        consulta = "INSERT INTO Persona.Colaborador(Desc_act,Hrs_sem) VALUES ('" + Desc_act.Text + "', '" + Hrs_sem.Text + "')";
+                        consulta = "INSERT INTO Persona.Colaborador(RPE_Colaborador,Desc_act,Hrs_sem) VALUES ('"+ RPE_Empleado.Text+"','" + Desc_act.Text + "', '" + Hrs_sem.Text + "')";
                         cmd = new SqlCommand(consulta, conexion);
                         cmd.ExecuteNonQuery();
                         break;
                     case 1:
-                        consulta = "INSERT INTO Persona.Becario(Fecha_nac,Hrs_sem,Generacion) VALUES ('" + Fechanac.Text + "', '" + Hrssm.Text + "', '" + Hrssm.Text +"')";
+                        consulta = "INSERT INTO Persona.Becario(RPE_Becario,Fecha_nac,Hrs_sem,Generacion) VALUES ('" + RPE_Empleado.Text + "','" + Fechanac.Text + "', '" + Hrssm.Text + "', '" + Hrssm.Text +"')";
                         cmd = new SqlCommand(consulta, conexion);
                         cmd.ExecuteNonQuery();
                         break;
                     case 2:
-                        consulta = "INSERT INTO Persona.Responsable(Antiguedad,Grado,Fecha_Inicio,Fecha_Fin) VALUES ('" + Antiguedad.Text + "', '" + Grado.Text + "', '" + Hrssm.Text + "')";
+                        consulta = "INSERT INTO Persona.Responsable(RPE_Responsable,Antiguedad,Grado,Fecha_Inicio,Fecha_Fin) VALUES ('" + RPE_Empleado.Text + "','" + Antiguedad.Text + "', '" + Grado.Text + "', '" + Hrssm.Text + "')";
                         cmd = new SqlCommand(consulta, conexion);
                         cmd.ExecuteNonQuery();
                         break;
