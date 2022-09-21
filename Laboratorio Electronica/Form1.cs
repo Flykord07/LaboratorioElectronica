@@ -58,9 +58,29 @@ namespace Laboratorio_Electronica
             try
             {
                 conexion.Open();
-                string consulta = "INSERT INTO Persona.Empleado() VALUES ()";
+                string consulta = "INSERT INTO Persona.Empleado(Nombre,Domicilio,Correo,Celular,EmpleadoDesde,Antiguedad,TipoEmpleado) VALUES ('" + nombre.Text + "', '" + domicilio.Text + "', '" + correo.Text + "', '" + celular.Text + "','" + EmpleadoDesde.Text + "','" + Antiguedad.Text + "','" + tipoempleado.SelectedItem+"')";
                 SqlCommand cmd = new SqlCommand(consulta, conexion);
                 cmd.ExecuteNonQuery();
+                switch (tipoempleado.SelectedIndex)
+                {
+                    case 0:
+                        consulta = "INSERT INTO Persona.Colaborador(Desc_act,Hrs_sem) VALUES ('" + Desc_act.Text + "', '" + Hrs_sem.Text + "')";
+                        cmd = new SqlCommand(consulta, conexion);
+                        cmd.ExecuteNonQuery();
+                        break;
+                    case 1:
+                        consulta = "INSERT INTO Persona.Becario(Fecha_nac,Hrs_sem,Generacion) VALUES ('" + Fechanac.Text + "', '" + Hrssm.Text + "', '" + Hrssm.Text +"')";
+                        cmd = new SqlCommand(consulta, conexion);
+                        cmd.ExecuteNonQuery();
+                        break;
+                    case 2:
+                        consulta = "INSERT INTO Persona.Responsable(Antiguedad,Grado,Fecha_Inicio,Fecha_Fin) VALUES ('" + Antiguedad.Text + "', '" + Grado.Text + "', '" + Hrssm.Text + "')";
+                        cmd = new SqlCommand(consulta, conexion);
+                        cmd.ExecuteNonQuery();
+                        break;
+
+                }
+               
                 conexion.Close();
                 return 0;
             }
@@ -94,6 +114,9 @@ namespace Laboratorio_Electronica
             btnEliminar.Enabled = false;
             conectaBD();
             dgridVista.ClearSelection();
+            Colaborador.Visible = false;
+            Becario.Visible = false;
+            Responsable.Visible = false;
         }
 
         private void btnAlta_Click(object sender, EventArgs e)
@@ -180,6 +203,30 @@ namespace Laboratorio_Electronica
             conectaBD();
             dgridVista.ClearSelection();
             nombre.Clear();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //MessageBox.Show(tipoempleado.SelectedItem.ToString());
+            switch (tipoempleado.SelectedIndex)
+            {
+                case 0:
+                    Colaborador.Visible = true;
+                    Becario.Visible = false;
+                    Responsable.Visible = false;
+                    break;
+                case 1:
+                    Colaborador.Visible = false;
+                    Becario.Visible = true;
+                    Responsable.Visible = false;
+                    break;
+                case 2:
+                    Colaborador.Visible = false;
+                    Becario.Visible = false;
+                    Responsable.Visible = true;
+                    break;
+               
+            }
         }
     }
 }
