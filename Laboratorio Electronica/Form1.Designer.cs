@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Empleado = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dgridVista = new System.Windows.Forms.DataGridView();
+            this.dgridVistaEmpleado = new System.Windows.Forms.DataGridView();
             this.btnAlta = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.Colaborador = new System.Windows.Forms.Panel();
@@ -40,15 +43,6 @@
             this.Desc_act = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.Hrssm = new System.Windows.Forms.TextBox();
-            this.Responsable = new System.Windows.Forms.Panel();
-            this.fechafin = new System.Windows.Forms.DateTimePicker();
-            this.Fechainicio = new System.Windows.Forms.DateTimePicker();
-            this.antiguedadResponsable = new System.Windows.Forms.DateTimePicker();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.Grado = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.Becario = new System.Windows.Forms.Panel();
             this.Fechanac = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
@@ -137,11 +131,27 @@
             this.menuStrip3 = new System.Windows.Forms.MenuStrip();
             this.label1 = new System.Windows.Forms.Label();
             this.RPE_Empleado = new System.Windows.Forms.TextBox();
+            this.dgridVistaBecario = new System.Windows.Forms.DataGridView();
+            this.dgridVistaColaborador = new System.Windows.Forms.DataGridView();
+            this.dgridVistaResponsable = new System.Windows.Forms.DataGridView();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.Grado = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.antiguedadResponsable = new System.Windows.Forms.DateTimePicker();
+            this.Fechainicio = new System.Windows.Forms.DateTimePicker();
+            this.fechafin = new System.Windows.Forms.DateTimePicker();
+            this.Responsable = new System.Windows.Forms.Panel();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.Empleado.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgridVista)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgridVistaEmpleado)).BeginInit();
             this.Colaborador.SuspendLayout();
-            this.Responsable.SuspendLayout();
             this.Becario.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -152,6 +162,10 @@
             this.Sancion.SuspendLayout();
             this.Asistencia.SuspendLayout();
             this.Alumno.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgridVistaBecario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgridVistaColaborador)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgridVistaResponsable)).BeginInit();
+            this.Responsable.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -160,7 +174,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(806, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1182, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -172,48 +186,56 @@
             this.Empleado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Empleado.Name = "Empleado";
             this.Empleado.SelectedIndex = 0;
-            this.Empleado.Size = new System.Drawing.Size(789, 547);
+            this.Empleado.Size = new System.Drawing.Size(1163, 547);
             this.Empleado.TabIndex = 1;
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tabPage1.Controls.Add(this.dgridVista);
-            this.tabPage1.Controls.Add(this.btnAlta);
-            this.tabPage1.Controls.Add(this.btnModificar);
-            this.tabPage1.Controls.Add(this.Colaborador);
+            this.tabPage1.Controls.Add(this.btnNuevo);
             this.tabPage1.Controls.Add(this.Responsable);
             this.tabPage1.Controls.Add(this.Becario);
+            this.tabPage1.Controls.Add(this.Colaborador);
+            this.tabPage1.Controls.Add(this.label49);
+            this.tabPage1.Controls.Add(this.label48);
+            this.tabPage1.Controls.Add(this.label47);
+            this.tabPage1.Controls.Add(this.label46);
+            this.tabPage1.Controls.Add(this.dgridVistaResponsable);
+            this.tabPage1.Controls.Add(this.dgridVistaColaborador);
+            this.tabPage1.Controls.Add(this.dgridVistaBecario);
+            this.tabPage1.Controls.Add(this.dgridVistaEmpleado);
+            this.tabPage1.Controls.Add(this.btnAlta);
+            this.tabPage1.Controls.Add(this.btnModificar);
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.btnEliminar);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabPage1.Size = new System.Drawing.Size(781, 521);
+            this.tabPage1.Size = new System.Drawing.Size(1155, 521);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Empleado";
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // dgridVista
+            // dgridVistaEmpleado
             // 
-            this.dgridVista.AllowUserToAddRows = false;
-            this.dgridVista.AllowUserToDeleteRows = false;
-            this.dgridVista.AllowUserToResizeColumns = false;
-            this.dgridVista.AllowUserToResizeRows = false;
-            this.dgridVista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgridVista.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgridVista.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgridVista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgridVista.Location = new System.Drawing.Point(19, 263);
-            this.dgridVista.Name = "dgridVista";
-            this.dgridVista.RowHeadersVisible = false;
-            this.dgridVista.RowHeadersWidth = 20;
-            this.dgridVista.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dgridVista.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgridVista.Size = new System.Drawing.Size(747, 244);
-            this.dgridVista.TabIndex = 41;
+            this.dgridVistaEmpleado.AllowUserToAddRows = false;
+            this.dgridVistaEmpleado.AllowUserToDeleteRows = false;
+            this.dgridVistaEmpleado.AllowUserToResizeColumns = false;
+            this.dgridVistaEmpleado.AllowUserToResizeRows = false;
+            this.dgridVistaEmpleado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgridVistaEmpleado.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgridVistaEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgridVistaEmpleado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgridVistaEmpleado.Location = new System.Drawing.Point(5, 263);
+            this.dgridVistaEmpleado.Name = "dgridVistaEmpleado";
+            this.dgridVistaEmpleado.RowHeadersVisible = false;
+            this.dgridVistaEmpleado.RowHeadersWidth = 20;
+            this.dgridVistaEmpleado.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dgridVistaEmpleado.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgridVistaEmpleado.Size = new System.Drawing.Size(521, 251);
+            this.dgridVistaEmpleado.TabIndex = 41;
+            this.dgridVistaEmpleado.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgridVista_CellMouseClick);
             // 
             // btnAlta
             // 
@@ -243,7 +265,7 @@
             this.Colaborador.Controls.Add(this.Desc_act);
             this.Colaborador.Controls.Add(this.label13);
             this.Colaborador.Controls.Add(this.Hrssm);
-            this.Colaborador.Location = new System.Drawing.Point(535, 15);
+            this.Colaborador.Location = new System.Drawing.Point(537, 6);
             this.Colaborador.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Colaborador.Name = "Colaborador";
             this.Colaborador.Size = new System.Drawing.Size(230, 58);
@@ -285,97 +307,6 @@
             this.Hrssm.Size = new System.Drawing.Size(157, 20);
             this.Hrssm.TabIndex = 31;
             // 
-            // Responsable
-            // 
-            this.Responsable.Controls.Add(this.fechafin);
-            this.Responsable.Controls.Add(this.Fechainicio);
-            this.Responsable.Controls.Add(this.antiguedadResponsable);
-            this.Responsable.Controls.Add(this.label17);
-            this.Responsable.Controls.Add(this.label16);
-            this.Responsable.Controls.Add(this.label15);
-            this.Responsable.Controls.Add(this.Grado);
-            this.Responsable.Controls.Add(this.label10);
-            this.Responsable.Location = new System.Drawing.Point(535, 14);
-            this.Responsable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Responsable.Name = "Responsable";
-            this.Responsable.Size = new System.Drawing.Size(230, 109);
-            this.Responsable.TabIndex = 36;
-            // 
-            // fechafin
-            // 
-            this.fechafin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.fechafin.Location = new System.Drawing.Point(78, 84);
-            this.fechafin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.fechafin.Name = "fechafin";
-            this.fechafin.Size = new System.Drawing.Size(146, 20);
-            this.fechafin.TabIndex = 43;
-            // 
-            // Fechainicio
-            // 
-            this.Fechainicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Fechainicio.Location = new System.Drawing.Point(78, 58);
-            this.Fechainicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Fechainicio.Name = "Fechainicio";
-            this.Fechainicio.Size = new System.Drawing.Size(146, 20);
-            this.Fechainicio.TabIndex = 42;
-            // 
-            // antiguedadResponsable
-            // 
-            this.antiguedadResponsable.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.antiguedadResponsable.Location = new System.Drawing.Point(78, 4);
-            this.antiguedadResponsable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.antiguedadResponsable.Name = "antiguedadResponsable";
-            this.antiguedadResponsable.Size = new System.Drawing.Size(146, 20);
-            this.antiguedadResponsable.TabIndex = 41;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(8, 60);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(67, 13);
-            this.label17.TabIndex = 40;
-            this.label17.Text = "Fecha_inicio";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(8, 88);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(54, 13);
-            this.label16.TabIndex = 39;
-            this.label16.Text = "Fecha_fin";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(8, 33);
-            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(36, 13);
-            this.label15.TabIndex = 38;
-            this.label15.Text = "Grado";
-            // 
-            // Grado
-            // 
-            this.Grado.Location = new System.Drawing.Point(78, 31);
-            this.Grado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Grado.Name = "Grado";
-            this.Grado.Size = new System.Drawing.Size(146, 20);
-            this.Grado.TabIndex = 37;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(2, 6);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(61, 13);
-            this.label10.TabIndex = 25;
-            this.label10.Text = "Antiguedad";
-            // 
             // Becario
             // 
             this.Becario.Controls.Add(this.Fechanac);
@@ -384,7 +315,7 @@
             this.Becario.Controls.Add(this.Hrs_sem);
             this.Becario.Controls.Add(this.Generacion);
             this.Becario.Controls.Add(this.label11);
-            this.Becario.Location = new System.Drawing.Point(535, 15);
+            this.Becario.Location = new System.Drawing.Point(537, 5);
             this.Becario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Becario.Name = "Becario";
             this.Becario.Size = new System.Drawing.Size(230, 79);
@@ -392,6 +323,7 @@
             // 
             // Fechanac
             // 
+            this.Fechanac.CustomFormat = "MM/dd/yyyy";
             this.Fechanac.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Fechanac.Location = new System.Drawing.Point(86, 6);
             this.Fechanac.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -463,7 +395,7 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Location = new System.Drawing.Point(91, 14);
+            this.panel1.Location = new System.Drawing.Point(89, 6);
             this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(437, 240);
@@ -471,6 +403,7 @@
             // 
             // EmpleadoDesde
             // 
+            this.EmpleadoDesde.CustomFormat = "MM/dd/yyyy";
             this.EmpleadoDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.EmpleadoDesde.Location = new System.Drawing.Point(96, 155);
             this.EmpleadoDesde.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -1294,11 +1227,216 @@
             this.RPE_Empleado.Size = new System.Drawing.Size(304, 20);
             this.RPE_Empleado.TabIndex = 9;
             // 
+            // dgridVistaBecario
+            // 
+            this.dgridVistaBecario.AllowUserToAddRows = false;
+            this.dgridVistaBecario.AllowUserToDeleteRows = false;
+            this.dgridVistaBecario.AllowUserToResizeColumns = false;
+            this.dgridVistaBecario.AllowUserToResizeRows = false;
+            this.dgridVistaBecario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgridVistaBecario.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgridVistaBecario.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgridVistaBecario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgridVistaBecario.Location = new System.Drawing.Point(772, 22);
+            this.dgridVistaBecario.Name = "dgridVistaBecario";
+            this.dgridVistaBecario.RowHeadersVisible = false;
+            this.dgridVistaBecario.RowHeadersWidth = 20;
+            this.dgridVistaBecario.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dgridVistaBecario.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgridVistaBecario.Size = new System.Drawing.Size(354, 218);
+            this.dgridVistaBecario.TabIndex = 42;
+            // 
+            // dgridVistaColaborador
+            // 
+            this.dgridVistaColaborador.AllowUserToAddRows = false;
+            this.dgridVistaColaborador.AllowUserToDeleteRows = false;
+            this.dgridVistaColaborador.AllowUserToResizeColumns = false;
+            this.dgridVistaColaborador.AllowUserToResizeRows = false;
+            this.dgridVistaColaborador.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgridVistaColaborador.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgridVistaColaborador.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgridVistaColaborador.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgridVistaColaborador.Location = new System.Drawing.Point(532, 263);
+            this.dgridVistaColaborador.Name = "dgridVistaColaborador";
+            this.dgridVistaColaborador.RowHeadersVisible = false;
+            this.dgridVistaColaborador.RowHeadersWidth = 20;
+            this.dgridVistaColaborador.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dgridVistaColaborador.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgridVistaColaborador.Size = new System.Drawing.Size(233, 251);
+            this.dgridVistaColaborador.TabIndex = 43;
+            // 
+            // dgridVistaResponsable
+            // 
+            this.dgridVistaResponsable.AllowUserToAddRows = false;
+            this.dgridVistaResponsable.AllowUserToDeleteRows = false;
+            this.dgridVistaResponsable.AllowUserToResizeColumns = false;
+            this.dgridVistaResponsable.AllowUserToResizeRows = false;
+            this.dgridVistaResponsable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgridVistaResponsable.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgridVistaResponsable.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgridVistaResponsable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgridVistaResponsable.Location = new System.Drawing.Point(772, 263);
+            this.dgridVistaResponsable.Name = "dgridVistaResponsable";
+            this.dgridVistaResponsable.RowHeadersVisible = false;
+            this.dgridVistaResponsable.RowHeadersWidth = 20;
+            this.dgridVistaResponsable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dgridVistaResponsable.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgridVistaResponsable.Size = new System.Drawing.Size(354, 251);
+            this.dgridVistaResponsable.TabIndex = 44;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(4, 244);
+            this.label46.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(54, 13);
+            this.label46.TabIndex = 46;
+            this.label46.Text = "Empleado";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(532, 244);
+            this.label47.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(64, 13);
+            this.label47.TabIndex = 47;
+            this.label47.Text = "Colaborador";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(769, 244);
+            this.label48.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(69, 13);
+            this.label48.TabIndex = 48;
+            this.label48.Text = "Responsable";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(769, 6);
+            this.label49.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(43, 13);
+            this.label49.TabIndex = 49;
+            this.label49.Text = "Becario";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(2, 6);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(61, 13);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "Antiguedad";
+            // 
+            // Grado
+            // 
+            this.Grado.Location = new System.Drawing.Point(78, 31);
+            this.Grado.Margin = new System.Windows.Forms.Padding(2);
+            this.Grado.Name = "Grado";
+            this.Grado.Size = new System.Drawing.Size(146, 20);
+            this.Grado.TabIndex = 37;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(8, 33);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(36, 13);
+            this.label15.TabIndex = 38;
+            this.label15.Text = "Grado";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(8, 88);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(54, 13);
+            this.label16.TabIndex = 39;
+            this.label16.Text = "Fecha_fin";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(8, 60);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(67, 13);
+            this.label17.TabIndex = 40;
+            this.label17.Text = "Fecha_inicio";
+            // 
+            // antiguedadResponsable
+            // 
+            this.antiguedadResponsable.CustomFormat = "MM/dd/yyyy";
+            this.antiguedadResponsable.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.antiguedadResponsable.Location = new System.Drawing.Point(78, 4);
+            this.antiguedadResponsable.Margin = new System.Windows.Forms.Padding(2);
+            this.antiguedadResponsable.Name = "antiguedadResponsable";
+            this.antiguedadResponsable.Size = new System.Drawing.Size(146, 20);
+            this.antiguedadResponsable.TabIndex = 41;
+            // 
+            // Fechainicio
+            // 
+            this.Fechainicio.CustomFormat = "MM/dd/yyyy";
+            this.Fechainicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Fechainicio.Location = new System.Drawing.Point(78, 58);
+            this.Fechainicio.Margin = new System.Windows.Forms.Padding(2);
+            this.Fechainicio.Name = "Fechainicio";
+            this.Fechainicio.Size = new System.Drawing.Size(146, 20);
+            this.Fechainicio.TabIndex = 42;
+            // 
+            // fechafin
+            // 
+            this.fechafin.CustomFormat = "MM/dd/yyyy";
+            this.fechafin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.fechafin.Location = new System.Drawing.Point(78, 84);
+            this.fechafin.Margin = new System.Windows.Forms.Padding(2);
+            this.fechafin.Name = "fechafin";
+            this.fechafin.Size = new System.Drawing.Size(146, 20);
+            this.fechafin.TabIndex = 43;
+            // 
+            // Responsable
+            // 
+            this.Responsable.Controls.Add(this.fechafin);
+            this.Responsable.Controls.Add(this.Fechainicio);
+            this.Responsable.Controls.Add(this.antiguedadResponsable);
+            this.Responsable.Controls.Add(this.label17);
+            this.Responsable.Controls.Add(this.label16);
+            this.Responsable.Controls.Add(this.label15);
+            this.Responsable.Controls.Add(this.Grado);
+            this.Responsable.Controls.Add(this.label10);
+            this.Responsable.Location = new System.Drawing.Point(537, 6);
+            this.Responsable.Margin = new System.Windows.Forms.Padding(2);
+            this.Responsable.Name = "Responsable";
+            this.Responsable.Size = new System.Drawing.Size(230, 109);
+            this.Responsable.TabIndex = 36;
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Location = new System.Drawing.Point(19, 113);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(59, 35);
+            this.btnNuevo.TabIndex = 50;
+            this.btnNuevo.Text = "Quitar Selec.";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(806, 487);
+            this.ClientSize = new System.Drawing.Size(1182, 556);
             this.Controls.Add(this.Empleado);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -1308,11 +1446,10 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Empleado.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgridVista)).EndInit();
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgridVistaEmpleado)).EndInit();
             this.Colaborador.ResumeLayout(false);
             this.Colaborador.PerformLayout();
-            this.Responsable.ResumeLayout(false);
-            this.Responsable.PerformLayout();
             this.Becario.ResumeLayout(false);
             this.Becario.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -1333,6 +1470,11 @@
             this.Asistencia.PerformLayout();
             this.Alumno.ResumeLayout(false);
             this.Alumno.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgridVistaBecario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgridVistaColaborador)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgridVistaResponsable)).EndInit();
+            this.Responsable.ResumeLayout(false);
+            this.Responsable.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1375,16 +1517,7 @@
         private System.Windows.Forms.TextBox celular;
         private System.Windows.Forms.TextBox correo;
         private System.Windows.Forms.DateTimePicker EmpleadoDesde;
-        private System.Windows.Forms.DataGridView dgridVista;
-        private System.Windows.Forms.Panel Responsable;
-        private System.Windows.Forms.DateTimePicker fechafin;
-        private System.Windows.Forms.DateTimePicker Fechainicio;
-        private System.Windows.Forms.DateTimePicker antiguedadResponsable;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox Grado;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView dgridVistaEmpleado;
         private System.Windows.Forms.Panel Alumno;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label30;
@@ -1448,6 +1581,23 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox RPE_Empleado;
+        private System.Windows.Forms.DataGridView dgridVistaBecario;
+        private System.Windows.Forms.DataGridView dgridVistaResponsable;
+        private System.Windows.Forms.DataGridView dgridVistaColaborador;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Panel Responsable;
+        private System.Windows.Forms.DateTimePicker fechafin;
+        private System.Windows.Forms.DateTimePicker Fechainicio;
+        private System.Windows.Forms.DateTimePicker antiguedadResponsable;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox Grado;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnNuevo;
     }
 }
 
