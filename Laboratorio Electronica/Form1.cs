@@ -13,13 +13,15 @@ namespace Laboratorio_Electronica
 {
     public partial class Form1 : Form
     {
-        private int id,NumInv;
+        private int id,NumInv, Adeudo;
         private SqlConnection conexion = new SqlConnection("Server=DESKTOP-O0MDQRH\\SQLEXPRESS;" + "Database=Laboratorio;" + "Integrated Security=true;");
         public Form1()
         {
             InitializeComponent();
-            muestraVistaEquipo();
+            muestraVistaEquipo(); 
+            muestraVistaAlumno();
         }
+
         private void muestraVista()
         {
             string query = String.Concat("SELECT * FROM Persona.Empleado");
@@ -33,6 +35,7 @@ namespace Laboratorio_Electronica
             cargarTabla(query3, dgridVistaColaborador);
           
         }
+
         private void cargarTabla(string query, DataGridView destinyTable)
         {
             SqlCommand cmd = new SqlCommand(query, conexion);
@@ -42,6 +45,7 @@ namespace Laboratorio_Electronica
             destinyTable.DataSource = null;
             destinyTable.DataSource = registros;
         }
+
         private int conectaBD()
         {
             try
@@ -97,15 +101,6 @@ namespace Laboratorio_Electronica
             }
         }
 
-
-       
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Mostrar ocultar paneles
-        }
-
-
         private void Form1_Load(object sender, EventArgs e)
         {
             dgridVistaEmpleado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -151,6 +146,7 @@ namespace Laboratorio_Electronica
             clearALL();
 
         }
+
         private int cargarDatosEmpleado()
         {
             int selectedRowCount = dgridVistaEmpleado.Rows.GetRowCount(DataGridViewElementStates.Selected);
@@ -180,6 +176,7 @@ namespace Laboratorio_Electronica
             }
             return -1;
         }
+        
         private void cargarDatosSecundarios(int rpe)
         {
             switch (tipoempleado.SelectedIndex)
@@ -201,6 +198,7 @@ namespace Laboratorio_Electronica
                     break;
             }
         }
+        
         private void fillColaboradorPanel(string query)
         {
             SqlCommand cmd = new SqlCommand(query, conexion);
@@ -211,6 +209,7 @@ namespace Laboratorio_Electronica
             Desc_act.Text = items[1].ToString();
             Hrssm.Text = items[2].ToString();
         }
+        
         private void fillBecarioPanel(string query)
         {
             var cultureInfo = new System.Globalization.CultureInfo("de-DE");
@@ -226,6 +225,7 @@ namespace Laboratorio_Electronica
             Hrs_sem.Text = items[2].ToString();
             Generacion.Text = items[3].ToString();
         }
+        
         private void fillResponsablePanel(string query)
         {
             var cultureInfo = new System.Globalization.CultureInfo("de-DE");
@@ -246,6 +246,7 @@ namespace Laboratorio_Electronica
             fechafin.Value= DateTime.ParseExact(fecha, "dd/MM/yyyy", cultureInfo);
 
         }
+        
         private void dgridVista_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             id = cargarDatosEmpleado(); //obtener id de tupla seleccionada
@@ -303,24 +304,28 @@ namespace Laboratorio_Electronica
             conectaBD();
             clearALL();
         }
+        
         private void mostrarPanelColab()
         {
             Becario.Visible = false;
             Responsable.Visible = false;
             Colaborador.Visible = true;
         }
+        
         private void mostrarPanelBecario()
         {
             Colaborador.Visible = false;
             Becario.Visible = true;
             Responsable.Visible = false;
         }
+        
         private void mostrarPanelResp()
         {
             Colaborador.Visible = false;
             Becario.Visible = false;
             Responsable.Visible = true;
         }
+        
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             //MessageBox.Show(tipoempleado.SelectedItem.ToString());
@@ -338,16 +343,6 @@ namespace Laboratorio_Electronica
                
             }
         }        
-
-        private void textBox16_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void tabPage2_Click(object sender, EventArgs e)
         {
@@ -428,6 +423,7 @@ namespace Laboratorio_Electronica
         {
 
         }
+        
         private void clearALL()
         {
             RPE_Empleado.Clear();
@@ -452,6 +448,7 @@ namespace Laboratorio_Electronica
             btnNuevo.Visible = false;
             tipoempleado.SelectedIndex = -1;
         }
+        
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             clearALL();
@@ -473,6 +470,7 @@ namespace Laboratorio_Electronica
 
             dataGridEquipo.DataSource = registros;
         }
+        
         private int modificarRegistroEquipo()
         {
             try
@@ -493,6 +491,7 @@ namespace Laboratorio_Electronica
                 return 1;
             }
         }
+        
         private int eliminaRegistroEquipo()
         {
             try
@@ -529,6 +528,7 @@ namespace Laboratorio_Electronica
                 return 1;
             }
         }
+        
         private int insertarRegistroEquipo()
         {
             try
@@ -549,6 +549,7 @@ namespace Laboratorio_Electronica
                 return 1;
             }
         }
+        
         private void button4_Click(object sender, EventArgs e)
         {
             insertarRegistroEquipo();
@@ -578,6 +579,116 @@ namespace Laboratorio_Electronica
         {
             eliminaRegistroEquipo();
             conectaBDEquipo();
+        }
+
+        private int insertaAlumno()
+        {
+            try
+            {
+                conexion.Open();
+                string consulta = "INSERT INTO Persona.Alumno (Clave_Unica, Nombre, Generacion, Carrera) " +
+                    "               VALUES ('" + txtBoxClaveAlum.Text + "','" + txtBoxNomAlum.Text + "', '" + txtBoxGeneracion.Text.ToString() + "', '" + txtBoxCarrera.Text + "')";
+
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.ExecuteNonQuery();
+                conexion.Close();
+
+                txtBoxClaveAlum.Text = "";
+                txtBoxNomAlum.Text = "";
+                txtBoxGeneracion.Text = "";
+                txtBoxCarrera.Text = "";
+
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                conexion.Close();
+                MessageBox.Show("Error de conexión (inserta alumno): " + ex.Message);
+                return 1;
+            }
+        }
+
+        private int eliminaAlumno()
+        {
+            try
+            {
+                conexion.Open();
+                string elimina = "DELETE FROM Persona.Alumno WHERE nombre='" + txtBoxNomAlum.Text + "'";
+                SqlCommand comando = new SqlCommand(elimina, conexion);
+                comando.ExecuteNonQuery();
+                conexion.Close();
+
+                txtBoxClaveAlum.Text = "";
+                txtBoxNomAlum.Text = "";
+                txtBoxGeneracion.Text = "";
+                txtBoxCarrera.Text = "";
+
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                conexion.Close();
+                MessageBox.Show("Error de conexión (elimina alumno): " + ex.Message);
+                return 1;
+            }
+        }
+
+        private void dgvAlumno_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtBoxClaveAlum.Text = dgvAlumno.CurrentRow.Cells[0].Value.ToString();
+            txtBoxNomAlum.Text = dgvAlumno.CurrentRow.Cells[1].Value.ToString();
+            txtBoxGeneracion.Text = dgvAlumno.CurrentRow.Cells[2].Value.ToString();
+            txtBoxCarrera.Text = dgvAlumno.CurrentRow.Cells[3].Value.ToString();
+            Adeudo = Convert.ToInt32(dgvAlumno.Rows[dgvAlumno.CurrentRow.Index].Cells[4].Value);
+        }
+
+        private void btnElimAlum_Click(object sender, EventArgs e)
+        {
+            eliminaAlumno();
+            conectaBD();
+        }
+
+        private void btnAgregarAlum_Click_1(object sender, EventArgs e)
+        {
+            insertaAlumno();
+            conectaBD();
+        }
+
+        private void btnModifAlum_Click(object sender, EventArgs e)
+        {
+            modificaAlumno();
+            conectaBD();
+        }
+
+        private int modificaAlumno()
+        {
+            try
+            {
+                conexion.Open();
+
+                string consulta = "UPDATE Persona.Alumno SET Clave_Unica = '" + txtBoxClaveAlum.Text + "', Nombre='" + txtBoxNomAlum.Text + "', Generacion='" + txtBoxGeneracion.Text.ToString() + "', Carrera='" + txtBoxCarrera.Text + "' WHERE Adeudo=" + Adeudo;
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.ExecuteNonQuery();
+                conexion.Close();
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                conexion.Close();
+                MessageBox.Show("Error de conexion: " + ex.Message);
+                return 1;
+            }
+        }
+
+        private void muestraVistaAlumno()
+        {
+            string query = String.Concat("SELECT * FROM Persona.Alumno");
+            SqlCommand cmd = new SqlCommand(query, conexion);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable registros = new DataTable();
+            adapter.Fill(registros);
+            dgvAlumno.DataSource = null;
+            dgvAlumno.DataSource = registros;
         }
     }
 }
