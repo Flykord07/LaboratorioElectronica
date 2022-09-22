@@ -6,14 +6,14 @@ CREATE SCHEMA Aula
 
 CREATE TABLE Persona.Empleado
 (
-	RPE_Empleado BIGINT IDENTITY(1,1) NOT NULL,
-	Nombre VARCHAR(40) NOT NULL,
-	Domicilio VARCHAR(100) NOT NULL,
-	Correo VARCHAR(50) NOT NULL,
+	RPE_Empleado BIGINT NOT NULL,
+	Nombre VARCHAR(100) NOT NULL,
+	Domicilio VARCHAR(200) NOT NULL,
+	Correo VARCHAR(200) NOT NULL,
 	Celular VARCHAR(10) NOT NULL,
 	EmpleadoDesde DATE NOT NULL,
 	Antiguedad VARCHAR(20) NOT NULL,
-	TipoEmpleado VARCHAR(20) NOT NULL,
+	TipoEmpleado VARCHAR(40) NOT NULL,
 
 	CONSTRAINT PK_EMPLEADO PRIMARY KEY (RPE_Empleado)
 )
@@ -21,12 +21,12 @@ CREATE TABLE Persona.Empleado
 CREATE TABLE Persona.Colaborador
 (
 	RPE_Colaborador BIGINT NOT NULL,
-	Fecha_nac DATE NOT NULL,
+	Desc_act TEXT NOT NULL,
 	Hrs_sem BIGINT NOT NULL,
-	Generacion VARCHAR(10) NOT NULL,
 
 	CONSTRAINT FK_COLABRADOR FOREIGN KEY (RPE_Colaborador)
 			REFERENCES Persona.Empleado(RPE_Empleado)
+			ON DELETE CASCADE			
 )
 
 CREATE TABLE Persona.Becario
@@ -36,19 +36,22 @@ CREATE TABLE Persona.Becario
 	Hrs_sem BIGINT NOT NULL,
 	Generacion VARCHAR(10) NOT NULL,
 
-	CONsTRAINT FK_BECARIO FOREIGN KEY (RPE_Becario)
+	CONSTRAINT FK_BECARIO FOREIGN KEY (RPE_Becario)
 			REFERENCES Persona.Empleado(RPE_Empleado)
+			ON DELETE CASCADE
 )
 
 CREATE TABLE Persona.Responsable
 (
 	RPE_Responsable BIGINT NOT NULL,
-	Fecha_nac DATE NOT NULL,
-	Hrs_sem BIGINT NOT NULL,
-	Generacion VARCHAR(10) NOT NULL,
+	Antiguedad DATE NOT NULL,
+	Grado VARCHAR(20) NOT NULL,
+	Fecha_Inicio DATE NOT NULL,
+	Fecha_Fin DATE NOT NULL,
 
 	CONSTRAINT FK_RESPONSABLE FOREIGN KEY (RPE_Responsable)
 			REFERENCES Persona.Empleado(RPE_Empleado)
+			ON DELETE CASCADE
 )
 
 CREATE TABLE Persona.Alumno
