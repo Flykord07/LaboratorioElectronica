@@ -13,11 +13,12 @@ namespace Laboratorio_Electronica
 {
     public partial class Form1 : Form
     {
-        private int id;
-        private SqlConnection conexion = new SqlConnection("Server=HPLAPTOP\\SQLEXPRESS;" + "Database=Laboratorio;" + "Integrated Security=true;");
+        private int id,NumInv;
+        private SqlConnection conexion = new SqlConnection("Server=DESKTOP-O0MDQRH\\SQLEXPRESS;" + "Database=Laboratorio;" + "Integrated Security=true;");
         public Form1()
         {
             InitializeComponent();
+            muestraVistaEquipo();
         }
         private void muestraVista()
         {
@@ -140,7 +141,7 @@ namespace Laboratorio_Electronica
             Sancion.Visible = false;
             Prestamo.Visible = false;
             BitacoraEntrega.Visible = false;
-            Equipo.Visible = false;                        
+                                   
         }
 
         private void btnAlta_Click(object sender, EventArgs e)
@@ -364,7 +365,7 @@ namespace Laboratorio_Electronica
                     Sancion.Visible = false;
                     Prestamo.Visible = false;
                     BitacoraEntrega.Visible = false;
-                    Equipo.Visible = false;
+                    
                     break;
                 case 1:
                     Asistencia.Visible = false;
@@ -373,7 +374,7 @@ namespace Laboratorio_Electronica
                     Sancion.Visible = false;
                     Prestamo.Visible = false;
                     BitacoraEntrega.Visible = false;
-                    Equipo.Visible = false;
+                  
                     break;
                 case 2:
                     Asistencia.Visible = false;
@@ -382,7 +383,7 @@ namespace Laboratorio_Electronica
                     Sancion.Visible = false;
                     Prestamo.Visible = false;
                     BitacoraEntrega.Visible = false;
-                    Equipo.Visible = true;
+                    
                     break;
                 case 3:
                     Asistencia.Visible = false;
@@ -391,7 +392,7 @@ namespace Laboratorio_Electronica
                     Sancion.Visible = false;
                     Prestamo.Visible = false;
                     BitacoraEntrega.Visible = false;
-                    Equipo.Visible = false;
+                    
                     break;
                 case 4:
                     Asistencia.Visible = false;
@@ -400,7 +401,7 @@ namespace Laboratorio_Electronica
                     Sancion.Visible = true;
                     Prestamo.Visible = false;
                     BitacoraEntrega.Visible = false;
-                    Equipo.Visible = false;
+                    
                     break;
                 case 5:
                     Asistencia.Visible = false;
@@ -409,7 +410,7 @@ namespace Laboratorio_Electronica
                     Sancion.Visible = false;
                     Prestamo.Visible = true;
                     BitacoraEntrega.Visible = false;
-                    Equipo.Visible = false;
+                    
                     break;
                 case 6:
                     Asistencia.Visible = false;
@@ -418,7 +419,7 @@ namespace Laboratorio_Electronica
                     Sancion.Visible = false;
                     Prestamo.Visible = false;
                     BitacoraEntrega.Visible = true;
-                    Equipo.Visible = false;
+                    
                     break;
             }
         }
@@ -454,6 +455,129 @@ namespace Laboratorio_Electronica
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             clearALL();
+        }
+
+        private void muestraVistaEquipo()
+        {
+            string query = String.Concat("SELECT * FROM Aula.Equipo");
+
+            SqlCommand cmd = new SqlCommand(query, conexion);
+
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+            DataTable registros = new DataTable();
+
+            adapter.Fill(registros);
+
+            dataGridEquipo.DataSource = null;
+
+            dataGridEquipo.DataSource = registros;
+        }
+        private int modificarRegistroEquipo()
+        {
+            try
+            {
+                conexion.Open();
+
+                string consulta = "UPDATE Aula.Equipo SET Nombre='" + nombreEquipo.Text + "',Modelo='" + Modelo.Text + "',Descripcion='" + descEquipo.Text + "',UbicacionEnLab='" + ubiLab.Text + "',Marca='" + marca.Text + "',TipoEquipo='" + tipoEquipo.Text + "' WHERE NumInv=" + NumInv;
+
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.ExecuteNonQuery();
+                conexion.Close();
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                conexion.Close();
+                MessageBox.Show("Error de conexion: " + ex.Message);
+                return 1;
+            }
+        }
+        private int eliminaRegistroEquipo()
+        {
+            try
+            {
+                conexion.Open();
+
+                string consulta = "DELETE FROM Aula.Equipo WHERE NumInv=" + NumInv;
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.ExecuteNonQuery();
+                conexion.Close();
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                conexion.Close();
+                MessageBox.Show("Error de conexion: " + ex.Message);
+                return 1;
+            }
+        }
+
+        private int conectaBDEquipo()
+        {
+            try
+            {
+                conexion.Open();
+                muestraVistaEquipo();
+                conexion.Close();
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                conexion.Close();
+                MessageBox.Show("Error de conexion: " + ex.Message);
+                return 1;
+            }
+        }
+        private int insertarRegistroEquipo()
+        {
+            try
+            {
+                conexion.Open();
+                string consulta = "INSERT INTO Aula.Equipo(Nombre,Modelo,Descripcion,UbicacionEnLab,Marca,TipoEquipo) VALUES ('" + nombreEquipo.Text + "', '" + Modelo.Text + "', '" + descEquipo.Text + "', '" + ubiLab.Text + "','" + marca.Text + "','" + tipoEquipo.Text + "')";
+                SqlCommand cmd = new SqlCommand(consulta, conexion);
+                cmd.ExecuteNonQuery();
+
+
+                conexion.Close();
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                conexion.Close();
+                MessageBox.Show("Error de conexion: " + ex.Message);
+                return 1;
+            }
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            insertarRegistroEquipo();
+            conectaBDEquipo();
+            //nombre.Clear(); //limpiar textbox
+            dataGridEquipo.ClearSelection();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            modificarRegistroEquipo();
+            conectaBDEquipo();
+        }
+
+        private void dataGridEquipo_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            nombreEquipo.Text = dataGridEquipo.Rows[dataGridEquipo.CurrentRow.Index].Cells[1].Value.ToString();
+            Modelo.Text = dataGridEquipo.Rows[dataGridEquipo.CurrentRow.Index].Cells[2].Value.ToString();
+            descEquipo.Text = dataGridEquipo.Rows[dataGridEquipo.CurrentRow.Index].Cells[3].Value.ToString();
+            ubiLab.Text = dataGridEquipo.Rows[dataGridEquipo.CurrentRow.Index].Cells[4].Value.ToString();
+            marca.Text = dataGridEquipo.Rows[dataGridEquipo.CurrentRow.Index].Cells[5].Value.ToString();
+            tipoEquipo.Text = dataGridEquipo.Rows[dataGridEquipo.CurrentRow.Index].Cells[6].Value.ToString();
+            NumInv = Convert.ToInt32(dataGridEquipo.Rows[dataGridEquipo.CurrentRow.Index].Cells[0].Value);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            eliminaRegistroEquipo();
+            conectaBDEquipo();
         }
     }
 }
