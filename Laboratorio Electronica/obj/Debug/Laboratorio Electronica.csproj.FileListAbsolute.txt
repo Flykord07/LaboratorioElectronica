@@ -38,3 +38,13 @@ C:\Users\danie\Documents\GitHub\LaboratorioElectronica\Laboratorio Electronica\o
 C:\Users\danie\Documents\GitHub\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.CoreCompileInputs.cache
 C:\Users\danie\Documents\GitHub\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.exe
 C:\Users\danie\Documents\GitHub\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.pdb
+C:\Users\danie\Source\Repos\Flykord07\LaboratorioElectronica\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe.config
+C:\Users\danie\Source\Repos\Flykord07\LaboratorioElectronica\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe
+C:\Users\danie\Source\Repos\Flykord07\LaboratorioElectronica\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.pdb
+C:\Users\danie\Source\Repos\Flykord07\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csprojAssemblyReference.cache
+C:\Users\danie\Source\Repos\Flykord07\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Form1.resources
+C:\Users\danie\Source\Repos\Flykord07\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Properties.Resources.resources
+C:\Users\danie\Source\Repos\Flykord07\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.GenerateResource.cache
+C:\Users\danie\Source\Repos\Flykord07\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.CoreCompileInputs.cache
+C:\Users\danie\Source\Repos\Flykord07\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.exe
+C:\Users\danie\Source\Repos\Flykord07\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.pdb

@@ -14,12 +14,17 @@ namespace Laboratorio_Electronica
     public partial class Form1 : Form
     {
         private int id,NumInv, Adeudo;
+        string cu;
         private SqlConnection conexion = new SqlConnection("Server=DESKTOP-O0MDQRH\\SQLEXPRESS;" + "Database=Laboratorio;" + "Integrated Security=true;");
         public Form1()
         {
             InitializeComponent();
+            LlenaClavesAsistencia();
+            LlenaRPEEmpleado();
+            LlenaClaveMateria();
             muestraVistaEquipo(); 
             muestraVistaAlumno();
+            Antiguedad.Visible = false;
         }
 
         private void muestraVista()
@@ -52,6 +57,7 @@ namespace Laboratorio_Electronica
             {
                 conexion.Open();
                 muestraVista();
+                muestraVistaAlumno();
                 conexion.Close();
                 return 0;
             }
@@ -68,7 +74,13 @@ namespace Laboratorio_Electronica
             try
             {
                 conexion.Open();
-                string consulta = "INSERT INTO Persona.Empleado(RPE_Empleado,Nombre,Domicilio,Correo,Celular,EmpleadoDesde,Antiguedad,TipoEmpleado) VALUES ('" + RPE_Empleado.Text + "','" + nombre.Text + "', '" + domicilio.Text + "', '" + correo.Text + "', '" + celular.Text + "','" + EmpleadoDesde.Value.ToString("MM/dd/yyyy") + "','" + Antiguedad.Text + "','" + tipoempleado.SelectedItem + "')";
+                int añodesde = EmpleadoDesde.Value.Year;
+                int actual = DateTime.Today.Year;
+                string antiguedad = (actual - añodesde).ToString();
+                
+                string consulta = "INSERT INTO Persona.Empleado(RPE_Empleado,Nombre,Domicilio,Correo,Celular,EmpleadoDesde,Antiguedad,TipoEmpleado) VALUES ('" + RPE_Empleado.Text + "','" + nombre.Text + "', '" + domicilio.Text + "', '" + correo.Text + "', '" + celular.Text + "','" + EmpleadoDesde.Value.ToString("MM/dd/yyyy") + "','" + antiguedad + "','" + tipoempleado.SelectedItem + "')";
+               
+               
                 SqlCommand cmd = new SqlCommand(consulta, conexion);
                 cmd.ExecuteNonQuery();
                 switch (tipoempleado.SelectedIndex)
@@ -96,7 +108,9 @@ namespace Laboratorio_Electronica
             catch (Exception ex)
             {
                 conexion.Close();
+                
                 MessageBox.Show("Error de conexion: " + ex.Message);
+               
                 return 1;
             }
         }
@@ -130,9 +144,9 @@ namespace Laboratorio_Electronica
             Colaborador.Visible = false;
             Becario.Visible = false;
             Responsable.Visible = false;
-            Asistencia.Visible = false;
+            //Asistencia.Visible = false;
             Materia.Visible = false;
-            Alumno.Visible = false;
+           
             Sancion.Visible = false;
             Prestamo.Visible = false;
             BitacoraEntrega.Visible = false;
@@ -262,15 +276,36 @@ namespace Laboratorio_Electronica
                 try
                 {
                     conexion.Open();
-                    string consulta = "UPDATE Persona.Empleado SET  WHERE RPE_Empleado=" + id + ";";
+                    string consulta = "UPDATE Persona.Empleado SET Nombre='"+nombre.Text+"',Domicilio='"+domicilio.Text+"',Correo='"+correo.Text+"',Celular='"+celular.Text+"',EmpleadoDesde='"+EmpleadoDesde.Value.ToString("MM/dd/yyyy") + "',Antiguedad='"+Antiguedad.Text+"',TipoEmpleado='"+tipoempleado.SelectedItem+"'";
                     SqlCommand cmd = new SqlCommand(consulta, conexion);
                     cmd.ExecuteNonQuery();
+                    switch (tipoempleado.SelectedIndex)
+                    {
+                        case 0:
+                            consulta = "UPDATE Persona.Colaborador SET Desc_act='" + Desc_act.Text + "',Hrs_sem= '" + Hrssm.Text + "' WHERE RPE_Colaborador="+RPE_Empleado.Text ;
+                            cmd = new SqlCommand(consulta, conexion);
+                            cmd.ExecuteNonQuery();
+                            break;
+                        case 1:
+                            consulta = "UPDATE Persona.Becario SET Fecha_nac='" + Fechanac.Value.ToString("MM/dd/yyyy") + "',Hrs_sem= '" + Hrs_sem.Text + "',Generacion= '" + Generacion.Text + "'WHERE RPE_Becario=" + RPE_Empleado.Text;
+                            cmd = new SqlCommand(consulta, conexion);
+                            cmd.ExecuteNonQuery();
+                            break;
+                        case 2:
+                            consulta = "UPDATE Persona.Responsable SET Antiguedad='" + antiguedadResponsable.Value.ToString("MM/dd/yyyy") + "',Grado= '" + Grado.Text + "',Fecha_Inicio= '" + Fechainicio.Value.ToString("MM/dd/yyyy") + "',Fecha_Fin='" + fechafin.Value.ToString("MM/dd/yyyy")+"'";
+                            cmd = new SqlCommand(consulta, conexion);
+                            cmd.ExecuteNonQuery();
+                            break;
+                    }
+
                     conexion.Close();
+                    
                 }
                 catch (Exception ex)
                 {
                     conexion.Close();
                     MessageBox.Show("Error de conexion: " + ex.Message);
+                    
                 }
             }
             id = -1;
@@ -349,74 +384,82 @@ namespace Laboratorio_Electronica
 
         }
 
+        private void LlenaClavesAsistencia()
+        {
+            string consulta = "SELECT Clave_Unica FROM Persona.Alumno";
+            conexion.Open();
+            DataTable dt;
+            SqlCommand cmd = new SqlCommand(consulta, conexion);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                dt = new DataTable();
+                if (reader.HasRows)
+                {
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    reader.Dispose();
+                    da.Fill(dt);
+                }
+            }
+            conexion.Close();
+            foreach (DataRow dr in dt.Rows)
+            {
+                //nombres.Add(dr["Usuario"].ToString());
+                Datos.Items.Add(dr[0].ToString());
+            }
+        }
+
+        private void LlenaRPEEmpleado()
+        {
+            string consulta = "SELECT RPE_Empleado FROM Persona.Empleado";
+            conexion.Open();
+            DataTable dt;
+            SqlCommand cmd = new SqlCommand(consulta, conexion);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                dt = new DataTable();
+                if (reader.HasRows)
+                {
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    reader.Dispose();
+                    da.Fill(dt);
+                }
+            }
+            conexion.Close();
+            foreach (DataRow dr in dt.Rows)
+            {
+                //nombres.Add(dr["Usuario"].ToString());
+                RPE_Asist.Items.Add(dr[0].ToString());
+            }
+        }
+
+        private void LlenaClaveMateria()
+        {
+            string consulta = "SELECT ClaveMateria FROM Aula.Materia";
+            conexion.Open();
+            DataTable dt;
+            SqlCommand cmd = new SqlCommand(consulta, conexion);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                dt = new DataTable();
+                if (reader.HasRows)
+                {
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    reader.Dispose();
+                    da.Fill(dt);
+                }
+            }
+            conexion.Close();
+            foreach (DataRow dr in dt.Rows)
+            {
+                //nombres.Add(dr["Usuario"].ToString());
+                Materia_Asist.Items.Add(dr[0].ToString());
+            }
+        }
         private void Datos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (Datos.SelectedIndex)
-            {
-                case 0:
-                    Asistencia.Visible = true;
-                    Materia.Visible = false;
-                    Alumno.Visible = false;
-                    Sancion.Visible = false;
-                    Prestamo.Visible = false;
-                    BitacoraEntrega.Visible = false;
-                    
-                    break;
-                case 1:
-                    Asistencia.Visible = false;
-                    Materia.Visible = true;
-                    Alumno.Visible = false;
-                    Sancion.Visible = false;
-                    Prestamo.Visible = false;
-                    BitacoraEntrega.Visible = false;
-                  
-                    break;
-                case 2:
-                    Asistencia.Visible = false;
-                    Materia.Visible = false;
-                    Alumno.Visible = false;
-                    Sancion.Visible = false;
-                    Prestamo.Visible = false;
-                    BitacoraEntrega.Visible = false;
-                    
-                    break;
-                case 3:
-                    Asistencia.Visible = false;
-                    Materia.Visible = false;
-                    Alumno.Visible = true;
-                    Sancion.Visible = false;
-                    Prestamo.Visible = false;
-                    BitacoraEntrega.Visible = false;
-                    
-                    break;
-                case 4:
-                    Asistencia.Visible = false;
-                    Materia.Visible = false;
-                    Alumno.Visible = false;
-                    Sancion.Visible = true;
-                    Prestamo.Visible = false;
-                    BitacoraEntrega.Visible = false;
-                    
-                    break;
-                case 5:
-                    Asistencia.Visible = false;
-                    Materia.Visible = false;
-                    Alumno.Visible = false;
-                    Sancion.Visible = false;
-                    Prestamo.Visible = true;
-                    BitacoraEntrega.Visible = false;
-                    
-                    break;
-                case 6:
-                    Asistencia.Visible = false;
-                    Materia.Visible = false;
-                    Alumno.Visible = false;
-                    Sancion.Visible = false;
-                    Prestamo.Visible = false;
-                    BitacoraEntrega.Visible = true;
-                    
-                    break;
-            }
+           
+            //cmd.ExecuteNonQuery();
+     
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -471,6 +514,7 @@ namespace Laboratorio_Electronica
             dataGridEquipo.DataSource = registros;
         }
         
+       
         private int modificarRegistroEquipo()
         {
             try
@@ -545,7 +589,8 @@ namespace Laboratorio_Electronica
             catch (Exception ex)
             {
                 conexion.Close();
-                MessageBox.Show("Error de conexion: " + ex.Message);
+                MessageBox.Show("Error de conexion: No se pueden agregar equipos de ese tipo");
+                //MessageBox.Show("ee" + ex.);
                 return 1;
             }
         }
@@ -586,8 +631,7 @@ namespace Laboratorio_Electronica
             try
             {
                 conexion.Open();
-                string consulta = "INSERT INTO Persona.Alumno (Clave_Unica, Nombre, Generacion, Carrera) " +
-                    "               VALUES ('" + txtBoxClaveAlum.Text + "','" + txtBoxNomAlum.Text + "', '" + txtBoxGeneracion.Text.ToString() + "', '" + txtBoxCarrera.Text + "')";
+                string consulta = "INSERT INTO Persona.Alumno (Clave_Unica, Nombre, Generacion, Carrera,Adeudo) VALUES ('" + Convert.ToInt32(txtBoxClaveAlum.Text) + "','" + txtBoxNomAlum.Text + "', '" + txtBoxGeneracion.Text + "', '" + txtBoxCarrera.Text + "','"+0+"')";
 
                 SqlCommand comando = new SqlCommand(consulta, conexion);
                 comando.ExecuteNonQuery();
@@ -635,11 +679,7 @@ namespace Laboratorio_Electronica
 
         private void dgvAlumno_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtBoxClaveAlum.Text = dgvAlumno.CurrentRow.Cells[0].Value.ToString();
-            txtBoxNomAlum.Text = dgvAlumno.CurrentRow.Cells[1].Value.ToString();
-            txtBoxGeneracion.Text = dgvAlumno.CurrentRow.Cells[2].Value.ToString();
-            txtBoxCarrera.Text = dgvAlumno.CurrentRow.Cells[3].Value.ToString();
-            Adeudo = Convert.ToInt32(dgvAlumno.Rows[dgvAlumno.CurrentRow.Index].Cells[4].Value);
+            
         }
 
         private void btnElimAlum_Click(object sender, EventArgs e)
@@ -660,13 +700,38 @@ namespace Laboratorio_Electronica
             conectaBD();
         }
 
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabAlumno_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvAlumno_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            txtBoxClaveAlum.Text = dgvAlumno.CurrentRow.Cells[0].Value.ToString();
+            txtBoxNomAlum.Text = dgvAlumno.CurrentRow.Cells[1].Value.ToString();
+            txtBoxGeneracion.Text = dgvAlumno.CurrentRow.Cells[2].Value.ToString();
+            txtBoxCarrera.Text = dgvAlumno.CurrentRow.Cells[3].Value.ToString();
+            Adeudo = Convert.ToInt32(dgvAlumno.Rows[dgvAlumno.CurrentRow.Index].Cells[4].Value);
+             cu= txtBoxClaveAlum.Text;
+        }
+
+        private void Asistencia_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private int modificaAlumno()
         {
             try
             {
                 conexion.Open();
 
-                string consulta = "UPDATE Persona.Alumno SET Clave_Unica = '" + txtBoxClaveAlum.Text + "', Nombre='" + txtBoxNomAlum.Text + "', Generacion='" + txtBoxGeneracion.Text.ToString() + "', Carrera='" + txtBoxCarrera.Text + "' WHERE Adeudo=" + Adeudo;
+                string consulta = "UPDATE Persona.Alumno SET Clave_Unica = '" + txtBoxClaveAlum.Text + "', Nombre='" + txtBoxNomAlum.Text + "', Generacion='" + txtBoxGeneracion.Text.ToString() + "', Carrera='" + txtBoxCarrera.Text + "' WHERE Clave_Unica=" + cu;
                 SqlCommand comando = new SqlCommand(consulta, conexion);
                 comando.ExecuteNonQuery();
                 conexion.Close();
