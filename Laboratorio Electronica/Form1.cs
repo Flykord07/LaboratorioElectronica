@@ -13,18 +13,25 @@ namespace Laboratorio_Electronica
 {
     public partial class Form1 : Form
     {
-        private int id,NumInv, Adeudo;
+        private int id,NumInv, Adeudo,IdPrestamo;
         string cu;
+        string RPE_Antiguo;
+        DataTable dt;
+        DataTable dato;
         private SqlConnection conexion = new SqlConnection("Server=DESKTOP-O0MDQRH\\SQLEXPRESS;" + "Database=Laboratorio;" + "Integrated Security=true;");
         public Form1()
         {
             InitializeComponent();
+            
+            dato=LlenaRPEEmpleado();
+            llenaCamposCombo(dato);
             LlenaClavesAsistencia();
-            LlenaRPEEmpleado();
             LlenaClaveMateria();
+            LlenaNumInv();
             muestraVistaEquipo(); 
             muestraVistaAlumno();
-            Antiguedad.Visible = false;
+            //Antiguedad.Visible = false;
+            Antiguedad.Enabled = false;
         }
 
         private void muestraVista()
@@ -33,12 +40,14 @@ namespace Laboratorio_Electronica
             string query1 = String.Concat("SELECT * FROM Persona.Responsable");
             string query2 = String.Concat("SELECT * FROM Persona.Becario");
             string query3 = String.Concat("SELECT * FROM Persona.Colaborador");
-
+            string query4 = String.Concat("SELECT * FROM Aula.Prestamo");
             cargarTabla(query, dgridVistaEmpleado);
             cargarTabla(query1, dgridVistaResponsable);
             cargarTabla(query2, dgridVistaBecario);
             cargarTabla(query3, dgridVistaColaborador);
-          
+            cargarTabla(query4, DatosPrestamo);
+
+
         }
 
         private void cargarTabla(string query, DataGridView destinyTable)
@@ -58,6 +67,7 @@ namespace Laboratorio_Electronica
                 conexion.Open();
                 muestraVista();
                 muestraVistaAlumno();
+                muestraVistaPrestamo();
                 conexion.Close();
                 return 0;
             }
@@ -148,7 +158,7 @@ namespace Laboratorio_Electronica
             Materia.Visible = false;
            
             Sancion.Visible = false;
-            Prestamo.Visible = false;
+            Prestamo.Visible = true;
             BitacoraEntrega.Visible = false;
                                    
         }
@@ -161,6 +171,15 @@ namespace Laboratorio_Electronica
 
         }
 
+        private void llenaCamposCombo(DataTable datos)
+        {
+            foreach (DataRow dr in datos.Rows)
+            {
+                //nombres.Add(dr["Usuario"].ToString());
+                RPE_Asist.Items.Add(dr[0].ToString());
+                RPEPrestamo.Items.Add(dr[0].ToString());
+            }
+        }
         private int cargarDatosEmpleado()
         {
             int selectedRowCount = dgridVistaEmpleado.Rows.GetRowCount(DataGridViewElementStates.Selected);
@@ -275,29 +294,32 @@ namespace Laboratorio_Electronica
             {
                 try
                 {
+                    
                     conexion.Open();
-                    string consulta = "UPDATE Persona.Empleado SET Nombre='"+nombre.Text+"',Domicilio='"+domicilio.Text+"',Correo='"+correo.Text+"',Celular='"+celular.Text+"',EmpleadoDesde='"+EmpleadoDesde.Value.ToString("MM/dd/yyyy") + "',Antiguedad='"+Antiguedad.Text+"',TipoEmpleado='"+tipoempleado.SelectedItem+"'";
-                    SqlCommand cmd = new SqlCommand(consulta, conexion);
+                    string consulta = "";
+                    SqlCommand cmd;
+                    consulta = "UPDATE Persona.Empleado SET RPE_Empleado='" + RPE_Empleado.Text + "', Nombre='" + nombre.Text + "',Domicilio='" + domicilio.Text + "',Correo='" + correo.Text + "',Celular='" + celular.Text + "',EmpleadoDesde='" + EmpleadoDesde.Value.ToString("MM/dd/yyyy") + "',Antiguedad='" + Antiguedad.Text + "',TipoEmpleado='" + tipoempleado.SelectedItem + "' WHERE RPE_Empleado='" + RPE_Antiguo + "'";
+                    cmd = new SqlCommand(consulta, conexion);
                     cmd.ExecuteNonQuery();
                     switch (tipoempleado.SelectedIndex)
                     {
                         case 0:
-                            consulta = "UPDATE Persona.Colaborador SET Desc_act='" + Desc_act.Text + "',Hrs_sem= '" + Hrssm.Text + "' WHERE RPE_Colaborador="+RPE_Empleado.Text ;
+                            consulta = "UPDATE Persona.Colaborador SET RPE_Colaborador='"+RPE_Empleado.Text+"', Desc_act='" + Desc_act.Text + "',Hrs_sem= '" + Hrssm.Text + "' WHERE RPE_Colaborador="+RPE_Antiguo;
                             cmd = new SqlCommand(consulta, conexion);
                             cmd.ExecuteNonQuery();
                             break;
                         case 1:
-                            consulta = "UPDATE Persona.Becario SET Fecha_nac='" + Fechanac.Value.ToString("MM/dd/yyyy") + "',Hrs_sem= '" + Hrs_sem.Text + "',Generacion= '" + Generacion.Text + "'WHERE RPE_Becario=" + RPE_Empleado.Text;
+                            consulta = "UPDATE Persona.Becario SET  RPE_Becario='" + RPE_Empleado.Text + "',Fecha_nac='" + Fechanac.Value.ToString("MM/dd/yyyy") + "',Hrs_sem= '" + Hrs_sem.Text + "',Generacion= '" + Generacion.Text + "'WHERE RPE_Becario=" + RPE_Antiguo;
                             cmd = new SqlCommand(consulta, conexion);
                             cmd.ExecuteNonQuery();
                             break;
                         case 2:
-                            consulta = "UPDATE Persona.Responsable SET Antiguedad='" + antiguedadResponsable.Value.ToString("MM/dd/yyyy") + "',Grado= '" + Grado.Text + "',Fecha_Inicio= '" + Fechainicio.Value.ToString("MM/dd/yyyy") + "',Fecha_Fin='" + fechafin.Value.ToString("MM/dd/yyyy")+"'";
+                            consulta = "UPDATE Persona.Responsable SET RPE_Responsable='" + RPE_Empleado.Text + "', Antiguedad='" + antiguedadResponsable.Value.ToString("MM/dd/yyyy") + "',Grado= '" + Grado.Text + "',Fecha_Inicio= '" + Fechainicio.Value.ToString("MM/dd/yyyy") + "',Fecha_Fin='" + fechafin.Value.ToString("MM/dd/yyyy")+"'WHERE RPE_Responsable="+RPE_Antiguo;
                             cmd = new SqlCommand(consulta, conexion);
                             cmd.ExecuteNonQuery();
                             break;
                     }
-
+                  
                     conexion.Close();
                     
                 }
@@ -384,11 +406,12 @@ namespace Laboratorio_Electronica
 
         }
 
+        //Esta funcion se usa para mostrar en el combobox los alumnos que puede agregar
         private void LlenaClavesAsistencia()
         {
-            string consulta = "SELECT Clave_Unica FROM Persona.Alumno";
+            string consulta = "SELECT Clave_Unica,Nombre FROM Persona.Alumno";
             conexion.Open();
-            DataTable dt;
+           
             SqlCommand cmd = new SqlCommand(consulta, conexion);
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
@@ -405,12 +428,40 @@ namespace Laboratorio_Electronica
             {
                 //nombres.Add(dr["Usuario"].ToString());
                 Datos.Items.Add(dr[0].ToString());
+                clavesPrestamo.Items.Add(dr[0].ToString()+","+dr[1].ToString());
+                
             }
         }
 
-        private void LlenaRPEEmpleado()
+        private void LlenaNumInv()
         {
-            string consulta = "SELECT RPE_Empleado FROM Persona.Empleado";
+            string consulta = "SELECT NumInv,Nombre FROM Aula.Equipo";
+            conexion.Open();
+
+            SqlCommand cmd = new SqlCommand(consulta, conexion);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                dt = new DataTable();
+                if (reader.HasRows)
+                {
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    reader.Dispose();
+                    da.Fill(dt);
+                }
+            }
+            conexion.Close();
+            foreach (DataRow dr in dt.Rows)
+            {
+                //nombres.Add(dr["Usuario"].ToString());
+                NumInvPrestamo.Items.Add(dr[0].ToString()+","+ dr[1].ToString());
+              
+
+            }
+        }
+
+        private DataTable LlenaRPEEmpleado()
+        {
+            string consulta = "SELECT RPE_Empleado,Nombre FROM Persona.Empleado";
             conexion.Open();
             DataTable dt;
             SqlCommand cmd = new SqlCommand(consulta, conexion);
@@ -428,8 +479,12 @@ namespace Laboratorio_Electronica
             foreach (DataRow dr in dt.Rows)
             {
                 //nombres.Add(dr["Usuario"].ToString());
-                RPE_Asist.Items.Add(dr[0].ToString());
+                //NumInvPrestamo.Items.Add(dr[0].ToString() + "," + dr[1].ToString());
+                RPEPrestamo.Items.Add(dr[0].ToString() + "," + dr[1].ToString());
+
+
             }
+            return dt;
         }
 
         private void LlenaClaveMateria()
@@ -454,6 +509,7 @@ namespace Laboratorio_Electronica
                 //nombres.Add(dr["Usuario"].ToString());
                 Materia_Asist.Items.Add(dr[0].ToString());
             }
+            
         }
         private void Datos_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -513,8 +569,24 @@ namespace Laboratorio_Electronica
 
             dataGridEquipo.DataSource = registros;
         }
-        
-       
+
+        private void muestraVistaPrestamo()
+        {
+            string query = String.Concat("SELECT * FROM Aula.Prestamo");
+
+            SqlCommand cmd = new SqlCommand(query, conexion);
+
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+            DataTable registros = new DataTable();
+
+            adapter.Fill(registros);
+
+            DatosPrestamo.DataSource = null;
+
+            DatosPrestamo.DataSource = registros;
+        }
+
         private int modificarRegistroEquipo()
         {
             try
@@ -556,6 +628,25 @@ namespace Laboratorio_Electronica
             }
         }
 
+        private int eliminaRegistroPrestamo()
+        {
+            try
+            {
+                conexion.Open();
+                
+                string consulta = "DELETE FROM Aula.Prestamo WHERE Id_Prestamo=" + IdPrestamo;
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.ExecuteNonQuery();
+                conexion.Close();
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                conexion.Close();
+                MessageBox.Show("Error de conexion: " + ex.Message);
+                return 1;
+            }
+        }
         private int conectaBDEquipo()
         {
             try
@@ -594,7 +685,32 @@ namespace Laboratorio_Electronica
                 return 1;
             }
         }
-        
+
+        private int insertarRegistroPrestamo()
+        {
+            try
+            {
+                conexion.Open();
+                string[] claveP = clavesPrestamo.SelectedItem.ToString().Split(',');
+                string[] numinvP = NumInvPrestamo.SelectedItem.ToString().Split(',');
+                string[] rpeP = RPEPrestamo.SelectedItem.ToString().Split(',');
+                string consulta = "INSERT INTO Aula.Prestamo(NumInv,Clave_Unica,RPE_Empleado) VALUES ('" +Convert.ToInt32(numinvP[0]) + "', '" + Convert.ToInt32(claveP[0]) + "', '" + Convert.ToInt32(rpeP[0]) + "')";
+                SqlCommand cmd = new SqlCommand(consulta, conexion);
+                cmd.ExecuteNonQuery();
+
+
+                conexion.Close();
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                conexion.Close();
+                MessageBox.Show("Error de conexion: No se pueden agregar equipos de ese tipo");
+                //MessageBox.Show("ee" + ex.);
+                return 1;
+            }
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
             insertarRegistroEquipo();
@@ -720,11 +836,78 @@ namespace Laboratorio_Electronica
              cu= txtBoxClaveAlum.Text;
         }
 
+        private void DatosPrestamo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //DataGridViewRow row = DatosPrestamo.SelectedRows[0];
+            //IdPrestamo = Convert.ToInt32(row.Cells[0].Value);
+            IdPrestamo=Convert.ToInt32 (DatosPrestamo.Rows[DatosPrestamo.CurrentRow.Index].Cells[0].Value.ToString());
+            NumInvPrestamo.Text = DatosPrestamo.Rows[DatosPrestamo.CurrentRow.Index].Cells[1].Value.ToString();
+            clavesPrestamo.Text = DatosPrestamo.Rows[DatosPrestamo.CurrentRow.Index].Cells[2].Value.ToString();
+            RPEPrestamo.Text = DatosPrestamo.Rows[DatosPrestamo.CurrentRow.Index].Cells[3].Value.ToString();
+            //NumInv = Convert.ToInt32(DatosPrestamo.Rows[DatosPrestamo.CurrentRow.Index].Cells[4].Value);
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            insertarRegistroPrestamo();
+            conectaBD();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DatosPrestamo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            eliminaRegistroPrestamo();
+            conectaBD();
+        }
+
         private void Asistencia_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
+        private void button11_Click(object sender, EventArgs e)
+        {
+            modificaPrestamo();
+            conectaBD();
+        }
+
+        private void dgridVistaEmpleado_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            RPE_Antiguo = dgridVistaEmpleado.Rows[dgridVistaEmpleado.CurrentRow.Index].Cells[0].Value.ToString();
+        }
+
+        private int modificaPrestamo()
+        {
+       
+            try
+            {
+                conexion.Open();
+                string[] claveP = clavesPrestamo.SelectedItem.ToString().Split(',');
+                string[] numinvP = NumInvPrestamo.SelectedItem.ToString().Split(',');
+                string[] rpeP = RPEPrestamo.SelectedItem.ToString().Split(',');
+                MessageBox.Show(claveP[0] + " " + numinvP[0] + " " + rpeP[0]);
+                string consulta = "UPDATE Aula.Prestamo SET NumInv = '" + Convert.ToInt32(numinvP[0]) + "', Clave_Unica='" + Convert.ToInt32(claveP[0]) + "', RPE_Empleado='" + Convert.ToInt32(rpeP[0])+ "' WHERE Id_Prestamo=" + IdPrestamo;
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.ExecuteNonQuery();
+                conexion.Close();
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                conexion.Close();
+                MessageBox.Show("Error de conexion: " + ex.Message+" Prestamo" );
+                return 1;
+            }
+        }
         private int modificaAlumno()
         {
             try

@@ -32,8 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Empleado = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -88,21 +90,32 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.Datos = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.TablaMateria = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Materia = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.NombreMateria = new System.Windows.Forms.TextBox();
+            this.NivelMateria = new System.Windows.Forms.TextBox();
             this.BitacoraEntrega = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
             this.entregadoBitacora = new System.Windows.Forms.DateTimePicker();
             this.FechaBitacora = new System.Windows.Forms.Label();
             this.Prestamo = new System.Windows.Forms.Panel();
+            this.DatosPrestamo = new System.Windows.Forms.DataGridView();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.RPEPrestamo = new System.Windows.Forms.ComboBox();
+            this.NumInvPrestamo = new System.Windows.Forms.ComboBox();
+            this.clavesPrestamo = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -117,7 +130,16 @@
             this.fliquidacion = new System.Windows.Forms.TextBox();
             this.descSansion = new System.Windows.Forms.TextBox();
             this.Asistencia = new System.Windows.Forms.Panel();
+            this.label50 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.Materia_Asist = new System.Windows.Forms.ComboBox();
+            this.RPE_Asist = new System.Windows.Forms.ComboBox();
             this.label45 = new System.Windows.Forms.Label();
+            this.Datos = new System.Windows.Forms.ComboBox();
             this.label36 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -156,12 +178,6 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.RPE_Asist = new System.Windows.Forms.ComboBox();
-            this.Materia_Asist = new System.Windows.Forms.ComboBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Empleado.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.Responsable.SuspendLayout();
@@ -173,9 +189,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgridVistaEmpleado)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TablaMateria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Materia.SuspendLayout();
             this.BitacoraEntrega.SuspendLayout();
             this.Prestamo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DatosPrestamo)).BeginInit();
             this.Sancion.SuspendLayout();
             this.Asistencia.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -183,7 +202,6 @@
             this.tabAlumno.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumno)).BeginInit();
             this.Alumno.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -204,7 +222,7 @@
             this.Empleado.Location = new System.Drawing.Point(0, 0);
             this.Empleado.Name = "Empleado";
             this.Empleado.SelectedIndex = 0;
-            this.Empleado.Size = new System.Drawing.Size(1847, 751);
+            this.Empleado.Size = new System.Drawing.Size(1847, 954);
             this.Empleado.TabIndex = 1;
             // 
             // tabPage1
@@ -554,6 +572,7 @@
             this.dgridVistaEmpleado.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgridVistaEmpleado.Size = new System.Drawing.Size(782, 386);
             this.dgridVistaEmpleado.TabIndex = 41;
+            this.dgridVistaEmpleado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridVistaEmpleado_CellClick);
             this.dgridVistaEmpleado.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgridVista_CellMouseClick);
             // 
             // btnAlta
@@ -747,6 +766,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.TablaMateria);
             this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Controls.Add(this.Materia);
             this.tabPage2.Controls.Add(this.BitacoraEntrega);
@@ -758,68 +778,96 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1839, 718);
+            this.tabPage2.Size = new System.Drawing.Size(1839, 921);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
-            // Datos
+            // TablaMateria
             // 
-            this.Datos.AutoCompleteCustomSource.AddRange(new string[] {
-            "Asistencia",
-            "Equipo",
-            "Materia",
-            "Alumno",
-            "Sancion",
-            "Prestamo",
-            "Bitacora Entrega"});
-            this.Datos.FormattingEnabled = true;
-            this.Datos.Location = new System.Drawing.Point(142, 56);
-            this.Datos.Name = "Datos";
-            this.Datos.Size = new System.Drawing.Size(166, 28);
-            this.Datos.TabIndex = 38;
-            this.Datos.SelectedIndexChanged += new System.EventHandler(this.Datos_SelectedIndexChanged);
+            this.TablaMateria.AllowUserToAddRows = false;
+            this.TablaMateria.AllowUserToDeleteRows = false;
+            this.TablaMateria.AllowUserToResizeColumns = false;
+            this.TablaMateria.AllowUserToResizeRows = false;
+            this.TablaMateria.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.TablaMateria.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.TablaMateria.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.TablaMateria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TablaMateria.Location = new System.Drawing.Point(647, 229);
+            this.TablaMateria.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TablaMateria.Name = "TablaMateria";
+            this.TablaMateria.RowHeadersVisible = false;
+            this.TablaMateria.RowHeadersWidth = 20;
+            this.TablaMateria.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Teal;
+            this.TablaMateria.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.TablaMateria.Size = new System.Drawing.Size(486, 165);
+            this.TablaMateria.TabIndex = 44;
             // 
-            // button3
+            // dataGridView1
             // 
-            this.button3.Location = new System.Drawing.Point(317, 115);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(148, 32);
-            this.button3.TabIndex = 37;
-            this.button3.Text = "Modificar";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(317, 152);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(148, 32);
-            this.button2.TabIndex = 36;
-            this.button2.Text = "Eliminar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(317, 77);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 32);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(68, 310);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 20;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView1.Size = new System.Drawing.Size(474, 165);
+            this.dataGridView1.TabIndex = 43;
             // 
             // Materia
             // 
+            this.Materia.Controls.Add(this.button9);
+            this.Materia.Controls.Add(this.button8);
+            this.Materia.Controls.Add(this.button7);
             this.Materia.Controls.Add(this.label20);
             this.Materia.Controls.Add(this.label38);
             this.Materia.Controls.Add(this.label25);
-            this.Materia.Controls.Add(this.textBox4);
-            this.Materia.Controls.Add(this.textBox3);
-            this.Materia.Location = new System.Drawing.Point(925, 110);
+            this.Materia.Controls.Add(this.NombreMateria);
+            this.Materia.Controls.Add(this.NivelMateria);
+            this.Materia.Location = new System.Drawing.Point(647, 69);
             this.Materia.Name = "Materia";
-            this.Materia.Size = new System.Drawing.Size(314, 120);
+            this.Materia.Size = new System.Drawing.Size(486, 152);
             this.Materia.TabIndex = 34;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(310, 108);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(148, 32);
+            this.button9.TabIndex = 44;
+            this.button9.Text = "Eliminar";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(310, 70);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(148, 32);
+            this.button8.TabIndex = 44;
+            this.button8.Text = "Modificar";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(310, 37);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(148, 32);
+            this.button7.TabIndex = 44;
+            this.button7.Text = "Agregar";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // label20
             // 
@@ -849,26 +897,26 @@
             this.label25.TabIndex = 13;
             this.label25.Text = "Nivel";
             // 
-            // textBox4
+            // NombreMateria
             // 
-            this.textBox4.Location = new System.Drawing.Point(88, 49);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 26);
-            this.textBox4.TabIndex = 18;
+            this.NombreMateria.Location = new System.Drawing.Point(88, 49);
+            this.NombreMateria.Name = "NombreMateria";
+            this.NombreMateria.Size = new System.Drawing.Size(200, 26);
+            this.NombreMateria.TabIndex = 18;
             // 
-            // textBox3
+            // NivelMateria
             // 
-            this.textBox3.Location = new System.Drawing.Point(88, 82);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(200, 26);
-            this.textBox3.TabIndex = 17;
+            this.NivelMateria.Location = new System.Drawing.Point(88, 82);
+            this.NivelMateria.Name = "NivelMateria";
+            this.NivelMateria.Size = new System.Drawing.Size(200, 26);
+            this.NivelMateria.TabIndex = 17;
             // 
             // BitacoraEntrega
             // 
             this.BitacoraEntrega.Controls.Add(this.label22);
             this.BitacoraEntrega.Controls.Add(this.entregadoBitacora);
             this.BitacoraEntrega.Controls.Add(this.FechaBitacora);
-            this.BitacoraEntrega.Location = new System.Drawing.Point(439, 587);
+            this.BitacoraEntrega.Location = new System.Drawing.Point(1234, 613);
             this.BitacoraEntrega.Name = "BitacoraEntrega";
             this.BitacoraEntrega.Size = new System.Drawing.Size(399, 72);
             this.BitacoraEntrega.TabIndex = 33;
@@ -877,7 +925,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(84, 11);
+            this.label22.Location = new System.Drawing.Point(90, 11);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(219, 29);
             this.label22.TabIndex = 10;
@@ -901,19 +949,133 @@
             // 
             // Prestamo
             // 
+            this.Prestamo.Controls.Add(this.DatosPrestamo);
+            this.Prestamo.Controls.Add(this.button10);
+            this.Prestamo.Controls.Add(this.button11);
+            this.Prestamo.Controls.Add(this.button12);
+            this.Prestamo.Controls.Add(this.label54);
+            this.Prestamo.Controls.Add(this.label53);
+            this.Prestamo.Controls.Add(this.label52);
+            this.Prestamo.Controls.Add(this.RPEPrestamo);
+            this.Prestamo.Controls.Add(this.NumInvPrestamo);
+            this.Prestamo.Controls.Add(this.clavesPrestamo);
             this.Prestamo.Controls.Add(this.label19);
             this.Prestamo.Controls.Add(this.label21);
             this.Prestamo.Controls.Add(this.textBox7);
-            this.Prestamo.Location = new System.Drawing.Point(893, 291);
+            this.Prestamo.Location = new System.Drawing.Point(647, 402);
             this.Prestamo.Name = "Prestamo";
-            this.Prestamo.Size = new System.Drawing.Size(393, 78);
+            this.Prestamo.Size = new System.Drawing.Size(565, 402);
             this.Prestamo.TabIndex = 33;
+            // 
+            // DatosPrestamo
+            // 
+            this.DatosPrestamo.AllowUserToAddRows = false;
+            this.DatosPrestamo.AllowUserToDeleteRows = false;
+            this.DatosPrestamo.AllowUserToResizeColumns = false;
+            this.DatosPrestamo.AllowUserToResizeRows = false;
+            this.DatosPrestamo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DatosPrestamo.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DatosPrestamo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DatosPrestamo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DatosPrestamo.Location = new System.Drawing.Point(16, 194);
+            this.DatosPrestamo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DatosPrestamo.Name = "DatosPrestamo";
+            this.DatosPrestamo.RowHeadersVisible = false;
+            this.DatosPrestamo.RowHeadersWidth = 20;
+            this.DatosPrestamo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Teal;
+            this.DatosPrestamo.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.DatosPrestamo.Size = new System.Drawing.Size(511, 165);
+            this.DatosPrestamo.TabIndex = 48;
+            this.DatosPrestamo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DatosPrestamo_CellClick);
+            this.DatosPrestamo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DatosPrestamo_CellContentClick);
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(395, 129);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(148, 32);
+            this.button10.TabIndex = 45;
+            this.button10.Text = "Eliminar";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(395, 91);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(148, 32);
+            this.button11.TabIndex = 46;
+            this.button11.Text = "Modificar";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(395, 58);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(148, 32);
+            this.button12.TabIndex = 47;
+            this.button12.Text = "Agregar";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(9, 128);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(118, 20);
+            this.label54.TabIndex = 31;
+            this.label54.Text = "RPE Empleado";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(21, 95);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(106, 20);
+            this.label53.TabIndex = 30;
+            this.label53.Text = "Clave Alumno";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(3, 58);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(139, 20);
+            this.label52.TabIndex = 29;
+            this.label52.Text = "Numero Inventario";
+            // 
+            // RPEPrestamo
+            // 
+            this.RPEPrestamo.FormattingEnabled = true;
+            this.RPEPrestamo.Location = new System.Drawing.Point(148, 125);
+            this.RPEPrestamo.Name = "RPEPrestamo";
+            this.RPEPrestamo.Size = new System.Drawing.Size(230, 28);
+            this.RPEPrestamo.TabIndex = 26;
+            // 
+            // NumInvPrestamo
+            // 
+            this.NumInvPrestamo.FormattingEnabled = true;
+            this.NumInvPrestamo.Location = new System.Drawing.Point(148, 55);
+            this.NumInvPrestamo.Name = "NumInvPrestamo";
+            this.NumInvPrestamo.Size = new System.Drawing.Size(230, 28);
+            this.NumInvPrestamo.TabIndex = 24;
+            // 
+            // clavesPrestamo
+            // 
+            this.clavesPrestamo.FormattingEnabled = true;
+            this.clavesPrestamo.Location = new System.Drawing.Point(148, 89);
+            this.clavesPrestamo.Name = "clavesPrestamo";
+            this.clavesPrestamo.Size = new System.Drawing.Size(230, 28);
+            this.clavesPrestamo.TabIndex = 23;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(110, 12);
+            this.label19.Location = new System.Drawing.Point(122, 11);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(116, 29);
             this.label19.TabIndex = 22;
@@ -922,15 +1084,15 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(4, 49);
+            this.label21.Location = new System.Drawing.Point(12, 163);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(126, 20);
+            this.label21.Size = new System.Drawing.Size(115, 20);
             this.label21.TabIndex = 4;
-            this.label21.Text = "Fecha Prestamo";
+            this.label21.Text = "Fecha Entrega";
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(142, 45);
+            this.textBox7.Location = new System.Drawing.Point(148, 160);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(230, 26);
             this.textBox7.TabIndex = 21;
@@ -946,7 +1108,7 @@
             this.Sancion.Controls.Add(this.fechaSansion);
             this.Sancion.Controls.Add(this.fliquidacion);
             this.Sancion.Controls.Add(this.descSansion);
-            this.Sancion.Location = new System.Drawing.Point(12, 575);
+            this.Sancion.Location = new System.Drawing.Point(69, 493);
             this.Sancion.Name = "Sancion";
             this.Sancion.Size = new System.Drawing.Size(364, 178);
             this.Sancion.TabIndex = 33;
@@ -1047,6 +1209,93 @@
             this.Asistencia.TabIndex = 32;
             this.Asistencia.Paint += new System.Windows.Forms.PaintEventHandler(this.Asistencia_Paint);
             // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(14, 127);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(105, 20);
+            this.label50.TabIndex = 43;
+            this.label50.Text = "Clave Materia";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(317, 152);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(148, 32);
+            this.button2.TabIndex = 36;
+            this.button2.Text = "Eliminar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(317, 115);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(148, 32);
+            this.button3.TabIndex = 37;
+            this.button3.Text = "Modificar";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(14, 96);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(118, 20);
+            this.label37.TabIndex = 42;
+            this.label37.Text = "RPE Empleado";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(14, 62);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(114, 20);
+            this.label24.TabIndex = 41;
+            this.label24.Text = "Clave Alumnos";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(317, 77);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(148, 32);
+            this.button1.TabIndex = 35;
+            this.button1.Text = "Agregar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Materia_Asist
+            // 
+            this.Materia_Asist.AutoCompleteCustomSource.AddRange(new string[] {
+            "Asistencia",
+            "Equipo",
+            "Materia",
+            "Alumno",
+            "Sancion",
+            "Prestamo",
+            "Bitacora Entrega"});
+            this.Materia_Asist.FormattingEnabled = true;
+            this.Materia_Asist.Location = new System.Drawing.Point(142, 124);
+            this.Materia_Asist.Name = "Materia_Asist";
+            this.Materia_Asist.Size = new System.Drawing.Size(166, 28);
+            this.Materia_Asist.TabIndex = 40;
+            // 
+            // RPE_Asist
+            // 
+            this.RPE_Asist.AutoCompleteCustomSource.AddRange(new string[] {
+            "Asistencia",
+            "Equipo",
+            "Materia",
+            "Alumno",
+            "Sancion",
+            "Prestamo",
+            "Bitacora Entrega"});
+            this.RPE_Asist.FormattingEnabled = true;
+            this.RPE_Asist.Location = new System.Drawing.Point(142, 90);
+            this.RPE_Asist.Name = "RPE_Asist";
+            this.RPE_Asist.Size = new System.Drawing.Size(166, 28);
+            this.RPE_Asist.TabIndex = 39;
+            // 
             // label45
             // 
             this.label45.AutoSize = true;
@@ -1056,6 +1305,23 @@
             this.label45.Size = new System.Drawing.Size(122, 29);
             this.label45.TabIndex = 21;
             this.label45.Text = "Asistencia";
+            // 
+            // Datos
+            // 
+            this.Datos.AutoCompleteCustomSource.AddRange(new string[] {
+            "Asistencia",
+            "Equipo",
+            "Materia",
+            "Alumno",
+            "Sancion",
+            "Prestamo",
+            "Bitacora Entrega"});
+            this.Datos.FormattingEnabled = true;
+            this.Datos.Location = new System.Drawing.Point(142, 56);
+            this.Datos.Name = "Datos";
+            this.Datos.Size = new System.Drawing.Size(166, 28);
+            this.Datos.TabIndex = 38;
+            this.Datos.SelectedIndexChanged += new System.EventHandler(this.Datos_SelectedIndexChanged);
             // 
             // label36
             // 
@@ -1141,8 +1407,8 @@
             this.dataGridEquipo.RowHeadersVisible = false;
             this.dataGridEquipo.RowHeadersWidth = 20;
             this.dataGridEquipo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dataGridEquipo.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dataGridEquipo.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridEquipo.Size = new System.Drawing.Size(782, 386);
             this.dataGridEquipo.TabIndex = 44;
             this.dataGridEquipo.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridEquipo_CellMouseClick);
@@ -1432,91 +1698,11 @@
             this.label27.Size = new System.Drawing.Size(0, 20);
             this.label27.TabIndex = 10;
             // 
-            // RPE_Asist
-            // 
-            this.RPE_Asist.AutoCompleteCustomSource.AddRange(new string[] {
-            "Asistencia",
-            "Equipo",
-            "Materia",
-            "Alumno",
-            "Sancion",
-            "Prestamo",
-            "Bitacora Entrega"});
-            this.RPE_Asist.FormattingEnabled = true;
-            this.RPE_Asist.Location = new System.Drawing.Point(142, 90);
-            this.RPE_Asist.Name = "RPE_Asist";
-            this.RPE_Asist.Size = new System.Drawing.Size(166, 28);
-            this.RPE_Asist.TabIndex = 39;
-            // 
-            // Materia_Asist
-            // 
-            this.Materia_Asist.AutoCompleteCustomSource.AddRange(new string[] {
-            "Asistencia",
-            "Equipo",
-            "Materia",
-            "Alumno",
-            "Sancion",
-            "Prestamo",
-            "Bitacora Entrega"});
-            this.Materia_Asist.FormattingEnabled = true;
-            this.Materia_Asist.Location = new System.Drawing.Point(142, 124);
-            this.Materia_Asist.Name = "Materia_Asist";
-            this.Materia_Asist.Size = new System.Drawing.Size(166, 28);
-            this.Materia_Asist.TabIndex = 40;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(14, 62);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(114, 20);
-            this.label24.TabIndex = 41;
-            this.label24.Text = "Clave Alumnos";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(14, 96);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(118, 20);
-            this.label37.TabIndex = 42;
-            this.label37.Text = "RPE Empleado";
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(14, 127);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(105, 20);
-            this.label50.TabIndex = 43;
-            this.label50.Text = "Clave Materia";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(68, 310);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 20;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView1.Size = new System.Drawing.Size(782, 257);
-            this.dataGridView1.TabIndex = 43;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1714, 749);
+            this.ClientSize = new System.Drawing.Size(1714, 966);
             this.Controls.Add(this.Empleado);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -1540,12 +1726,15 @@
             this.panel1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TablaMateria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.Materia.ResumeLayout(false);
             this.Materia.PerformLayout();
             this.BitacoraEntrega.ResumeLayout(false);
             this.BitacoraEntrega.PerformLayout();
             this.Prestamo.ResumeLayout(false);
             this.Prestamo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DatosPrestamo)).EndInit();
             this.Sancion.ResumeLayout(false);
             this.Sancion.PerformLayout();
             this.Asistencia.ResumeLayout(false);
@@ -1557,7 +1746,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumno)).EndInit();
             this.Alumno.ResumeLayout(false);
             this.Alumno.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1608,8 +1796,8 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox NombreMateria;
+        private System.Windows.Forms.TextBox NivelMateria;
         private System.Windows.Forms.Label FechaBitacora;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label36;
@@ -1693,6 +1881,20 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.ComboBox Materia_Asist;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.DataGridView TablaMateria;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.ComboBox RPEPrestamo;
+        private System.Windows.Forms.ComboBox NumInvPrestamo;
+        private System.Windows.Forms.ComboBox clavesPrestamo;
+        private System.Windows.Forms.DataGridView DatosPrestamo;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
     }
 }
 
