@@ -13,7 +13,7 @@ namespace Laboratorio_Electronica
 {
     public partial class Form1 : Form
     {
-        private int id,NumInv, Adeudo,IdPrestamo;
+        private int id,NumInv, Adeudo,IdPrestamo,IdMateria;
         string cu;
         string RPE_Antiguo;
         DataTable dt;
@@ -30,10 +30,24 @@ namespace Laboratorio_Electronica
             LlenaNumInv();
             muestraVistaEquipo(); 
             muestraVistaAlumno();
+            muestraVistaMateria();
             //Antiguedad.Visible = false;
             Antiguedad.Enabled = false;
         }
 
+        private string genRPE(int id)
+        {
+            conexion.Open();
+          
+
+            string consulta = "SELECT RPE_Empleado FROM Persona.Empleado WHERE RPE_Empleado="+id;
+
+
+            SqlCommand cmd = new SqlCommand(consulta, conexion);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+            return consulta;
+        }
         private void muestraVista()
         {
             string query = String.Concat("SELECT * FROM Persona.Empleado");
@@ -42,9 +56,12 @@ namespace Laboratorio_Electronica
             string query3 = String.Concat("SELECT * FROM Persona.Colaborador");
             string query4 = String.Concat("SELECT * FROM Aula.Prestamo");
             cargarTabla(query, dgridVistaEmpleado);
-            cargarTabla(query1, dgridVistaResponsable);
-            cargarTabla(query2, dgridVistaBecario);
-            cargarTabla(query3, dgridVistaColaborador);
+            cargarTablasEmp(query1, "SELECT Nombre FROM Persona.Empleado INNER JOIN Persona.Responsable ON Persona.Responsable.RPE_Responsable=Persona.Empleado.RPE_Empleado", dgridVistaResponsable);
+            //cargarTabla(query1, dgridVistaResponsable);
+            //cargarTabla(query2, dgridVistaBecario);
+            cargarTablasEmp(query2, "SELECT Nombre FROM Persona.Empleado INNER JOIN Persona.Becario ON Persona.Becario.RPE_Becario=Persona.Empleado.RPE_Empleado", dgridVistaBecario);
+            //cargarTabla(query3, dgridVistaColaborador);
+            cargarTablasEmp(query3, "SELECT Nombre FROM Persona.Empleado INNER JOIN Persona.Colaborador ON Persona.Colaborador.RPE_Colaborador=Persona.Empleado.RPE_Empleado", dgridVistaColaborador);
             cargarTabla(query4, DatosPrestamo);
 
 
@@ -56,10 +73,46 @@ namespace Laboratorio_Electronica
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable registros = new DataTable();
             adapter.Fill(registros);
+
             destinyTable.DataSource = null;
             destinyTable.DataSource = registros;
         }
 
+        private void cargarTablasEmp(string query,string q2 ,DataGridView destinyTable)
+        {
+            //Vista original con query 1
+            SqlCommand cmd = new SqlCommand(query, conexion);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable registros = new DataTable();
+            adapter.Fill(registros);
+
+            //Vista con el dato extra (INNER JOIN)
+            SqlCommand cd = new SqlCommand(q2, conexion);
+            SqlDataAdapter adapt = new SqlDataAdapter(cd);
+            DataTable regs = new DataTable();
+            adapt.Fill(regs);
+
+            //Creo una tabla nueva para clonar la vista original porque necesito que el dato extra sea cadena
+            DataTable dtCloned = registros.Clone();
+            
+            //Pongo la columna que necesito como string
+            dtCloned.Columns[0].DataType = typeof(string);
+            foreach (DataRow row in registros.Rows)
+            {
+                
+                dtCloned.ImportRow(row);
+            }
+
+            //Le agrego el extra a la columna necesaria; en este caso es RPE + Nombre
+            for (int i = 0; i < registros.Rows.Count; i++)
+            {
+                //MessageBox.Show("--");
+                dtCloned.Rows[i][0] += "-"+ regs.Rows[i][0].ToString();
+            }
+            //La tabla mostrada en la vista es la clonada
+            destinyTable.DataSource = null;
+            destinyTable.DataSource = dtCloned;
+        }
         private int conectaBD()
         {
             try
@@ -68,6 +121,7 @@ namespace Laboratorio_Electronica
                 muestraVista();
                 muestraVistaAlumno();
                 muestraVistaPrestamo();
+                muestraVistaMateria();
                 conexion.Close();
                 return 0;
             }
@@ -79,14 +133,27 @@ namespace Laboratorio_Electronica
             }
         }
 
+        public string calculaAntiguedad(DateTime t)
+        {
+            int añodesde = EmpleadoDesde.Value.Year;
+            int mes = EmpleadoDesde.Value.Month;
+            int dia = EmpleadoDesde.Value.Day;
+            int añoActual = DateTime.Today.Year;
+            int mesActual = DateTime.Today.Month;
+            int diaActual = DateTime.Today.Day;
+            string antiguedad = "";
+            TimeSpan dif = DateTime.Today - EmpleadoDesde.Value;
+            int years =(int)( dif.Days / 365.25);
+            antiguedad =years.ToString();
+            return antiguedad;
+        }
         private int insertarRegistro()
         {
             try
             {
                 conexion.Open();
-                int añodesde = EmpleadoDesde.Value.Year;
-                int actual = DateTime.Today.Year;
-                string antiguedad = (actual - añodesde).ToString();
+
+                string antiguedad = calculaAntiguedad(EmpleadoDesde.Value);
                 
                 string consulta = "INSERT INTO Persona.Empleado(RPE_Empleado,Nombre,Domicilio,Correo,Celular,EmpleadoDesde,Antiguedad,TipoEmpleado) VALUES ('" + RPE_Empleado.Text + "','" + nombre.Text + "', '" + domicilio.Text + "', '" + correo.Text + "', '" + celular.Text + "','" + EmpleadoDesde.Value.ToString("MM/dd/yyyy") + "','" + antiguedad + "','" + tipoempleado.SelectedItem + "')";
                
@@ -106,7 +173,7 @@ namespace Laboratorio_Electronica
                         cmd.ExecuteNonQuery();
                         break;
                     case 2:
-                        consulta = "INSERT INTO Persona.Responsable(RPE_Responsable,Antiguedad,Grado,Fecha_Inicio,Fecha_Fin) VALUES ('" + RPE_Empleado.Text + "','" + antiguedadResponsable.Value.ToString("MM/dd/yyyy") + "', '"+Grado.Text +"', '"+ Fechainicio.Value.ToString("MM/dd/yyyy") + "', '" + fechafin.Value.ToString("MM/dd/yyyy") + "')";
+                        consulta = "INSERT INTO Persona.Responsable(RPE_Responsable,Grado,Fecha_Inicio,Fecha_Fin) VALUES ('" + RPE_Empleado.Text + "', '"+Grado.Text +"', '"+ Fechainicio.Value.ToString("MM/dd/yyyy") + "', '" + fechafin.Value.ToString("MM/dd/yyyy") + "')";
                         cmd = new SqlCommand(consulta, conexion);
                         cmd.ExecuteNonQuery();
                         break;
@@ -155,9 +222,10 @@ namespace Laboratorio_Electronica
             Becario.Visible = false;
             Responsable.Visible = false;
             //Asistencia.Visible = false;
-            Materia.Visible = false;
-           
-            Sancion.Visible = false;
+            //Materia.Visible = false;
+            label10.Visible = false;
+            antiguedadResponsable.Visible = false;
+            //Sancion.Visible = false;
             Prestamo.Visible = true;
             BitacoraEntrega.Visible = false;
                                    
@@ -166,6 +234,7 @@ namespace Laboratorio_Electronica
         private void btnAlta_Click(object sender, EventArgs e)
         {
             insertarRegistro();
+            //string rpe= 
             conectaBD();
             clearALL();
 
@@ -237,6 +306,7 @@ namespace Laboratorio_Electronica
             SqlCommand cmd = new SqlCommand(query, conexion);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable registros = new DataTable();
+     
             adapter.Fill(registros);
             var items = registros.Rows[0].ItemArray;
             Desc_act.Text = items[1].ToString();
@@ -268,14 +338,14 @@ namespace Laboratorio_Electronica
             adapter.Fill(registros);
             var items = registros.Rows[0].ItemArray;
             string fecha = items[1].ToString();
-            fecha = fecha.Substring(0, fecha.IndexOf(" "));
-            antiguedadResponsable.Value = DateTime.ParseExact(fecha, "dd/MM/yyyy", cultureInfo);
-            Grado.Text = items[2].ToString();
+            //fecha = fecha.Substring(0, fecha.IndexOf(" "));
+            //antiguedadResponsable.Value = DateTime.ParseExact(fecha, "dd/MM/yyyy", cultureInfo);
+            Grado.Text = items[1].ToString();
             fecha = items[3].ToString();
             fecha = fecha.Substring(0, fecha.IndexOf(" "));
             Fechainicio.Value= DateTime.ParseExact(fecha, "dd/MM/yyyy", cultureInfo);
-            fecha = items[4].ToString();
-            fecha = fecha.Substring(0, fecha.IndexOf(" "));
+            //fecha = items[4].ToString();
+            //fecha = fecha.Substring(0, fecha.IndexOf(" "));
             fechafin.Value= DateTime.ParseExact(fecha, "dd/MM/yyyy", cultureInfo);
 
         }
@@ -298,7 +368,9 @@ namespace Laboratorio_Electronica
                     conexion.Open();
                     string consulta = "";
                     SqlCommand cmd;
-                    consulta = "UPDATE Persona.Empleado SET RPE_Empleado='" + RPE_Empleado.Text + "', Nombre='" + nombre.Text + "',Domicilio='" + domicilio.Text + "',Correo='" + correo.Text + "',Celular='" + celular.Text + "',EmpleadoDesde='" + EmpleadoDesde.Value.ToString("MM/dd/yyyy") + "',Antiguedad='" + Antiguedad.Text + "',TipoEmpleado='" + tipoempleado.SelectedItem + "' WHERE RPE_Empleado='" + RPE_Antiguo + "'";
+                    string ant = calculaAntiguedad(EmpleadoDesde.Value);
+                   
+                    consulta = "UPDATE Persona.Empleado SET RPE_Empleado='" + RPE_Empleado.Text + "', Nombre='" + nombre.Text + "',Domicilio='" + domicilio.Text + "',Correo='" + correo.Text + "',Celular='" + celular.Text + "',EmpleadoDesde='" + EmpleadoDesde.Value.ToString("MM/dd/yyyy") + "',Antiguedad='" + ant + "',TipoEmpleado='" + tipoempleado.SelectedItem + "' WHERE RPE_Empleado='" + RPE_Antiguo + "'";
                     cmd = new SqlCommand(consulta, conexion);
                     cmd.ExecuteNonQuery();
                     switch (tipoempleado.SelectedIndex)
@@ -314,7 +386,7 @@ namespace Laboratorio_Electronica
                             cmd.ExecuteNonQuery();
                             break;
                         case 2:
-                            consulta = "UPDATE Persona.Responsable SET RPE_Responsable='" + RPE_Empleado.Text + "', Antiguedad='" + antiguedadResponsable.Value.ToString("MM/dd/yyyy") + "',Grado= '" + Grado.Text + "',Fecha_Inicio= '" + Fechainicio.Value.ToString("MM/dd/yyyy") + "',Fecha_Fin='" + fechafin.Value.ToString("MM/dd/yyyy")+"'WHERE RPE_Responsable="+RPE_Antiguo;
+                            consulta = "UPDATE Persona.Responsable SET RPE_Responsable='" + RPE_Empleado.Text + "',Grado= '" + Grado.Text + "',Fecha_Inicio= '" + Fechainicio.Value.ToString("MM/dd/yyyy") + "',Fecha_Fin='" + fechafin.Value.ToString("MM/dd/yyyy")+"'WHERE RPE_Responsable="+RPE_Antiguo;
                             cmd = new SqlCommand(consulta, conexion);
                             cmd.ExecuteNonQuery();
                             break;
@@ -564,12 +636,28 @@ namespace Laboratorio_Electronica
             DataTable registros = new DataTable();
 
             adapter.Fill(registros);
-
+         
             dataGridEquipo.DataSource = null;
 
             dataGridEquipo.DataSource = registros;
         }
 
+        private void muestraVistaMateria()
+        {
+            string query = String.Concat("SELECT * FROM Aula.Materia");
+
+            SqlCommand cmd = new SqlCommand(query, conexion);
+
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+            DataTable registros = new DataTable();
+
+            adapter.Fill(registros);
+
+            TablaMateria.DataSource = null;
+
+            TablaMateria.DataSource = registros;
+        }
         private void muestraVistaPrestamo()
         {
             string query = String.Concat("SELECT * FROM Aula.Prestamo");
@@ -628,6 +716,25 @@ namespace Laboratorio_Electronica
             }
         }
 
+        private int eliminaRegistroMateria()
+        {
+            try
+            {
+                conexion.Open();
+
+                string consulta = "DELETE FROM Aula.Materia WHERE ClaveMateria=" + IdMateria;
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.ExecuteNonQuery();
+                conexion.Close();
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                conexion.Close();
+                MessageBox.Show("Error de conexion: " + ex.Message);
+                return 1;
+            }
+        }
         private int eliminaRegistroPrestamo()
         {
             try
@@ -663,7 +770,28 @@ namespace Laboratorio_Electronica
                 return 1;
             }
         }
-        
+
+        private int insertarRegistroMateria()
+        {
+            try
+            {
+                conexion.Open();
+                string consulta = "INSERT INTO Aula.Materia(Nombre,Nivel) VALUES ('" + NombreMateria.Text+ "', '" + Convert.ToInt32(NivelMateria.Text) + "')";
+                SqlCommand cmd = new SqlCommand(consulta, conexion);
+                cmd.ExecuteNonQuery();
+
+
+                conexion.Close();
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                conexion.Close();
+                MessageBox.Show("Error de conexion: No se pueden agregar Materias de ese tipo");
+                //MessageBox.Show("ee" + ex.);
+                return 1;
+            }
+        }
         private int insertarRegistroEquipo()
         {
             try
@@ -855,7 +983,8 @@ namespace Laboratorio_Electronica
 
         private void button7_Click(object sender, EventArgs e)
         {
-
+            insertarRegistroMateria();
+            muestraVistaMateria();
         }
 
         private void DatosPrestamo_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -885,6 +1014,37 @@ namespace Laboratorio_Electronica
             RPE_Antiguo = dgridVistaEmpleado.Rows[dgridVistaEmpleado.CurrentRow.Index].Cells[0].Value.ToString();
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            modificaMateria();
+            conectaBD();
+        }
+
+        private int modificaMateria()
+        {
+
+            try
+            {
+                conexion.Open();
+                
+                string consulta = "UPDATE Aula.Materia SET Nombre = '" + NombreMateria.Text + "', Nivel='" + Convert.ToInt32(NivelMateria.Text)  + "' WHERE ClaveMateria=" + IdMateria;
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.ExecuteNonQuery();
+                conexion.Close();
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                conexion.Close();
+                MessageBox.Show("Error de conexion: " + ex.Message + " Materia");
+                return 1;
+            }
+        }
         private int modificaPrestamo()
         {
        
@@ -908,6 +1068,38 @@ namespace Laboratorio_Electronica
                 return 1;
             }
         }
+
+        private void TablaMateria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            eliminaRegistroMateria();
+            NombreMateria.Text = "";
+            NivelMateria.Text = "";
+            conectaBD();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgridVistaEmpleado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void TablaMateria_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            IdMateria =Convert.ToInt32(TablaMateria.Rows[TablaMateria.CurrentRow.Index].Cells[0].Value);
+            NombreMateria.Text = TablaMateria.Rows[TablaMateria.CurrentRow.Index].Cells[1].Value.ToString();
+            NivelMateria.Text = TablaMateria.Rows[TablaMateria.CurrentRow.Index].Cells[2].Value.ToString();
+        }
+
+
         private int modificaAlumno()
         {
             try
