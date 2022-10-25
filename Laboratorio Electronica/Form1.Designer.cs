@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Empleado = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -505,8 +505,8 @@
             this.dgridVistaResponsable.RowHeadersVisible = false;
             this.dgridVistaResponsable.RowHeadersWidth = 20;
             this.dgridVistaResponsable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dgridVistaResponsable.RowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dgridVistaResponsable.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgridVistaResponsable.Size = new System.Drawing.Size(531, 386);
             this.dgridVistaResponsable.TabIndex = 44;
             // 
@@ -526,8 +526,8 @@
             this.dgridVistaColaborador.RowHeadersVisible = false;
             this.dgridVistaColaborador.RowHeadersWidth = 20;
             this.dgridVistaColaborador.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dgridVistaColaborador.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dgridVistaColaborador.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgridVistaColaborador.Size = new System.Drawing.Size(425, 386);
             this.dgridVistaColaborador.TabIndex = 43;
             // 
@@ -547,8 +547,8 @@
             this.dgridVistaBecario.RowHeadersVisible = false;
             this.dgridVistaBecario.RowHeadersWidth = 20;
             this.dgridVistaBecario.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dgridVistaBecario.RowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dgridVistaBecario.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgridVistaBecario.Size = new System.Drawing.Size(531, 335);
             this.dgridVistaBecario.TabIndex = 42;
             // 
@@ -568,8 +568,8 @@
             this.dgridVistaEmpleado.RowHeadersVisible = false;
             this.dgridVistaEmpleado.RowHeadersWidth = 20;
             this.dgridVistaEmpleado.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dgridVistaEmpleado.RowsDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dgridVistaEmpleado.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgridVistaEmpleado.Size = new System.Drawing.Size(782, 386);
             this.dgridVistaEmpleado.TabIndex = 41;
             this.dgridVistaEmpleado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridVistaEmpleado_CellClick);
@@ -782,7 +782,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1839, 921);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Control";
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
@@ -802,9 +802,9 @@
             this.TablaMateria.RowHeadersVisible = false;
             this.TablaMateria.RowHeadersWidth = 20;
             this.TablaMateria.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Teal;
-            this.TablaMateria.RowsDefaultCellStyle = dataGridViewCellStyle17;
-            this.TablaMateria.Size = new System.Drawing.Size(486, 165);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Teal;
+            this.TablaMateria.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.TablaMateria.Size = new System.Drawing.Size(565, 165);
             this.TablaMateria.TabIndex = 44;
             this.TablaMateria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TablaMateria_CellContentClick);
             this.TablaMateria.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.TablaMateria_CellMouseClick);
@@ -825,8 +825,8 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 20;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.Size = new System.Drawing.Size(474, 165);
             this.dataGridView1.TabIndex = 43;
             // 
@@ -842,7 +842,7 @@
             this.Materia.Controls.Add(this.NivelMateria);
             this.Materia.Location = new System.Drawing.Point(647, 69);
             this.Materia.Name = "Materia";
-            this.Materia.Size = new System.Drawing.Size(486, 152);
+            this.Materia.Size = new System.Drawing.Size(565, 152);
             this.Materia.TabIndex = 34;
             // 
             // button9
@@ -989,8 +989,8 @@
             this.DatosPrestamo.RowHeadersVisible = false;
             this.DatosPrestamo.RowHeadersWidth = 20;
             this.DatosPrestamo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.Teal;
-            this.DatosPrestamo.RowsDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Teal;
+            this.DatosPrestamo.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.DatosPrestamo.Size = new System.Drawing.Size(511, 165);
             this.DatosPrestamo.TabIndex = 48;
             this.DatosPrestamo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DatosPrestamo_CellClick);
@@ -1116,7 +1116,7 @@
             this.Sancion.Controls.Add(this.descSansion);
             this.Sancion.Location = new System.Drawing.Point(69, 493);
             this.Sancion.Name = "Sancion";
-            this.Sancion.Size = new System.Drawing.Size(364, 178);
+            this.Sancion.Size = new System.Drawing.Size(473, 192);
             this.Sancion.TabIndex = 33;
             // 
             // label23
@@ -1167,28 +1167,28 @@
             // 
             // montoSansion
             // 
-            this.montoSansion.Location = new System.Drawing.Point(156, 149);
+            this.montoSansion.Location = new System.Drawing.Point(251, 149);
             this.montoSansion.Name = "montoSansion";
             this.montoSansion.Size = new System.Drawing.Size(200, 26);
             this.montoSansion.TabIndex = 23;
             // 
             // fechaSansion
             // 
-            this.fechaSansion.Location = new System.Drawing.Point(156, 117);
+            this.fechaSansion.Location = new System.Drawing.Point(251, 117);
             this.fechaSansion.Name = "fechaSansion";
             this.fechaSansion.Size = new System.Drawing.Size(200, 26);
             this.fechaSansion.TabIndex = 24;
             // 
             // fliquidacion
             // 
-            this.fliquidacion.Location = new System.Drawing.Point(156, 85);
+            this.fliquidacion.Location = new System.Drawing.Point(251, 85);
             this.fliquidacion.Name = "fliquidacion";
             this.fliquidacion.Size = new System.Drawing.Size(200, 26);
             this.fliquidacion.TabIndex = 25;
             // 
             // descSansion
             // 
-            this.descSansion.Location = new System.Drawing.Point(156, 52);
+            this.descSansion.Location = new System.Drawing.Point(251, 52);
             this.descSansion.Name = "descSansion";
             this.descSansion.Size = new System.Drawing.Size(200, 26);
             this.descSansion.TabIndex = 26;
@@ -1414,8 +1414,8 @@
             this.dataGridEquipo.RowHeadersVisible = false;
             this.dataGridEquipo.RowHeadersWidth = 20;
             this.dataGridEquipo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dataGridEquipo.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dataGridEquipo.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridEquipo.Size = new System.Drawing.Size(782, 386);
             this.dataGridEquipo.TabIndex = 44;
             this.dataGridEquipo.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridEquipo_CellMouseClick);

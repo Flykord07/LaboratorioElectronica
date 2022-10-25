@@ -113,6 +113,41 @@ namespace Laboratorio_Electronica
             destinyTable.DataSource = null;
             destinyTable.DataSource = dtCloned;
         }
+        private void cargarTablaalumn(string query, string q2, DataGridView destinyTable)
+        {
+            //Vista original con query 1
+            SqlCommand cmd = new SqlCommand(query, conexion);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable registros = new DataTable();
+            adapter.Fill(registros);
+
+            //Vista con el dato extra (INNER JOIN)
+            SqlCommand cd = new SqlCommand(q2, conexion);
+            SqlDataAdapter adapt = new SqlDataAdapter(cd);
+            DataTable regs = new DataTable();
+            adapt.Fill(regs);
+
+            //Creo una tabla nueva para clonar la vista original porque necesito que el dato extra sea cadena
+            DataTable dtCloned = registros.Clone();
+
+            //Pongo la columna que necesito como string
+            dtCloned.Columns[0].DataType = typeof(string);
+            foreach (DataRow row in registros.Rows)
+            {
+
+                dtCloned.ImportRow(row);
+            }
+
+            //Le agrego el extra a la columna necesaria; en este caso es RPE + Nombre
+            for (int i = 0; i < registros.Rows.Count; i++)
+            {
+                //MessageBox.Show("--");
+                dtCloned.Rows[i][0] += "-" + regs.Rows[i][0].ToString();
+            }
+            //La tabla mostrada en la vista es la clonada
+            destinyTable.DataSource = null;
+            destinyTable.DataSource = dtCloned;
+        }
         private int conectaBD()
         {
             try
