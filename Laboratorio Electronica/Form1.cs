@@ -13,12 +13,13 @@ namespace Laboratorio_Electronica
 {
     public partial class Form1 : Form
     {
-        private int id,NumInv, Adeudo,IdPrestamo,IdMateria;
+        private int id,NumInv, Adeudo,IdPrestamo,IdMateria, oldIndex;
+        private bool indexChanged;
         string cu;
         string RPE_Antiguo;
         DataTable dt;
         DataTable dato;
-        private SqlConnection conexion = new SqlConnection("Server=DESKTOP-O0MDQRH\\SQLEXPRESS;" + "Database=Laboratorio;" + "Integrated Security=true;");
+        private SqlConnection conexion = new SqlConnection("Server=HPLAPTOP\\SQLEXPRESS;" + "Database=Laboratorio;" + "Integrated Security=true;");
         public Form1()
         {
             InitializeComponent();
@@ -391,6 +392,8 @@ namespace Laboratorio_Electronica
             btnModificar.Enabled = true;
             btnEliminar.Enabled = true;
             btnNuevo.Visible = true;
+            indexChanged = false;
+            oldIndex = tipoempleado.SelectedIndex;//checar si funciona
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -408,23 +411,66 @@ namespace Laboratorio_Electronica
                     consulta = "UPDATE Persona.Empleado SET RPE_Empleado='" + RPE_Empleado.Text + "', Nombre='" + nombre.Text + "',Domicilio='" + domicilio.Text + "',Correo='" + correo.Text + "',Celular='" + celular.Text + "',EmpleadoDesde='" + EmpleadoDesde.Value.ToString("MM/dd/yyyy") + "',Antiguedad='" + ant + "',TipoEmpleado='" + tipoempleado.SelectedItem + "' WHERE RPE_Empleado='" + RPE_Antiguo + "'";
                     cmd = new SqlCommand(consulta, conexion);
                     cmd.ExecuteNonQuery();
-                    switch (tipoempleado.SelectedIndex)
+                    if (indexChanged)
                     {
-                        case 0:
-                            consulta = "UPDATE Persona.Colaborador SET RPE_Colaborador='"+RPE_Empleado.Text+"', Desc_act='" + Desc_act.Text + "',Hrs_sem= '" + Hrssm.Text + "' WHERE RPE_Colaborador="+RPE_Antiguo;
-                            cmd = new SqlCommand(consulta, conexion);
-                            cmd.ExecuteNonQuery();
-                            break;
-                        case 1:
-                            consulta = "UPDATE Persona.Becario SET  RPE_Becario='" + RPE_Empleado.Text + "',Fecha_nac='" + Fechanac.Value.ToString("MM/dd/yyyy") + "',Hrs_sem= '" + Hrs_sem.Text + "',Generacion= '" + Generacion.Text + "'WHERE RPE_Becario=" + RPE_Antiguo;
-                            cmd = new SqlCommand(consulta, conexion);
-                            cmd.ExecuteNonQuery();
-                            break;
-                        case 2:
-                            consulta = "UPDATE Persona.Responsable SET RPE_Responsable='" + RPE_Empleado.Text + "',Grado= '" + Grado.Text + "',Fecha_Inicio= '" + Fechainicio.Value.ToString("MM/dd/yyyy") + "',Fecha_Fin='" + fechafin.Value.ToString("MM/dd/yyyy")+"'WHERE RPE_Responsable="+RPE_Antiguo;
-                            cmd = new SqlCommand(consulta, conexion);
-                            cmd.ExecuteNonQuery();
-                            break;
+                        switch (oldIndex)
+                        {                            
+                            case 0:
+                                consulta = "DELETE FROM Persona.Colaborador WHERE RPE_Colaborador=" + id;
+                                cmd = new SqlCommand(consulta, conexion);
+                                cmd.ExecuteNonQuery();
+                                break;
+                            case 1:
+                                consulta = "DELETE FROM Persona.Becario WHERE RPE_Becario=" + id;
+                                cmd = new SqlCommand(consulta, conexion);
+                                cmd.ExecuteNonQuery();
+                                break;
+                            case 2:
+                                consulta = "DELETE FROM Persona.Responsable WHERE RPE_Responsable=" + id;
+                                cmd = new SqlCommand(consulta, conexion);
+                                cmd.ExecuteNonQuery();
+                                break;
+                        }
+                        switch (tipoempleado.SelectedIndex)
+                        {                            
+                            case 0:
+                                consulta = "INSERT INTO Persona.Colaborador (RPE_Colaborador,Desc_act,Hrs_sem) VALUES('" + RPE_Empleado.Text + "', '" + Desc_act.Text + "','" + Hrssm.Text + "' )";
+                                cmd = new SqlCommand(consulta, conexion);
+                                cmd.ExecuteNonQuery();
+                                break;
+                            case 1:
+                                consulta = "INSERT INTO Persona.Becario  (RPE_Becario,Fecha_nac,Hrs_sem,Generacion) VALUES('" + RPE_Empleado.Text + "','" + Fechanac.Value.ToString("MM/dd/yyyy") + "','" + Hrs_sem.Text + "','" + Generacion.Text + "')";
+                                cmd = new SqlCommand(consulta, conexion);
+                                cmd.ExecuteNonQuery();
+                                break;
+                            case 2:
+                                consulta = "INSERT INTO Persona.Responsable (RPE_Responsable,Grado,Fecha_Inicio,Fecha_Fin) VALUES('" + RPE_Empleado.Text + "','" + Grado.Text + "','" + Fechainicio.Value.ToString("MM/dd/yyyy") + "','" + fechafin.Value.ToString("MM/dd/yyyy") + "')";
+                                cmd = new SqlCommand(consulta, conexion);
+                                cmd.ExecuteNonQuery();
+                                break;
+                        }
+                        indexChanged = false;
+                    }
+                    else
+                    {
+                        switch (tipoempleado.SelectedIndex)
+                        {                           
+                            case 0:
+                                consulta = "UPDATE Persona.Colaborador SET RPE_Colaborador='" + RPE_Empleado.Text + "', Desc_act='" + Desc_act.Text + "',Hrs_sem= '" + Hrssm.Text + "' WHERE RPE_Colaborador=" + RPE_Antiguo;
+                                cmd = new SqlCommand(consulta, conexion);
+                                cmd.ExecuteNonQuery();
+                                break;
+                            case 1:
+                                consulta = "UPDATE Persona.Becario SET  RPE_Becario='" + RPE_Empleado.Text + "',Fecha_nac='" + Fechanac.Value.ToString("MM/dd/yyyy") + "',Hrs_sem= '" + Hrs_sem.Text + "',Generacion= '" + Generacion.Text + "'WHERE RPE_Becario=" + RPE_Antiguo;
+                                cmd = new SqlCommand(consulta, conexion);
+                                cmd.ExecuteNonQuery();
+                                break;
+                            case 2:
+                                consulta = "UPDATE Persona.Responsable SET RPE_Responsable='" + RPE_Empleado.Text + "',Grado= '" + Grado.Text + "',Fecha_Inicio= '" + Fechainicio.Value.ToString("MM/dd/yyyy") + "',Fecha_Fin='" + fechafin.Value.ToString("MM/dd/yyyy") + "'WHERE RPE_Responsable=" + RPE_Antiguo;
+                                cmd = new SqlCommand(consulta, conexion);
+                                cmd.ExecuteNonQuery();
+                                break;
+                        }
                     }
                   
                     conexion.Close();
@@ -493,6 +539,8 @@ namespace Laboratorio_Electronica
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             //MessageBox.Show(tipoempleado.SelectedItem.ToString());
+            if(oldIndex != tipoempleado.SelectedIndex)
+                indexChanged = true;
             switch (tipoempleado.SelectedIndex)
             {
                 case 0:
