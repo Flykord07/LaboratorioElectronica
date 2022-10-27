@@ -1165,16 +1165,6 @@ namespace Laboratorio_Electronica
             conectaBD();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgridVistaEmpleado_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void TablaMateria_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             IdMateria =Convert.ToInt32(TablaMateria.Rows[TablaMateria.CurrentRow.Index].Cells[0].Value);

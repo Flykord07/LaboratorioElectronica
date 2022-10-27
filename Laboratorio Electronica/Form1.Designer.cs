@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Empleado = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -105,20 +106,6 @@
             this.label22 = new System.Windows.Forms.Label();
             this.entregadoBitacora = new System.Windows.Forms.DateTimePicker();
             this.FechaBitacora = new System.Windows.Forms.Label();
-            this.Prestamo = new System.Windows.Forms.Panel();
-            this.DatosPrestamo = new System.Windows.Forms.DataGridView();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.RPEPrestamo = new System.Windows.Forms.ComboBox();
-            this.NumInvPrestamo = new System.Windows.Forms.ComboBox();
-            this.clavesPrestamo = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.Sancion = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
@@ -178,6 +165,28 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
+            this.tabPrestamo = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dtpFechaEntregaBitacora = new System.Windows.Forms.DateTimePicker();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.Prestamo = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.DatosPrestamo = new System.Windows.Forms.DataGridView();
+            this.btnElimPrest = new System.Windows.Forms.Button();
+            this.btnModifPrest = new System.Windows.Forms.Button();
+            this.btnAgregarPrest = new System.Windows.Forms.Button();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.RPEPrestamo = new System.Windows.Forms.ComboBox();
+            this.NumInvPrestamo = new System.Windows.Forms.ComboBox();
+            this.clavesPrestamo = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
             this.Empleado.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.Responsable.SuspendLayout();
@@ -193,8 +202,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Materia.SuspendLayout();
             this.BitacoraEntrega.SuspendLayout();
-            this.Prestamo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DatosPrestamo)).BeginInit();
             this.Sancion.SuspendLayout();
             this.Asistencia.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -202,6 +209,11 @@
             this.tabAlumno.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumno)).BeginInit();
             this.Alumno.SuspendLayout();
+            this.tabPrestamo.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.Prestamo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DatosPrestamo)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -220,8 +232,9 @@
             this.Empleado.Controls.Add(this.tabPage2);
             this.Empleado.Controls.Add(this.tabPage3);
             this.Empleado.Controls.Add(this.tabAlumno);
+            this.Empleado.Controls.Add(this.tabPrestamo);
             this.Empleado.Location = new System.Drawing.Point(0, 0);
-            this.Empleado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Empleado.Margin = new System.Windows.Forms.Padding(2);
             this.Empleado.Name = "Empleado";
             this.Empleado.SelectedIndex = 0;
             this.Empleado.Size = new System.Drawing.Size(1231, 620);
@@ -247,9 +260,9 @@
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.btnEliminar);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(1223, 594);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Empleado";
@@ -258,7 +271,7 @@
             // btnNuevo
             // 
             this.btnNuevo.Location = new System.Drawing.Point(19, 113);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(59, 35);
             this.btnNuevo.TabIndex = 50;
@@ -277,7 +290,7 @@
             this.Responsable.Controls.Add(this.Grado);
             this.Responsable.Controls.Add(this.label10);
             this.Responsable.Location = new System.Drawing.Point(537, 6);
-            this.Responsable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Responsable.Margin = new System.Windows.Forms.Padding(2);
             this.Responsable.Name = "Responsable";
             this.Responsable.Size = new System.Drawing.Size(230, 109);
             this.Responsable.TabIndex = 36;
@@ -287,7 +300,7 @@
             this.fechafin.CustomFormat = "MM/dd/yyyy";
             this.fechafin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.fechafin.Location = new System.Drawing.Point(78, 84);
-            this.fechafin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fechafin.Margin = new System.Windows.Forms.Padding(2);
             this.fechafin.Name = "fechafin";
             this.fechafin.Size = new System.Drawing.Size(146, 20);
             this.fechafin.TabIndex = 43;
@@ -297,7 +310,7 @@
             this.Fechainicio.CustomFormat = "MM/dd/yyyy";
             this.Fechainicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Fechainicio.Location = new System.Drawing.Point(78, 58);
-            this.Fechainicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Fechainicio.Margin = new System.Windows.Forms.Padding(2);
             this.Fechainicio.Name = "Fechainicio";
             this.Fechainicio.Size = new System.Drawing.Size(146, 20);
             this.Fechainicio.TabIndex = 42;
@@ -307,7 +320,7 @@
             this.antiguedadResponsable.CustomFormat = "MM/dd/yyyy";
             this.antiguedadResponsable.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.antiguedadResponsable.Location = new System.Drawing.Point(78, 4);
-            this.antiguedadResponsable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.antiguedadResponsable.Margin = new System.Windows.Forms.Padding(2);
             this.antiguedadResponsable.Name = "antiguedadResponsable";
             this.antiguedadResponsable.Size = new System.Drawing.Size(146, 20);
             this.antiguedadResponsable.TabIndex = 41;
@@ -345,7 +358,7 @@
             // Grado
             // 
             this.Grado.Location = new System.Drawing.Point(78, 31);
-            this.Grado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Grado.Margin = new System.Windows.Forms.Padding(2);
             this.Grado.Name = "Grado";
             this.Grado.Size = new System.Drawing.Size(146, 20);
             this.Grado.TabIndex = 37;
@@ -369,7 +382,7 @@
             this.Becario.Controls.Add(this.Generacion);
             this.Becario.Controls.Add(this.label11);
             this.Becario.Location = new System.Drawing.Point(537, 5);
-            this.Becario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Becario.Margin = new System.Windows.Forms.Padding(2);
             this.Becario.Name = "Becario";
             this.Becario.Size = new System.Drawing.Size(230, 79);
             this.Becario.TabIndex = 36;
@@ -379,7 +392,7 @@
             this.Fechanac.CustomFormat = "MM/dd/yyyy";
             this.Fechanac.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Fechanac.Location = new System.Drawing.Point(86, 6);
-            this.Fechanac.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Fechanac.Margin = new System.Windows.Forms.Padding(2);
             this.Fechanac.Name = "Fechanac";
             this.Fechanac.Size = new System.Drawing.Size(139, 20);
             this.Fechanac.TabIndex = 44;
@@ -407,7 +420,7 @@
             // Hrs_sem
             // 
             this.Hrs_sem.Location = new System.Drawing.Point(86, 30);
-            this.Hrs_sem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Hrs_sem.Margin = new System.Windows.Forms.Padding(2);
             this.Hrs_sem.Name = "Hrs_sem";
             this.Hrs_sem.Size = new System.Drawing.Size(139, 20);
             this.Hrs_sem.TabIndex = 29;
@@ -415,7 +428,7 @@
             // Generacion
             // 
             this.Generacion.Location = new System.Drawing.Point(86, 54);
-            this.Generacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Generacion.Margin = new System.Windows.Forms.Padding(2);
             this.Generacion.Name = "Generacion";
             this.Generacion.Size = new System.Drawing.Size(139, 20);
             this.Generacion.TabIndex = 32;
@@ -437,7 +450,7 @@
             this.Colaborador.Controls.Add(this.label13);
             this.Colaborador.Controls.Add(this.Hrssm);
             this.Colaborador.Location = new System.Drawing.Point(537, 6);
-            this.Colaborador.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Colaborador.Margin = new System.Windows.Forms.Padding(2);
             this.Colaborador.Name = "Colaborador";
             this.Colaborador.Size = new System.Drawing.Size(230, 58);
             this.Colaborador.TabIndex = 35;
@@ -455,7 +468,7 @@
             // Desc_act
             // 
             this.Desc_act.Location = new System.Drawing.Point(67, 5);
-            this.Desc_act.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Desc_act.Margin = new System.Windows.Forms.Padding(2);
             this.Desc_act.Name = "Desc_act";
             this.Desc_act.Size = new System.Drawing.Size(157, 20);
             this.Desc_act.TabIndex = 33;
@@ -473,7 +486,7 @@
             // Hrssm
             // 
             this.Hrssm.Location = new System.Drawing.Point(67, 32);
-            this.Hrssm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Hrssm.Margin = new System.Windows.Forms.Padding(2);
             this.Hrssm.Name = "Hrssm";
             this.Hrssm.Size = new System.Drawing.Size(157, 20);
             this.Hrssm.TabIndex = 31;
@@ -533,8 +546,8 @@
             this.dgridVistaResponsable.RowHeadersVisible = false;
             this.dgridVistaResponsable.RowHeadersWidth = 20;
             this.dgridVistaResponsable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dgridVistaResponsable.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dgridVistaResponsable.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgridVistaResponsable.Size = new System.Drawing.Size(354, 251);
             this.dgridVistaResponsable.TabIndex = 44;
             // 
@@ -553,8 +566,8 @@
             this.dgridVistaColaborador.RowHeadersVisible = false;
             this.dgridVistaColaborador.RowHeadersWidth = 20;
             this.dgridVistaColaborador.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dgridVistaColaborador.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dgridVistaColaborador.RowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgridVistaColaborador.Size = new System.Drawing.Size(283, 251);
             this.dgridVistaColaborador.TabIndex = 43;
             // 
@@ -573,8 +586,8 @@
             this.dgridVistaBecario.RowHeadersVisible = false;
             this.dgridVistaBecario.RowHeadersWidth = 20;
             this.dgridVistaBecario.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dgridVistaBecario.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dgridVistaBecario.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.dgridVistaBecario.Size = new System.Drawing.Size(354, 218);
             this.dgridVistaBecario.TabIndex = 42;
             // 
@@ -593,8 +606,8 @@
             this.dgridVistaEmpleado.RowHeadersVisible = false;
             this.dgridVistaEmpleado.RowHeadersWidth = 20;
             this.dgridVistaEmpleado.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dgridVistaEmpleado.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dgridVistaEmpleado.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dgridVistaEmpleado.Size = new System.Drawing.Size(521, 251);
             this.dgridVistaEmpleado.TabIndex = 41;
             this.dgridVistaEmpleado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridVistaEmpleado_CellClick);
@@ -603,7 +616,7 @@
             // btnAlta
             // 
             this.btnAlta.Location = new System.Drawing.Point(19, 14);
-            this.btnAlta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAlta.Margin = new System.Windows.Forms.Padding(2);
             this.btnAlta.Name = "btnAlta";
             this.btnAlta.Size = new System.Drawing.Size(59, 21);
             this.btnAlta.TabIndex = 40;
@@ -614,7 +627,7 @@
             // btnModificar
             // 
             this.btnModificar.Location = new System.Drawing.Point(19, 45);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(59, 21);
             this.btnModificar.TabIndex = 39;
@@ -641,7 +654,7 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Location = new System.Drawing.Point(89, 6);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(437, 240);
             this.panel1.TabIndex = 34;
@@ -652,7 +665,7 @@
             this.EmpleadoDesde.CustomFormat = "MM/dd/yyyy";
             this.EmpleadoDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.EmpleadoDesde.Location = new System.Drawing.Point(96, 155);
-            this.EmpleadoDesde.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EmpleadoDesde.Margin = new System.Windows.Forms.Padding(2);
             this.EmpleadoDesde.Name = "EmpleadoDesde";
             this.EmpleadoDesde.Size = new System.Drawing.Size(302, 20);
             this.EmpleadoDesde.TabIndex = 45;
@@ -660,7 +673,7 @@
             // nombre
             // 
             this.nombre.Location = new System.Drawing.Point(94, 36);
-            this.nombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nombre.Margin = new System.Windows.Forms.Padding(2);
             this.nombre.Name = "nombre";
             this.nombre.Size = new System.Drawing.Size(304, 20);
             this.nombre.TabIndex = 22;
@@ -668,7 +681,7 @@
             // domicilio
             // 
             this.domicilio.Location = new System.Drawing.Point(94, 65);
-            this.domicilio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.domicilio.Margin = new System.Windows.Forms.Padding(2);
             this.domicilio.Name = "domicilio";
             this.domicilio.Size = new System.Drawing.Size(304, 20);
             this.domicilio.TabIndex = 21;
@@ -676,7 +689,7 @@
             // Antiguedad
             // 
             this.Antiguedad.Location = new System.Drawing.Point(96, 184);
-            this.Antiguedad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Antiguedad.Margin = new System.Windows.Forms.Padding(2);
             this.Antiguedad.Name = "Antiguedad";
             this.Antiguedad.Size = new System.Drawing.Size(304, 20);
             this.Antiguedad.TabIndex = 20;
@@ -689,7 +702,7 @@
             "Becario",
             "Responsable"});
             this.tipoempleado.Location = new System.Drawing.Point(96, 213);
-            this.tipoempleado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tipoempleado.Margin = new System.Windows.Forms.Padding(2);
             this.tipoempleado.Name = "tipoempleado";
             this.tipoempleado.Size = new System.Drawing.Size(302, 21);
             this.tipoempleado.TabIndex = 37;
@@ -698,7 +711,7 @@
             // celular
             // 
             this.celular.Location = new System.Drawing.Point(94, 122);
-            this.celular.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.celular.Margin = new System.Windows.Forms.Padding(2);
             this.celular.Name = "celular";
             this.celular.Size = new System.Drawing.Size(304, 20);
             this.celular.TabIndex = 18;
@@ -706,7 +719,7 @@
             // correo
             // 
             this.correo.Location = new System.Drawing.Point(94, 92);
-            this.correo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.correo.Margin = new System.Windows.Forms.Padding(2);
             this.correo.Name = "correo";
             this.correo.Size = new System.Drawing.Size(304, 20);
             this.correo.TabIndex = 17;
@@ -724,7 +737,7 @@
             // RPE_Empleado
             // 
             this.RPE_Empleado.Location = new System.Drawing.Point(94, 7);
-            this.RPE_Empleado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RPE_Empleado.Margin = new System.Windows.Forms.Padding(2);
             this.RPE_Empleado.Name = "RPE_Empleado";
             this.RPE_Empleado.Size = new System.Drawing.Size(304, 20);
             this.RPE_Empleado.TabIndex = 9;
@@ -802,7 +815,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Location = new System.Drawing.Point(19, 79);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(59, 21);
             this.btnEliminar.TabIndex = 3;
@@ -816,15 +829,14 @@
             this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Controls.Add(this.Materia);
             this.tabPage2.Controls.Add(this.BitacoraEntrega);
-            this.tabPage2.Controls.Add(this.Prestamo);
             this.tabPage2.Controls.Add(this.Sancion);
             this.tabPage2.Controls.Add(this.Asistencia);
             this.tabPage2.Controls.Add(this.menuStrip3);
             this.tabPage2.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(1223, 594);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Control";
@@ -846,8 +858,8 @@
             this.TablaMateria.RowHeadersVisible = false;
             this.TablaMateria.RowHeadersWidth = 20;
             this.TablaMateria.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Teal;
-            this.TablaMateria.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.Teal;
+            this.TablaMateria.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.TablaMateria.Size = new System.Drawing.Size(377, 107);
             this.TablaMateria.TabIndex = 44;
             this.TablaMateria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TablaMateria_CellContentClick);
@@ -868,8 +880,8 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 20;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridView1.Size = new System.Drawing.Size(316, 107);
             this.dataGridView1.TabIndex = 43;
             // 
@@ -884,7 +896,7 @@
             this.Materia.Controls.Add(this.NombreMateria);
             this.Materia.Controls.Add(this.NivelMateria);
             this.Materia.Location = new System.Drawing.Point(431, 45);
-            this.Materia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Materia.Margin = new System.Windows.Forms.Padding(2);
             this.Materia.Name = "Materia";
             this.Materia.Size = new System.Drawing.Size(377, 99);
             this.Materia.TabIndex = 34;
@@ -892,7 +904,7 @@
             // button9
             // 
             this.button9.Location = new System.Drawing.Point(207, 70);
-            this.button9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button9.Margin = new System.Windows.Forms.Padding(2);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(99, 21);
             this.button9.TabIndex = 44;
@@ -903,7 +915,7 @@
             // button8
             // 
             this.button8.Location = new System.Drawing.Point(207, 45);
-            this.button8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button8.Margin = new System.Windows.Forms.Padding(2);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(99, 21);
             this.button8.TabIndex = 44;
@@ -914,7 +926,7 @@
             // button7
             // 
             this.button7.Location = new System.Drawing.Point(207, 24);
-            this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button7.Margin = new System.Windows.Forms.Padding(2);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(99, 21);
             this.button7.TabIndex = 44;
@@ -956,7 +968,7 @@
             // NombreMateria
             // 
             this.NombreMateria.Location = new System.Drawing.Point(59, 32);
-            this.NombreMateria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NombreMateria.Margin = new System.Windows.Forms.Padding(2);
             this.NombreMateria.Name = "NombreMateria";
             this.NombreMateria.Size = new System.Drawing.Size(135, 20);
             this.NombreMateria.TabIndex = 18;
@@ -964,7 +976,7 @@
             // NivelMateria
             // 
             this.NivelMateria.Location = new System.Drawing.Point(59, 53);
-            this.NivelMateria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NivelMateria.Margin = new System.Windows.Forms.Padding(2);
             this.NivelMateria.Name = "NivelMateria";
             this.NivelMateria.Size = new System.Drawing.Size(135, 20);
             this.NivelMateria.TabIndex = 17;
@@ -975,7 +987,7 @@
             this.BitacoraEntrega.Controls.Add(this.entregadoBitacora);
             this.BitacoraEntrega.Controls.Add(this.FechaBitacora);
             this.BitacoraEntrega.Location = new System.Drawing.Point(823, 398);
-            this.BitacoraEntrega.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BitacoraEntrega.Margin = new System.Windows.Forms.Padding(2);
             this.BitacoraEntrega.Name = "BitacoraEntrega";
             this.BitacoraEntrega.Size = new System.Drawing.Size(266, 47);
             this.BitacoraEntrega.TabIndex = 33;
@@ -994,7 +1006,7 @@
             // entregadoBitacora
             // 
             this.entregadoBitacora.Location = new System.Drawing.Point(104, 28);
-            this.entregadoBitacora.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.entregadoBitacora.Margin = new System.Windows.Forms.Padding(2);
             this.entregadoBitacora.Name = "entregadoBitacora";
             this.entregadoBitacora.Size = new System.Drawing.Size(135, 20);
             this.entregadoBitacora.TabIndex = 9;
@@ -1009,168 +1021,6 @@
             this.FechaBitacora.TabIndex = 8;
             this.FechaBitacora.Text = "Fecha Entregado";
             // 
-            // Prestamo
-            // 
-            this.Prestamo.Controls.Add(this.DatosPrestamo);
-            this.Prestamo.Controls.Add(this.button10);
-            this.Prestamo.Controls.Add(this.button11);
-            this.Prestamo.Controls.Add(this.button12);
-            this.Prestamo.Controls.Add(this.label54);
-            this.Prestamo.Controls.Add(this.label53);
-            this.Prestamo.Controls.Add(this.label52);
-            this.Prestamo.Controls.Add(this.RPEPrestamo);
-            this.Prestamo.Controls.Add(this.NumInvPrestamo);
-            this.Prestamo.Controls.Add(this.clavesPrestamo);
-            this.Prestamo.Controls.Add(this.label19);
-            this.Prestamo.Controls.Add(this.label21);
-            this.Prestamo.Controls.Add(this.textBox7);
-            this.Prestamo.Location = new System.Drawing.Point(431, 261);
-            this.Prestamo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Prestamo.Name = "Prestamo";
-            this.Prestamo.Size = new System.Drawing.Size(377, 261);
-            this.Prestamo.TabIndex = 33;
-            // 
-            // DatosPrestamo
-            // 
-            this.DatosPrestamo.AllowUserToAddRows = false;
-            this.DatosPrestamo.AllowUserToDeleteRows = false;
-            this.DatosPrestamo.AllowUserToResizeColumns = false;
-            this.DatosPrestamo.AllowUserToResizeRows = false;
-            this.DatosPrestamo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DatosPrestamo.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DatosPrestamo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.DatosPrestamo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DatosPrestamo.Location = new System.Drawing.Point(11, 126);
-            this.DatosPrestamo.Name = "DatosPrestamo";
-            this.DatosPrestamo.RowHeadersVisible = false;
-            this.DatosPrestamo.RowHeadersWidth = 20;
-            this.DatosPrestamo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Teal;
-            this.DatosPrestamo.RowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.DatosPrestamo.Size = new System.Drawing.Size(341, 107);
-            this.DatosPrestamo.TabIndex = 48;
-            this.DatosPrestamo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DatosPrestamo_CellClick);
-            this.DatosPrestamo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DatosPrestamo_CellContentClick);
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(263, 84);
-            this.button10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(99, 21);
-            this.button10.TabIndex = 45;
-            this.button10.Text = "Eliminar";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(263, 59);
-            this.button11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(99, 21);
-            this.button11.TabIndex = 46;
-            this.button11.Text = "Modificar";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(263, 38);
-            this.button12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(99, 21);
-            this.button12.TabIndex = 47;
-            this.button12.Text = "Agregar";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(6, 83);
-            this.label54.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(79, 13);
-            this.label54.TabIndex = 31;
-            this.label54.Text = "RPE Empleado";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(14, 62);
-            this.label53.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(72, 13);
-            this.label53.TabIndex = 30;
-            this.label53.Text = "Clave Alumno";
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(2, 38);
-            this.label52.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(94, 13);
-            this.label52.TabIndex = 29;
-            this.label52.Text = "Numero Inventario";
-            // 
-            // RPEPrestamo
-            // 
-            this.RPEPrestamo.FormattingEnabled = true;
-            this.RPEPrestamo.Location = new System.Drawing.Point(99, 81);
-            this.RPEPrestamo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.RPEPrestamo.Name = "RPEPrestamo";
-            this.RPEPrestamo.Size = new System.Drawing.Size(155, 21);
-            this.RPEPrestamo.TabIndex = 26;
-            // 
-            // NumInvPrestamo
-            // 
-            this.NumInvPrestamo.FormattingEnabled = true;
-            this.NumInvPrestamo.Location = new System.Drawing.Point(99, 36);
-            this.NumInvPrestamo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.NumInvPrestamo.Name = "NumInvPrestamo";
-            this.NumInvPrestamo.Size = new System.Drawing.Size(155, 21);
-            this.NumInvPrestamo.TabIndex = 24;
-            // 
-            // clavesPrestamo
-            // 
-            this.clavesPrestamo.FormattingEnabled = true;
-            this.clavesPrestamo.Location = new System.Drawing.Point(99, 58);
-            this.clavesPrestamo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.clavesPrestamo.Name = "clavesPrestamo";
-            this.clavesPrestamo.Size = new System.Drawing.Size(155, 21);
-            this.clavesPrestamo.TabIndex = 23;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(81, 7);
-            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(77, 20);
-            this.label19.TabIndex = 22;
-            this.label19.Text = "Prestamo";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(8, 106);
-            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(77, 13);
-            this.label21.TabIndex = 4;
-            this.label21.Text = "Fecha Entrega";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(99, 104);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(155, 20);
-            this.textBox7.TabIndex = 21;
-            // 
             // Sancion
             // 
             this.Sancion.Controls.Add(this.label23);
@@ -1183,7 +1033,7 @@
             this.Sancion.Controls.Add(this.fliquidacion);
             this.Sancion.Controls.Add(this.descSansion);
             this.Sancion.Location = new System.Drawing.Point(46, 320);
-            this.Sancion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Sancion.Margin = new System.Windows.Forms.Padding(2);
             this.Sancion.Name = "Sancion";
             this.Sancion.Size = new System.Drawing.Size(315, 125);
             this.Sancion.TabIndex = 33;
@@ -1242,7 +1092,7 @@
             // montoSansion
             // 
             this.montoSansion.Location = new System.Drawing.Point(167, 97);
-            this.montoSansion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.montoSansion.Margin = new System.Windows.Forms.Padding(2);
             this.montoSansion.Name = "montoSansion";
             this.montoSansion.Size = new System.Drawing.Size(135, 20);
             this.montoSansion.TabIndex = 23;
@@ -1250,7 +1100,7 @@
             // fechaSansion
             // 
             this.fechaSansion.Location = new System.Drawing.Point(167, 76);
-            this.fechaSansion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fechaSansion.Margin = new System.Windows.Forms.Padding(2);
             this.fechaSansion.Name = "fechaSansion";
             this.fechaSansion.Size = new System.Drawing.Size(135, 20);
             this.fechaSansion.TabIndex = 24;
@@ -1258,7 +1108,7 @@
             // fliquidacion
             // 
             this.fliquidacion.Location = new System.Drawing.Point(167, 55);
-            this.fliquidacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fliquidacion.Margin = new System.Windows.Forms.Padding(2);
             this.fliquidacion.Name = "fliquidacion";
             this.fliquidacion.Size = new System.Drawing.Size(135, 20);
             this.fliquidacion.TabIndex = 25;
@@ -1266,7 +1116,7 @@
             // descSansion
             // 
             this.descSansion.Location = new System.Drawing.Point(167, 34);
-            this.descSansion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.descSansion.Margin = new System.Windows.Forms.Padding(2);
             this.descSansion.Name = "descSansion";
             this.descSansion.Size = new System.Drawing.Size(135, 20);
             this.descSansion.TabIndex = 26;
@@ -1288,7 +1138,7 @@
             this.Asistencia.Controls.Add(this.textBox6);
             this.Asistencia.Controls.Add(this.textBox5);
             this.Asistencia.Location = new System.Drawing.Point(45, 45);
-            this.Asistencia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Asistencia.Margin = new System.Windows.Forms.Padding(2);
             this.Asistencia.Name = "Asistencia";
             this.Asistencia.Size = new System.Drawing.Size(316, 151);
             this.Asistencia.TabIndex = 32;
@@ -1307,7 +1157,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(211, 99);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(99, 21);
             this.button2.TabIndex = 36;
@@ -1317,13 +1167,12 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(211, 75);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(99, 21);
             this.button3.TabIndex = 37;
             this.button3.Text = "Modificar";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label37
             // 
@@ -1348,7 +1197,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(211, 50);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(99, 21);
             this.button1.TabIndex = 35;
@@ -1368,7 +1217,7 @@
             "Bitacora Entrega"});
             this.Materia_Asist.FormattingEnabled = true;
             this.Materia_Asist.Location = new System.Drawing.Point(95, 81);
-            this.Materia_Asist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Materia_Asist.Margin = new System.Windows.Forms.Padding(2);
             this.Materia_Asist.Name = "Materia_Asist";
             this.Materia_Asist.Size = new System.Drawing.Size(112, 21);
             this.Materia_Asist.TabIndex = 40;
@@ -1385,7 +1234,7 @@
             "Bitacora Entrega"});
             this.RPE_Asist.FormattingEnabled = true;
             this.RPE_Asist.Location = new System.Drawing.Point(95, 58);
-            this.RPE_Asist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RPE_Asist.Margin = new System.Windows.Forms.Padding(2);
             this.RPE_Asist.Name = "RPE_Asist";
             this.RPE_Asist.Size = new System.Drawing.Size(112, 21);
             this.RPE_Asist.TabIndex = 39;
@@ -1413,7 +1262,7 @@
             "Bitacora Entrega"});
             this.Datos.FormattingEnabled = true;
             this.Datos.Location = new System.Drawing.Point(95, 36);
-            this.Datos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Datos.Margin = new System.Windows.Forms.Padding(2);
             this.Datos.Name = "Datos";
             this.Datos.Size = new System.Drawing.Size(112, 21);
             this.Datos.TabIndex = 38;
@@ -1442,7 +1291,7 @@
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(95, 103);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(112, 20);
             this.textBox6.TabIndex = 20;
@@ -1450,7 +1299,7 @@
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(95, 123);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(112, 20);
             this.textBox5.TabIndex = 19;
@@ -1485,9 +1334,9 @@
             this.tabPage3.Controls.Add(this.label41);
             this.tabPage3.Controls.Add(this.label40);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage3.Size = new System.Drawing.Size(1223, 594);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Equipo";
@@ -1508,8 +1357,8 @@
             this.dataGridEquipo.RowHeadersVisible = false;
             this.dataGridEquipo.RowHeadersWidth = 20;
             this.dataGridEquipo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dataGridEquipo.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dataGridEquipo.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridEquipo.Size = new System.Drawing.Size(521, 251);
             this.dataGridEquipo.TabIndex = 44;
             this.dataGridEquipo.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridEquipo_CellMouseClick);
@@ -1517,7 +1366,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(351, 42);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(59, 21);
             this.button4.TabIndex = 43;
@@ -1528,7 +1377,7 @@
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(351, 73);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(59, 21);
             this.button5.TabIndex = 42;
@@ -1539,7 +1388,7 @@
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(351, 107);
-            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(59, 21);
             this.button6.TabIndex = 41;
@@ -1560,7 +1409,7 @@
             // tipoEquipo
             // 
             this.tipoEquipo.Location = new System.Drawing.Point(158, 149);
-            this.tipoEquipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tipoEquipo.Margin = new System.Windows.Forms.Padding(2);
             this.tipoEquipo.Name = "tipoEquipo";
             this.tipoEquipo.Size = new System.Drawing.Size(139, 20);
             this.tipoEquipo.TabIndex = 22;
@@ -1568,7 +1417,7 @@
             // marca
             // 
             this.marca.Location = new System.Drawing.Point(158, 129);
-            this.marca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.marca.Margin = new System.Windows.Forms.Padding(2);
             this.marca.Name = "marca";
             this.marca.Size = new System.Drawing.Size(139, 20);
             this.marca.TabIndex = 23;
@@ -1576,7 +1425,7 @@
             // ubiLab
             // 
             this.ubiLab.Location = new System.Drawing.Point(158, 108);
-            this.ubiLab.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ubiLab.Margin = new System.Windows.Forms.Padding(2);
             this.ubiLab.Name = "ubiLab";
             this.ubiLab.Size = new System.Drawing.Size(139, 20);
             this.ubiLab.TabIndex = 24;
@@ -1584,7 +1433,7 @@
             // descEquipo
             // 
             this.descEquipo.Location = new System.Drawing.Point(158, 87);
-            this.descEquipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.descEquipo.Margin = new System.Windows.Forms.Padding(2);
             this.descEquipo.Name = "descEquipo";
             this.descEquipo.Size = new System.Drawing.Size(139, 20);
             this.descEquipo.TabIndex = 25;
@@ -1602,7 +1451,7 @@
             // Modelo
             // 
             this.Modelo.Location = new System.Drawing.Point(158, 65);
-            this.Modelo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Modelo.Margin = new System.Windows.Forms.Padding(2);
             this.Modelo.Name = "Modelo";
             this.Modelo.Size = new System.Drawing.Size(139, 20);
             this.Modelo.TabIndex = 26;
@@ -1641,7 +1490,7 @@
             // nombreEquipo
             // 
             this.nombreEquipo.Location = new System.Drawing.Point(158, 42);
-            this.nombreEquipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nombreEquipo.Margin = new System.Windows.Forms.Padding(2);
             this.nombreEquipo.Name = "nombreEquipo";
             this.nombreEquipo.Size = new System.Drawing.Size(139, 20);
             this.nombreEquipo.TabIndex = 21;
@@ -1672,7 +1521,7 @@
             this.tabAlumno.Controls.Add(this.Alumno);
             this.tabAlumno.Location = new System.Drawing.Point(4, 22);
             this.tabAlumno.Name = "tabAlumno";
-            this.tabAlumno.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabAlumno.Padding = new System.Windows.Forms.Padding(3);
             this.tabAlumno.Size = new System.Drawing.Size(1223, 594);
             this.tabAlumno.TabIndex = 3;
             this.tabAlumno.Text = "Alumno";
@@ -1706,7 +1555,7 @@
             this.Alumno.Controls.Add(this.label28);
             this.Alumno.Controls.Add(this.label27);
             this.Alumno.Location = new System.Drawing.Point(7, 5);
-            this.Alumno.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Alumno.Margin = new System.Windows.Forms.Padding(2);
             this.Alumno.Name = "Alumno";
             this.Alumno.Size = new System.Drawing.Size(610, 173);
             this.Alumno.TabIndex = 32;
@@ -1754,7 +1603,7 @@
             // txtBoxCarrera
             // 
             this.txtBoxCarrera.Location = new System.Drawing.Point(87, 125);
-            this.txtBoxCarrera.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBoxCarrera.Margin = new System.Windows.Forms.Padding(2);
             this.txtBoxCarrera.Name = "txtBoxCarrera";
             this.txtBoxCarrera.Size = new System.Drawing.Size(180, 20);
             this.txtBoxCarrera.TabIndex = 27;
@@ -1762,7 +1611,7 @@
             // txtBoxGeneracion
             // 
             this.txtBoxGeneracion.Location = new System.Drawing.Point(87, 85);
-            this.txtBoxGeneracion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBoxGeneracion.Margin = new System.Windows.Forms.Padding(2);
             this.txtBoxGeneracion.Name = "txtBoxGeneracion";
             this.txtBoxGeneracion.Size = new System.Drawing.Size(178, 20);
             this.txtBoxGeneracion.TabIndex = 28;
@@ -1770,7 +1619,7 @@
             // txtBoxNomAlum
             // 
             this.txtBoxNomAlum.Location = new System.Drawing.Point(87, 46);
-            this.txtBoxNomAlum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBoxNomAlum.Margin = new System.Windows.Forms.Padding(2);
             this.txtBoxNomAlum.Name = "txtBoxNomAlum";
             this.txtBoxNomAlum.Size = new System.Drawing.Size(178, 20);
             this.txtBoxNomAlum.TabIndex = 29;
@@ -1778,7 +1627,7 @@
             // txtBoxClaveAlum
             // 
             this.txtBoxClaveAlum.Location = new System.Drawing.Point(87, 12);
-            this.txtBoxClaveAlum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBoxClaveAlum.Margin = new System.Windows.Forms.Padding(2);
             this.txtBoxClaveAlum.Name = "txtBoxClaveAlum";
             this.txtBoxClaveAlum.Size = new System.Drawing.Size(178, 20);
             this.txtBoxClaveAlum.TabIndex = 30;
@@ -1822,6 +1671,261 @@
             this.label27.Size = new System.Drawing.Size(0, 13);
             this.label27.TabIndex = 10;
             // 
+            // tabPrestamo
+            // 
+            this.tabPrestamo.Controls.Add(this.panel2);
+            this.tabPrestamo.Controls.Add(this.Prestamo);
+            this.tabPrestamo.Location = new System.Drawing.Point(4, 22);
+            this.tabPrestamo.Name = "tabPrestamo";
+            this.tabPrestamo.Size = new System.Drawing.Size(1223, 594);
+            this.tabPrestamo.TabIndex = 4;
+            this.tabPrestamo.Text = "Prestamo";
+            this.tabPrestamo.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label51);
+            this.panel2.Controls.Add(this.dtpFechaEntregaBitacora);
+            this.panel2.Controls.Add(this.dataGridView2);
+            this.panel2.Controls.Add(this.comboBox2);
+            this.panel2.Controls.Add(this.label57);
+            this.panel2.Controls.Add(this.label58);
+            this.panel2.Location = new System.Drawing.Point(560, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(338, 411);
+            this.panel2.TabIndex = 35;
+            // 
+            // dtpFechaEntregaBitacora
+            // 
+            this.dtpFechaEntregaBitacora.CustomFormat = "MM/dd/yyyy";
+            this.dtpFechaEntregaBitacora.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFechaEntregaBitacora.Location = new System.Drawing.Point(99, 68);
+            this.dtpFechaEntregaBitacora.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpFechaEntregaBitacora.Name = "dtpFechaEntregaBitacora";
+            this.dtpFechaEntregaBitacora.Size = new System.Drawing.Size(155, 20);
+            this.dtpFechaEntregaBitacora.TabIndex = 49;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AllowUserToResizeColumns = false;
+            this.dataGridView2.AllowUserToResizeRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(5, 163);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.RowHeadersWidth = 20;
+            this.dataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridView2.Size = new System.Drawing.Size(330, 245);
+            this.dataGridView2.TabIndex = 48;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(99, 36);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(155, 21);
+            this.comboBox2.TabIndex = 24;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(2, 7);
+            this.label57.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(151, 20);
+            this.label57.TabIndex = 22;
+            this.label57.Text = "Bitácora de Entrega";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(2, 71);
+            this.label58.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(77, 13);
+            this.label58.TabIndex = 4;
+            this.label58.Text = "Fecha Entrega";
+            // 
+            // Prestamo
+            // 
+            this.Prestamo.Controls.Add(this.dateTimePicker1);
+            this.Prestamo.Controls.Add(this.DatosPrestamo);
+            this.Prestamo.Controls.Add(this.btnElimPrest);
+            this.Prestamo.Controls.Add(this.btnModifPrest);
+            this.Prestamo.Controls.Add(this.btnAgregarPrest);
+            this.Prestamo.Controls.Add(this.label54);
+            this.Prestamo.Controls.Add(this.label53);
+            this.Prestamo.Controls.Add(this.label52);
+            this.Prestamo.Controls.Add(this.RPEPrestamo);
+            this.Prestamo.Controls.Add(this.NumInvPrestamo);
+            this.Prestamo.Controls.Add(this.clavesPrestamo);
+            this.Prestamo.Controls.Add(this.label19);
+            this.Prestamo.Controls.Add(this.label21);
+            this.Prestamo.Location = new System.Drawing.Point(7, 4);
+            this.Prestamo.Margin = new System.Windows.Forms.Padding(2);
+            this.Prestamo.Name = "Prestamo";
+            this.Prestamo.Size = new System.Drawing.Size(549, 411);
+            this.Prestamo.TabIndex = 34;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "MM/dd/yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(104, 133);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(155, 20);
+            this.dateTimePicker1.TabIndex = 49;
+            // 
+            // DatosPrestamo
+            // 
+            this.DatosPrestamo.AllowUserToAddRows = false;
+            this.DatosPrestamo.AllowUserToDeleteRows = false;
+            this.DatosPrestamo.AllowUserToResizeColumns = false;
+            this.DatosPrestamo.AllowUserToResizeRows = false;
+            this.DatosPrestamo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DatosPrestamo.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DatosPrestamo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DatosPrestamo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DatosPrestamo.Location = new System.Drawing.Point(5, 163);
+            this.DatosPrestamo.Name = "DatosPrestamo";
+            this.DatosPrestamo.RowHeadersVisible = false;
+            this.DatosPrestamo.RowHeadersWidth = 20;
+            this.DatosPrestamo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Teal;
+            this.DatosPrestamo.RowsDefaultCellStyle = dataGridViewCellStyle11;
+            this.DatosPrestamo.Size = new System.Drawing.Size(531, 245);
+            this.DatosPrestamo.TabIndex = 48;
+            // 
+            // btnElimPrest
+            // 
+            this.btnElimPrest.Location = new System.Drawing.Point(334, 103);
+            this.btnElimPrest.Margin = new System.Windows.Forms.Padding(2);
+            this.btnElimPrest.Name = "btnElimPrest";
+            this.btnElimPrest.Size = new System.Drawing.Size(99, 21);
+            this.btnElimPrest.TabIndex = 45;
+            this.btnElimPrest.Text = "Eliminar";
+            this.btnElimPrest.UseVisualStyleBackColor = true;
+            // 
+            // btnModifPrest
+            // 
+            this.btnModifPrest.Location = new System.Drawing.Point(334, 67);
+            this.btnModifPrest.Margin = new System.Windows.Forms.Padding(2);
+            this.btnModifPrest.Name = "btnModifPrest";
+            this.btnModifPrest.Size = new System.Drawing.Size(99, 21);
+            this.btnModifPrest.TabIndex = 46;
+            this.btnModifPrest.Text = "Modificar";
+            this.btnModifPrest.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarPrest
+            // 
+            this.btnAgregarPrest.Location = new System.Drawing.Point(334, 34);
+            this.btnAgregarPrest.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAgregarPrest.Name = "btnAgregarPrest";
+            this.btnAgregarPrest.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnAgregarPrest.Size = new System.Drawing.Size(99, 21);
+            this.btnAgregarPrest.TabIndex = 47;
+            this.btnAgregarPrest.Text = "Agregar";
+            this.btnAgregarPrest.UseVisualStyleBackColor = true;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(6, 103);
+            this.label54.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(79, 13);
+            this.label54.TabIndex = 31;
+            this.label54.Text = "RPE Empleado";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(6, 71);
+            this.label53.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(72, 13);
+            this.label53.TabIndex = 30;
+            this.label53.Text = "Clave Alumno";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(6, 39);
+            this.label52.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(94, 13);
+            this.label52.TabIndex = 29;
+            this.label52.Text = "Número Inventario";
+            // 
+            // RPEPrestamo
+            // 
+            this.RPEPrestamo.FormattingEnabled = true;
+            this.RPEPrestamo.Location = new System.Drawing.Point(104, 100);
+            this.RPEPrestamo.Margin = new System.Windows.Forms.Padding(2);
+            this.RPEPrestamo.Name = "RPEPrestamo";
+            this.RPEPrestamo.Size = new System.Drawing.Size(155, 21);
+            this.RPEPrestamo.TabIndex = 26;
+            // 
+            // NumInvPrestamo
+            // 
+            this.NumInvPrestamo.FormattingEnabled = true;
+            this.NumInvPrestamo.Location = new System.Drawing.Point(104, 36);
+            this.NumInvPrestamo.Margin = new System.Windows.Forms.Padding(2);
+            this.NumInvPrestamo.Name = "NumInvPrestamo";
+            this.NumInvPrestamo.Size = new System.Drawing.Size(155, 21);
+            this.NumInvPrestamo.TabIndex = 24;
+            // 
+            // clavesPrestamo
+            // 
+            this.clavesPrestamo.FormattingEnabled = true;
+            this.clavesPrestamo.Location = new System.Drawing.Point(104, 68);
+            this.clavesPrestamo.Margin = new System.Windows.Forms.Padding(2);
+            this.clavesPrestamo.Name = "clavesPrestamo";
+            this.clavesPrestamo.Size = new System.Drawing.Size(155, 21);
+            this.clavesPrestamo.TabIndex = 23;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(5, 7);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(77, 20);
+            this.label19.TabIndex = 22;
+            this.label19.Text = "Préstamo";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(6, 133);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(77, 13);
+            this.label21.TabIndex = 4;
+            this.label21.Text = "Fecha Entrega";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(2, 42);
+            this.label51.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(79, 13);
+            this.label51.TabIndex = 50;
+            this.label51.Text = "RPE Empleado";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1830,7 +1934,7 @@
             this.Controls.Add(this.Empleado);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Laboratorio Electronica";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -1857,9 +1961,6 @@
             this.Materia.PerformLayout();
             this.BitacoraEntrega.ResumeLayout(false);
             this.BitacoraEntrega.PerformLayout();
-            this.Prestamo.ResumeLayout(false);
-            this.Prestamo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DatosPrestamo)).EndInit();
             this.Sancion.ResumeLayout(false);
             this.Sancion.PerformLayout();
             this.Asistencia.ResumeLayout(false);
@@ -1871,6 +1972,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumno)).EndInit();
             this.Alumno.ResumeLayout(false);
             this.Alumno.PerformLayout();
+            this.tabPrestamo.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.Prestamo.ResumeLayout(false);
+            this.Prestamo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DatosPrestamo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1918,15 +2026,12 @@
         private System.Windows.Forms.TextBox fliquidacion;
         private System.Windows.Forms.TextBox fechaSansion;
         private System.Windows.Forms.TextBox montoSansion;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox NombreMateria;
         private System.Windows.Forms.TextBox NivelMateria;
         private System.Windows.Forms.Label FechaBitacora;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Panel Prestamo;
         private System.Windows.Forms.Panel Sancion;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label32;
@@ -1945,7 +2050,6 @@
         private System.Windows.Forms.ComboBox Datos;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label1;
@@ -2010,16 +2114,28 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.DataGridView TablaMateria;
+        private System.Windows.Forms.TabPage tabPrestamo;
+        private System.Windows.Forms.Panel Prestamo;
+        private System.Windows.Forms.DataGridView DatosPrestamo;
+        private System.Windows.Forms.Button btnElimPrest;
+        private System.Windows.Forms.Button btnModifPrest;
+        private System.Windows.Forms.Button btnAgregarPrest;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.ComboBox RPEPrestamo;
         private System.Windows.Forms.ComboBox NumInvPrestamo;
         private System.Windows.Forms.ComboBox clavesPrestamo;
-        private System.Windows.Forms.DataGridView DatosPrestamo;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DateTimePicker dtpFechaEntregaBitacora;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.Label label51;
     }
 }
 
