@@ -19,7 +19,7 @@ namespace Laboratorio_Electronica
         string RPE_Antiguo;
         DataTable dt;
         DataTable dato;
-        private SqlConnection conexion = new SqlConnection("Server=HPLAPTOP\\SQLEXPRESS;" + "Database=Laboratorio;" + "Integrated Security=true;");
+        private SqlConnection conexion = new SqlConnection("Server=DESKTOP-O0MDQRH\\SQLEXPRESS;" + "Database=Laboratorio;" + "Integrated Security=true;");
         public Form1()
         {
             InitializeComponent();
@@ -63,8 +63,8 @@ namespace Laboratorio_Electronica
             cargarTablasEmp(query2, "SELECT Nombre FROM Persona.Empleado INNER JOIN Persona.Becario ON Persona.Becario.RPE_Becario=Persona.Empleado.RPE_Empleado", dgridVistaBecario);
             //cargarTabla(query3, dgridVistaColaborador);
             cargarTablasEmp(query3, "SELECT Nombre FROM Persona.Empleado INNER JOIN Persona.Colaborador ON Persona.Colaborador.RPE_Colaborador=Persona.Empleado.RPE_Empleado", dgridVistaColaborador);
-            cargarTabla(query4, DatosPrestamo);
-
+            //cargarTabla(query4, DatosPrestamo);
+            cargarTablaPrest(DatosPrestamo);
 
         }
 
@@ -114,40 +114,47 @@ namespace Laboratorio_Electronica
             destinyTable.DataSource = null;
             destinyTable.DataSource = dtCloned;
         }
-        private void cargarTablaalumn(string query, string q2, DataGridView destinyTable)
+        private void cargarTablaPrest( DataGridView destinyTable)
         {
             //Vista original con query 1
-            SqlCommand cmd = new SqlCommand(query, conexion);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Aula.Prestamo", conexion);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable registros = new DataTable();
             adapter.Fill(registros);
 
             //Vista con el dato extra (INNER JOIN)
-            SqlCommand cd = new SqlCommand(q2, conexion);
+            SqlCommand cd = new SqlCommand("SELECT Nombre FROM Persona.Empleado INNER JOIN Aula.Prestamo ON Aula.Prestamo.RPE_Empleado=Persona.Empleado.RPE_Empleado", conexion);
             SqlDataAdapter adapt = new SqlDataAdapter(cd);
             DataTable regs = new DataTable();
             adapt.Fill(regs);
 
+            SqlCommand cd1 = new SqlCommand("SELECT Nombre,Generacion FROM Persona.Alumno INNER JOIN Aula.Prestamo ON Aula.Prestamo.Clave_Unica=Persona.Alumno.Clave_Unica", conexion);
+            SqlDataAdapter adapt1 = new SqlDataAdapter(cd);
+            DataTable regs1 = new DataTable();
+            adapt1.Fill(regs1);
+
             //Creo una tabla nueva para clonar la vista original porque necesito que el dato extra sea cadena
-            DataTable dtCloned = registros.Clone();
+            DataTable dtCloned1 = registros.Clone();
 
             //Pongo la columna que necesito como string
-            dtCloned.Columns[0].DataType = typeof(string);
+            dtCloned1.Columns[3].DataType = typeof(string);
+            dtCloned1.Columns[2].DataType = typeof(string);
             foreach (DataRow row in registros.Rows)
             {
 
-                dtCloned.ImportRow(row);
+                dtCloned1.ImportRow(row);
             }
 
             //Le agrego el extra a la columna necesaria; en este caso es RPE + Nombre
             for (int i = 0; i < registros.Rows.Count; i++)
             {
                 //MessageBox.Show("--");
-                dtCloned.Rows[i][0] += "-" + regs.Rows[i][0].ToString();
+                dtCloned1.Rows[i][3] = dtCloned1.Rows[i][3] + "-" + regs.Rows[i][0];
+                dtCloned1.Rows[i][2] = regs1.Rows[i][0]; 
             }
             //La tabla mostrada en la vista es la clonada
             destinyTable.DataSource = null;
-            destinyTable.DataSource = dtCloned;
+            destinyTable.DataSource = dtCloned1;
         }
         private int conectaBD()
         {
@@ -156,7 +163,7 @@ namespace Laboratorio_Electronica
                 conexion.Open();
                 muestraVista();
                 muestraVistaAlumno();
-                muestraVistaPrestamo();
+                //muestraVistaPrestamo();
                 muestraVistaMateria();
                 conexion.Close();
                 return 0;
@@ -282,7 +289,7 @@ namespace Laboratorio_Electronica
             {
                 //nombres.Add(dr["Usuario"].ToString());
                 RPE_Asist.Items.Add(dr[0].ToString());
-                RPEPrestamo.Items.Add(dr[0].ToString());
+                //RPEPrestamo.Items.Add(dr[0].ToString());
             }
         }
         private int cargarDatosEmpleado()
@@ -564,7 +571,7 @@ namespace Laboratorio_Electronica
         //Esta funcion se usa para mostrar en el combobox los alumnos que puede agregar
         private void LlenaClavesAsistencia()
         {
-            string consulta = "SELECT Clave_Unica,Nombre FROM Persona.Alumno";
+            string consulta = "SELECT Nombre,Generacion FROM Persona.Alumno";
             conexion.Open();
            
             SqlCommand cmd = new SqlCommand(consulta, conexion);
@@ -583,7 +590,7 @@ namespace Laboratorio_Electronica
             {
                 //nombres.Add(dr["Usuario"].ToString());
                 Datos.Items.Add(dr[0].ToString());
-                clavesPrestamo.Items.Add(dr[0].ToString()+","+dr[1].ToString());
+                clavesPrestamo.Items.Add(dr[0].ToString()+"-"+dr[1].ToString());
                 
             }
         }
@@ -635,7 +642,7 @@ namespace Laboratorio_Electronica
             {
                 //nombres.Add(dr["Usuario"].ToString());
                 //NumInvPrestamo.Items.Add(dr[0].ToString() + "," + dr[1].ToString());
-                RPEPrestamo.Items.Add(dr[0].ToString() + "," + dr[1].ToString());
+                RPEPrestamo.Items.Add(dr[0].ToString() + "-" + dr[1].ToString());
 
 
             }
@@ -723,6 +730,17 @@ namespace Laboratorio_Electronica
             dataGridEquipo.DataSource = null;
 
             dataGridEquipo.DataSource = registros;
+            foreach (DataGridViewColumn column in dataGridEquipo.Columns)
+            {
+                if (column.HeaderText == "Descripcion")
+                {
+                    column.HeaderText = "Descripción";
+                }
+                if (column.HeaderText == "UbicacionEnLab")
+                {
+                    column.HeaderText = "UbicaciónEnLab";
+                }
+            }
         }
 
         private void muestraVistaMateria()
@@ -859,7 +877,8 @@ namespace Laboratorio_Electronica
             try
             {
                 conexion.Open();
-                string consulta = "INSERT INTO Aula.Materia(Nombre,Nivel) VALUES ('" + NombreMateria.Text+ "', '" + Convert.ToInt32(NivelMateria.Text) + "')";
+                
+                string consulta = "INSERT INTO Aula.Materia(ClaveMateria,Nombre,Nivel) VALUES ('" + Convert.ToInt32(claveMateria.Text) + "','" + NombreMateria.Text+ "', '" + Convert.ToInt32(NivelMateria.Text) + "')";
                 SqlCommand cmd = new SqlCommand(consulta, conexion);
                 cmd.ExecuteNonQuery();
 
@@ -1115,7 +1134,7 @@ namespace Laboratorio_Electronica
             {
                 conexion.Open();
                 
-                string consulta = "UPDATE Aula.Materia SET Nombre = '" + NombreMateria.Text + "', Nivel='" + Convert.ToInt32(NivelMateria.Text)  + "' WHERE ClaveMateria=" + IdMateria;
+                string consulta = "UPDATE Aula.Materia SET ClaveMateria='" + Convert.ToInt32(claveMateria.Text) + "' ,Nombre = '" + NombreMateria.Text + "', Nivel='" + Convert.ToInt32(NivelMateria.Text)  + "' WHERE ClaveMateria=" + IdMateria;
                 SqlCommand comando = new SqlCommand(consulta, conexion);
                 comando.ExecuteNonQuery();
                 conexion.Close();
@@ -1134,11 +1153,19 @@ namespace Laboratorio_Electronica
             try
             {
                 conexion.Open();
+                
+                string[] clavePrestamo= clavesPrestamo.SelectedItem.ToString().Split('-');
+               
+                string query1 = "SELECT Clave_Unica FROM Persona.Alumno WHERE Nombre="+"'"+clavePrestamo[0]+"'"+ " AND Generacion=" + Convert.ToInt32(clavePrestamo[1]) + "";
+                
+                SqlCommand command = new SqlCommand(query1, conexion);
+                int ClaveAlumno = Convert.ToInt32(command.ExecuteScalar());
+               
                 string[] claveP = clavesPrestamo.SelectedItem.ToString().Split(',');
                 string[] numinvP = NumInvPrestamo.SelectedItem.ToString().Split(',');
-                string[] rpeP = RPEPrestamo.SelectedItem.ToString().Split(',');
-                MessageBox.Show(claveP[0] + " " + numinvP[0] + " " + rpeP[0]);
-                string consulta = "UPDATE Aula.Prestamo SET NumInv = '" + Convert.ToInt32(numinvP[0]) + "', Clave_Unica='" + Convert.ToInt32(claveP[0]) + "', RPE_Empleado='" + Convert.ToInt32(rpeP[0])+ "' WHERE Id_Prestamo=" + IdPrestamo;
+                string[] rpeP = RPEPrestamo.SelectedItem.ToString().Split('-');
+                
+                string consulta = "UPDATE Aula.Prestamo SET NumInv = '" + Convert.ToInt32(numinvP[0]) + "', Clave_Unica='" +ClaveAlumno + "', RPE_Empleado='" + Convert.ToInt32(rpeP[0])+ "' WHERE Id_Prestamo=" + IdPrestamo;
                 SqlCommand comando = new SqlCommand(consulta, conexion);
                 comando.ExecuteNonQuery();
                 conexion.Close();
@@ -1165,9 +1192,30 @@ namespace Laboratorio_Electronica
             conectaBD();
         }
 
+        private void RPEPrestamo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgridVistaEmpleado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private void TablaMateria_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             IdMateria =Convert.ToInt32(TablaMateria.Rows[TablaMateria.CurrentRow.Index].Cells[0].Value);
+            claveMateria.Text = TablaMateria.Rows[TablaMateria.CurrentRow.Index].Cells[0].Value.ToString();
             NombreMateria.Text = TablaMateria.Rows[TablaMateria.CurrentRow.Index].Cells[1].Value.ToString();
             NivelMateria.Text = TablaMateria.Rows[TablaMateria.CurrentRow.Index].Cells[2].Value.ToString();
         }
@@ -1202,6 +1250,17 @@ namespace Laboratorio_Electronica
             adapter.Fill(registros);
             dgvAlumno.DataSource = null;
             dgvAlumno.DataSource = registros;
+            foreach(DataGridViewColumn column in dgvAlumno.Columns)
+            {
+                if (column.HeaderText == "Clave_Unica")
+                {
+                    column.HeaderText = "Clave_Única";
+                }
+                if (column.HeaderText == "Generacion")
+                {
+                    column.HeaderText = "Generación";
+                }
+            }
         }
     }
 }
