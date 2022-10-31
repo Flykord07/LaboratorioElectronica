@@ -156,3 +156,73 @@ BEGIN
 		UPDATE Aula.Prestamo SET @FechaPrestamo
 	END
 END
+
+--Cambios en la tabla sancion
+alter table Aula.Sancion add id bigint identity(1,1) not null
+ALTER TABLE Aula.Sancion ADD PRIMARY KEY (id)
+
+--Disparadores
+--Trigger 01
+--Cuando se entrega un equipo, revisar que la fecha de entrega no esté vencida, 
+--en caso contrario se sanciona al alumno
+CREATE TRIGGER TR_ENTREGA_EQUIPO
+ON Aula.BitacoraEntrega 
+AFTER INSERT,UPDATE AS
+DECLARE @idPrestamo AS BIGINT
+DECLARE @FechaEntregado AS DATE
+DECLARE @FechaE AS DATE
+DECLARE @IdAlumno AS BIGINT
+DECLARE @FechaLiq AS DATE
+DECLARE @FechaHoy AS DATE
+DECLARE @RPE AS BIGINT
+
+IF EXISTS (SELECT * FROM INSERTED)
+BEGIN
+	SELECT @idPrestamo = Id_Prestamo FROM inserted	
+	SELECT @FechaE = FechaEntrega FROM Aula.Prestamo WHERE Id_Prestamo = @idPrestamo
+	SELECT @FechaEntregado = Fecha_Entrega FROM inserted
+	SELECT @IdAlumno = Clave_Unica FROM Aula.Prestamo WHERE Id_Prestamo = @idPrestamo
+	SELECT @RPE = RPE_Empleado FROM inserted
+	SELECT @FechaHoy = GETDATE()
+	SELECT @FechaLiq = @FechaHoy+10 --agrega 10 dias a la fecha actual
+	IF(@FechaEntregado > @FechaE)
+	BEGIN
+		INSERT INTO Aula.Sancion (Clave_Unica,RPE_Empleado,Descripcion,F_liquidacion,Fecha,Monto) 
+		VALUES(@IdAlumno,@RPE,'Plazo de entrega vencido',@FechaLiq,@FechaHoy,100);
+	END
+		
+END
+--Trigger 05
+--Despues de insertar en sancion el campo adeudo de la tabla alumno se actualiza
+CREATE TRIGGER TR_ACTUALIZAR_ADEUDO
+ON Aula.Sancion
+AFTER INSERT,UPDATE AS
+DECLARE @Cantidad AS BIGINT
+DECLARE @IdAlumno AS BIGINT
+IF EXISTS (SELECT * FROM INSERTED)
+BEGIN
+	SELECT @Cantidad = Monto FROM inserted
+	SELECT @IdAlumno = Clave_Unica FROM inserted
+	UPDATE Persona.Alumno SET Adeudo = @Cantidad WHERE Clave_Unica = @IdAlumno
+END
+
+--Trigger 06
+--Antes de insertar en prestamo, se debe revisar si el alumno no tiene
+--adeudos, cancelar insercion si hay adeudos.
+CREATE TRIGGER TR_CANCELAR_INSERCION
+ON Aula.Prestamo
+AFTER INSERT AS
+DECLARE @Adeudos AS BIGINT
+DECLARE @IdAlumno AS BIGINT
+IF EXISTS (SELECT * FROM INSERTED)
+BEGIN
+	SELECT @IdAlumno = Clave_unica FROM inserted
+	SELECT @Adeudos = Adeudo FROM Persona.Alumno WHERE Clave_Unica = @IdAlumno
+	IF(@Adeudos > 0)
+	BEGIN
+		DELETE FROM Aula.Prestamo WHERE Clave_Unica = @IdAlumno
+		RAISERROR(
+			N'Error:El alumno con clave única %d tiene adeudos sin saldar.',1,10,@IdAlumno
+		)		
+	END
+END
