@@ -1,2 +1,0 @@
-# LaboratorioElectronica
-BD project
