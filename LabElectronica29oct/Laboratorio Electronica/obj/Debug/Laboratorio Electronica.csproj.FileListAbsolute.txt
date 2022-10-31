@@ -1,0 +1,91 @@
+C:\Users\danie\source\repos\Laboratorio Electronica\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe.config
+C:\Users\danie\source\repos\Laboratorio Electronica\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe
+C:\Users\danie\source\repos\Laboratorio Electronica\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.pdb
+C:\Users\danie\source\repos\Laboratorio Electronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csprojAssemblyReference.cache
+C:\Users\danie\source\repos\Laboratorio Electronica\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Properties.Resources.resources
+C:\Users\danie\source\repos\Laboratorio Electronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.GenerateResource.cache
+C:\Users\danie\source\repos\Laboratorio Electronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.CoreCompileInputs.cache
+C:\Users\danie\source\repos\Laboratorio Electronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.exe
+C:\Users\danie\source\repos\Laboratorio Electronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.pdb
+C:\Users\danie\source\repos\Laboratorio Electronica\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Form1.resources
+C:\Users\alfre\Source\Repos\LaboratorioElectronica\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe.config
+C:\Users\alfre\Source\Repos\LaboratorioElectronica\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe
+C:\Users\alfre\Source\Repos\LaboratorioElectronica\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.pdb
+C:\Users\alfre\Source\Repos\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.AssemblyReference.cache
+C:\Users\alfre\Source\Repos\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Form1.resources
+C:\Users\alfre\Source\Repos\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Properties.Resources.resources
+C:\Users\alfre\Source\Repos\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.GenerateResource.cache
+C:\Users\alfre\Source\Repos\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.CoreCompileInputs.cache
+C:\Users\alfre\Source\Repos\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.exe
+C:\Users\alfre\Source\Repos\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.pdb
+C:\Users\danie\Downloads\9no Semestre\Administracion de Bases de Datos\LaboratorioElectronica-main\LaboratorioElectronica-main\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe.config
+C:\Users\danie\Downloads\9no Semestre\Administracion de Bases de Datos\LaboratorioElectronica-main\LaboratorioElectronica-main\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe
+C:\Users\danie\Downloads\9no Semestre\Administracion de Bases de Datos\LaboratorioElectronica-main\LaboratorioElectronica-main\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.pdb
+C:\Users\danie\Downloads\9no Semestre\Administracion de Bases de Datos\LaboratorioElectronica-main\LaboratorioElectronica-main\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csprojAssemblyReference.cache
+C:\Users\danie\Downloads\9no Semestre\Administracion de Bases de Datos\LaboratorioElectronica-main\LaboratorioElectronica-main\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Form1.resources
+C:\Users\danie\Downloads\9no Semestre\Administracion de Bases de Datos\LaboratorioElectronica-main\LaboratorioElectronica-main\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Properties.Resources.resources
+C:\Users\danie\Downloads\9no Semestre\Administracion de Bases de Datos\LaboratorioElectronica-main\LaboratorioElectronica-main\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.GenerateResource.cache
+C:\Users\danie\Downloads\9no Semestre\Administracion de Bases de Datos\LaboratorioElectronica-main\LaboratorioElectronica-main\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.CoreCompileInputs.cache
+C:\Users\danie\Downloads\9no Semestre\Administracion de Bases de Datos\LaboratorioElectronica-main\LaboratorioElectronica-main\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.exe
+C:\Users\danie\Downloads\9no Semestre\Administracion de Bases de Datos\LaboratorioElectronica-main\LaboratorioElectronica-main\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.pdb
+C:\Users\danie\Documents\GitHub\LaboratorioElectronica\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe.config
+C:\Users\danie\Documents\GitHub\LaboratorioElectronica\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe
+C:\Users\danie\Documents\GitHub\LaboratorioElectronica\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.pdb
+C:\Users\danie\Documents\GitHub\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csprojAssemblyReference.cache
+C:\Users\danie\Documents\GitHub\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Form1.resources
+C:\Users\danie\Documents\GitHub\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Properties.Resources.resources
+C:\Users\danie\Documents\GitHub\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.GenerateResource.cache
+C:\Users\danie\Documents\GitHub\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.CoreCompileInputs.cache
+C:\Users\danie\Documents\GitHub\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.exe
+C:\Users\danie\Documents\GitHub\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.pdb
+C:\Users\danie\Source\Repos\Flykord07\LaboratorioElectronica\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe.config
+C:\Users\danie\Source\Repos\Flykord07\LaboratorioElectronica\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe
+C:\Users\danie\Source\Repos\Flykord07\LaboratorioElectronica\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.pdb
+C:\Users\danie\Source\Repos\Flykord07\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csprojAssemblyReference.cache
+C:\Users\danie\Source\Repos\Flykord07\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Form1.resources
+C:\Users\danie\Source\Repos\Flykord07\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Properties.Resources.resources
+C:\Users\danie\Source\Repos\Flykord07\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.GenerateResource.cache
+C:\Users\danie\Source\Repos\Flykord07\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.CoreCompileInputs.cache
+C:\Users\danie\Source\Repos\Flykord07\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.exe
+C:\Users\danie\Source\Repos\Flykord07\LaboratorioElectronica\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.pdb
+C:\Users\alfre\Source\Repos\LabElectr24Oct\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe.config
+C:\Users\alfre\Source\Repos\LabElectr24Oct\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe
+C:\Users\alfre\Source\Repos\LabElectr24Oct\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.pdb
+C:\Users\alfre\Source\Repos\LabElectr24Oct\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.AssemblyReference.cache
+C:\Users\alfre\Source\Repos\LabElectr24Oct\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Form1.resources
+C:\Users\alfre\Source\Repos\LabElectr24Oct\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Properties.Resources.resources
+C:\Users\alfre\Source\Repos\LabElectr24Oct\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.GenerateResource.cache
+C:\Users\alfre\Source\Repos\LabElectr24Oct\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.CoreCompileInputs.cache
+C:\Users\alfre\Source\Repos\LabElectr24Oct\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.exe
+C:\Users\alfre\Source\Repos\LabElectr24Oct\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.pdb
+C:\Users\danie\Downloads\LaboratorioElectronica-main\LaboratorioElectronica-main\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe.config
+C:\Users\danie\Downloads\LaboratorioElectronica-main\LaboratorioElectronica-main\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe
+C:\Users\danie\Downloads\LaboratorioElectronica-main\LaboratorioElectronica-main\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.pdb
+C:\Users\danie\Downloads\LaboratorioElectronica-main\LaboratorioElectronica-main\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csprojAssemblyReference.cache
+C:\Users\danie\Downloads\LaboratorioElectronica-main\LaboratorioElectronica-main\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Form1.resources
+C:\Users\danie\Downloads\LaboratorioElectronica-main\LaboratorioElectronica-main\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Properties.Resources.resources
+C:\Users\danie\Downloads\LaboratorioElectronica-main\LaboratorioElectronica-main\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.GenerateResource.cache
+C:\Users\danie\Downloads\LaboratorioElectronica-main\LaboratorioElectronica-main\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.CoreCompileInputs.cache
+C:\Users\danie\Downloads\LaboratorioElectronica-main\LaboratorioElectronica-main\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.exe
+C:\Users\danie\Downloads\LaboratorioElectronica-main\LaboratorioElectronica-main\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.pdb
+C:\Users\alfre\Source\Repos\LabElectronica29oct\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe.config
+C:\Users\alfre\Source\Repos\LabElectronica29oct\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe
+C:\Users\alfre\Source\Repos\LabElectronica29oct\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.pdb
+C:\Users\alfre\Source\Repos\LabElectronica29oct\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.AssemblyReference.cache
+C:\Users\alfre\Source\Repos\LabElectronica29oct\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Properties.Resources.resources
+C:\Users\alfre\Source\Repos\LabElectronica29oct\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.GenerateResource.cache
+C:\Users\alfre\Source\Repos\LabElectronica29oct\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.CoreCompileInputs.cache
+C:\Users\alfre\Source\Repos\LabElectronica29oct\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.exe
+C:\Users\alfre\Source\Repos\LabElectronica29oct\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.pdb
+C:\Users\alfre\Source\Repos\LabElectronica29oct\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.LabForm.resources
+C:\Users\alfre\Desktop\LabElectronica29oct\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe.config
+C:\Users\alfre\Desktop\LabElectronica29oct\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe
+C:\Users\alfre\Desktop\LabElectronica29oct\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.pdb
+C:\Users\alfre\Desktop\LabElectronica29oct\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.AssemblyReference.cache
+C:\Users\alfre\Desktop\LabElectronica29oct\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.SuggestedBindingRedirects.cache
+C:\Users\alfre\Desktop\LabElectronica29oct\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.LabForm.resources
+C:\Users\alfre\Desktop\LabElectronica29oct\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Properties.Resources.resources
+C:\Users\alfre\Desktop\LabElectronica29oct\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.GenerateResource.cache
+C:\Users\alfre\Desktop\LabElectronica29oct\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.CoreCompileInputs.cache
+C:\Users\alfre\Desktop\LabElectronica29oct\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.exe
+C:\Users\alfre\Desktop\LabElectronica29oct\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.pdb
