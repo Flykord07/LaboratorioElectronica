@@ -113,6 +113,33 @@ CREATE TABLE Aula.Prestamo
 		REFERENCES Persona.Empleado(RPE_Empleado)
 )
 
+CREATE TABLE Aula.Asistencia
+(
+    Clave_Unica BIGINT NOT NULL,
+	RPE_Empleado BIGINT NOT NULL,
+	Clave_Materia BIGINT NOT NULL,
+	Fecha DATE NOT NULL,
+	Hr_entrada DATE NOT NULL,
+	Hr_salida DATE NOT NULL,
+
+	
+
+	
+	CONSTRAINT FK_CLA FOREIGN KEY(Clave_Unica)
+		REFERENCES Persona.Alumno(Clave_Unica),
+	CONSTRAINT FK_EMPLEA FOREIGN KEY(RPE_Empleado)
+		REFERENCES Persona.Empleado(RPE_Empleado),
+	CONSTRAINT FK_MATERIA FOREIGN KEY(Clave_Materia)
+		REFERENCES Aula.Materia(ClaveMateria)
+)
+
+ALTER TABLE Aula.Asistencia
+DROP COLUMN Hr_salida 
+
+ALTER TABLE Aula.Asistencia
+ADD Hr_entrada TIME,Hr_salida TIME
+
+
 CREATE TABLE Aula.BitacoraEntrega
 (
 	Id_Prestamo BIGINT NOT NULL,
@@ -138,7 +165,7 @@ EXEC sp_bindrule 'tipo_equipos' , 'Aula.Equipo.TipoEquipo'
 
 CREATE RULE nivel_range
 AS
-@nivel > 0 AND @range <= 10
+@nivel > 0 AND @nivel <= 10
 EXEC sp_bindrule 'nivel_range' , 'Aula.Materia.Nivel'
 	
 --Disparadores
@@ -165,6 +192,7 @@ ALTER TABLE Aula.Sancion ADD PRIMARY KEY (id)
 --Trigger 01
 --Cuando se entrega un equipo, revisar que la fecha de entrega no esté vencida, 
 --en caso contrario se sanciona al alumno
+--no funciona
 CREATE TRIGGER TR_ENTREGA_EQUIPO
 ON Aula.BitacoraEntrega 
 AFTER INSERT,UPDATE AS
@@ -174,6 +202,7 @@ DECLARE @FechaE AS DATE
 DECLARE @IdAlumno AS BIGINT
 DECLARE @FechaLiq AS DATE
 DECLARE @FechaHoy AS DATE
+DECLARE @AUX AS DATE
 DECLARE @RPE AS BIGINT
 
 IF EXISTS (SELECT * FROM INSERTED)
@@ -184,7 +213,8 @@ BEGIN
 	SELECT @IdAlumno = Clave_Unica FROM Aula.Prestamo WHERE Id_Prestamo = @idPrestamo
 	SELECT @RPE = RPE_Empleado FROM inserted
 	SELECT @FechaHoy = GETDATE()
-	SELECT @FechaLiq = @FechaHoy+10 --agrega 10 dias a la fecha actual
+	select @FechaLiq = DATEADD(DAY,10,@FechaHoy)
+	--SELECT @FechaLiq = @FechaHoy+10 --agrega 10 dias a la fecha actual
 	IF(@FechaEntregado > @FechaE)
 	BEGIN
 		INSERT INTO Aula.Sancion (Clave_Unica,RPE_Empleado,Descripcion,F_liquidacion,Fecha,Monto) 
@@ -226,3 +256,32 @@ BEGIN
 		)		
 	END
 END
+
+
+
+CREATE TRIGGER tr_hr_Asistencia
+ON Aula.Asistencia
+FOR INSERT, DELETE,UPDATE AS
+		DECLARE @FechaAsistencia as DATE
+		DECLARE @FechaAsistenciaCorta as DATE
+		DECLARE @Aux as TIME
+	IF EXISTS (SELECT * FROM inserted)
+	BEGIN 
+		Select
+		@FechaAsistencia =  GETDATE()
+		select @FechaAsistenciaCorta = CONVERT(varchar,@FechaAsistencia,1) 
+		select @Aux =CONVERT(nvarchar(10), GETDATE(), 108)
+		
+		UPDATE Aula.Asistencia SET Hr_entrada=@Aux
+		UPDATE Aula.Asistencia SET  Fecha= @FechaAsistenciaCorta
+		
+	END
+
+	SELECT NOMBRE FROM Aula.Materia WHERE Nombre ='Calculo A'
+	SELECT Nombre FROM Aula.Materia WHERE Nombre='" "';
+
+	ALTER TABLE Aula.Asistencia
+	ADD Hr_entrada TIME
+
+	DROP TRIGGER IF EXISTS tr_hr_Asistencia
+	ON ALL SERVER
