@@ -244,13 +244,15 @@ ON Aula.Prestamo
 AFTER INSERT AS
 DECLARE @Adeudos AS BIGINT
 DECLARE @IdAlumno AS BIGINT
+DECLARE @IdPrestamo AS BIGINT
 IF EXISTS (SELECT * FROM INSERTED)
 BEGIN
 	SELECT @IdAlumno = Clave_unica FROM inserted
+	SELECT @IdPrestamo =Id_Prestamo FROM inserted
 	SELECT @Adeudos = Adeudo FROM Persona.Alumno WHERE Clave_Unica = @IdAlumno
 	IF(@Adeudos > 0)
 	BEGIN
-		DELETE FROM Aula.Prestamo WHERE Clave_Unica = @IdAlumno
+		DELETE FROM Aula.Prestamo WHERE Id_Prestamo = @IdPrestamo
 		RAISERROR(
 			N'Error:El alumno con clave única %d tiene adeudos sin saldar.',1,10,@IdAlumno
 		)		
@@ -285,3 +287,9 @@ FOR INSERT, DELETE,UPDATE AS
 
 	DROP TRIGGER IF EXISTS tr_hr_Asistencia
 	ON ALL SERVER
+
+	ALTER TABLE Aula.Asistencia
+	ADD Id_Asistencia BIGINT IDENTITY(1,1) NOT NULL
+
+	SELECT * FROM Aula.Sancion
+	SELECT * FROM Aula.Asistencia
