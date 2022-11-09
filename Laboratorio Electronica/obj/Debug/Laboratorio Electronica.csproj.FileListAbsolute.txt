@@ -99,3 +99,14 @@ C:\Users\danie\Documents\LaboratorioElectronica\LaboratorioElectronica-main\Labo
 C:\Users\danie\Documents\LaboratorioElectronica\LaboratorioElectronica-main\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.CoreCompileInputs.cache
 C:\Users\danie\Documents\LaboratorioElectronica\LaboratorioElectronica-main\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.exe
 C:\Users\danie\Documents\LaboratorioElectronica\LaboratorioElectronica-main\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.pdb
+C:\Users\alfre\Downloads\9no sem\Base de datos\Nueva carpeta\repos\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe.config
+C:\Users\alfre\Downloads\9no sem\Base de datos\Nueva carpeta\repos\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.exe
+C:\Users\alfre\Downloads\9no sem\Base de datos\Nueva carpeta\repos\Laboratorio Electronica\bin\Debug\Laboratorio Electronica.pdb
+C:\Users\alfre\Downloads\9no sem\Base de datos\Nueva carpeta\repos\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.AssemblyReference.cache
+C:\Users\alfre\Downloads\9no sem\Base de datos\Nueva carpeta\repos\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.SuggestedBindingRedirects.cache
+C:\Users\alfre\Downloads\9no sem\Base de datos\Nueva carpeta\repos\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.LabForm.resources
+C:\Users\alfre\Downloads\9no sem\Base de datos\Nueva carpeta\repos\Laboratorio Electronica\obj\Debug\Laboratorio_Electronica.Properties.Resources.resources
+C:\Users\alfre\Downloads\9no sem\Base de datos\Nueva carpeta\repos\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.GenerateResource.cache
+C:\Users\alfre\Downloads\9no sem\Base de datos\Nueva carpeta\repos\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.csproj.CoreCompileInputs.cache
+C:\Users\alfre\Downloads\9no sem\Base de datos\Nueva carpeta\repos\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.exe
+C:\Users\alfre\Downloads\9no sem\Base de datos\Nueva carpeta\repos\Laboratorio Electronica\obj\Debug\Laboratorio Electronica.pdb
