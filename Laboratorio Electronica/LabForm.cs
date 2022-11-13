@@ -21,7 +21,7 @@ namespace Laboratorio_Electronica
         string RPE_Antiguo;
         DataTable dt;
         DataTable dato;
-        private SqlConnection conexion = new SqlConnection("Server=HPLAPTOP\\SQLEXPRESS;" + "Database=Laboratorio;" + "Integrated Security=true;");
+        private SqlConnection conexion = new SqlConnection("Server=DESKTOP-O0MDQRH\\SQLEXPRESS;" + "Database=Laboratorio;" + "Integrated Security=true;");
         public LabForm()
         {
             InitializeComponent();
@@ -38,7 +38,8 @@ namespace Laboratorio_Electronica
             dato =LlenaRPEEmpleado();            
             llenaCamposCombo(dato);
             LlenaClavesAsistencia();
-            LlenaClaveMateria();            
+            LlenaClaveMateria();
+            LlenaNumInv();
             muestraVistaEquipo(); 
             muestraVistaAlumno();
             muestraVistaMateria();            
@@ -362,38 +363,6 @@ namespace Laboratorio_Electronica
             }
             dgvSanciones.Columns[6].Visible = false;
         }
-        private void LlenaBitacoraEntregaId()
-        {            
-            string consulta = "SELECT NumInv, FechaEntrega FROM Aula.Prestamo";
-            SqlCommand cmd = new SqlCommand(consulta, conexion);
-            DataTable dt = new DataTable();            
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            prestamoID.Items.Clear();
-
-            foreach (DataRow dr in dt.Rows)
-            {
-                string fechaE = dr[1].ToString();
-                fechaE = fechaE.Substring(0, fechaE.IndexOf(" "));
-                prestamoID.Items.Add(dr[0].ToString() + "-" + fechaE);                
-            }
-        }
-        private void muestraVistaBitacora()
-        {
-            string query = String.Concat("SELECT * FROM Aula.BitacoraEntrega");
-
-            SqlCommand cmd = new SqlCommand(query, conexion);
-
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-
-            DataTable registros = new DataTable();
-
-            adapter.Fill(registros);
-
-            tablaBitacoraE.DataSource = null;
-
-            tablaBitacoraE.DataSource = registros;
-        }
         private int conectaBD()
         {
             try
@@ -403,12 +372,9 @@ namespace Laboratorio_Electronica
                 muestraVistaAlumno();
                 LlenaRPESancion();
                 LlenaClveUSancion();
-                muestraVistaSancion();                
+                muestraVistaSancion();
+                //muestraVistaPrestamo();
                 muestraVistaMateria();
-                LlenaBitacoraEntregaId();
-                muestraVistaBitacora();
-                LlenaNumInv();
-
                 fechaEntrega.Visible = false;
                 Fechaprestamo.Visible = false;
                 label21.Visible = false;
@@ -525,7 +491,8 @@ namespace Laboratorio_Electronica
             label10.Visible = false;
             antiguedadResponsable.Visible = false;
             //Sancion.Visible = false;
-            Prestamo.Visible = true;            
+            Prestamo.Visible = true;
+            BitacoraEntrega.Visible = false;
                                    
         }
 
@@ -542,7 +509,6 @@ namespace Laboratorio_Electronica
         {
             string consulta = "SELECT Nombre FROM Aula.Materia";
             conexion.Open();
-            LlenaNumInv();
             DataTable dt;
             SqlCommand cmd = new SqlCommand(consulta, conexion);
             using (SqlDataReader reader = cmd.ExecuteReader())
@@ -864,27 +830,27 @@ namespace Laboratorio_Electronica
 
         private void LlenaNumInv()
         {
-            string consulta = "SELECT Nombre,Modelo,Marca, NumInv FROM Aula.Equipo";
+            string consulta = "SELECT Nombre,Modelo,Marca FROM Aula.Equipo";
+            conexion.Open();
+
             SqlCommand cmd = new SqlCommand(consulta, conexion);
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            dt = new DataTable();
-            adapter.Fill(dt);
-
-            List<string> listaPrestados = new List<string>();
-            consulta = "SELECT NumInv FROM Aula.Prestamo";
-            cmd = new SqlCommand(consulta, conexion);
-            DataTable tmp1 = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(tmp1);
-            NumInvPrestamo.Items.Clear();
-            foreach (DataRow row in tmp1.Rows) { listaPrestados.Add(row[0].ToString()); }
-
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                dt = new DataTable();
+                if (reader.HasRows)
+                {
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    reader.Dispose();
+                    da.Fill(dt);
+                }
+            }
+            conexion.Close();
             foreach (DataRow dr in dt.Rows)
             {
-                if (!listaPrestados.Contains(dr[3].ToString()))
-                {
-                    NumInvPrestamo.Items.Add(dr[0].ToString() + "-" + dr[1].ToString() + "-" + dr[2]);
-                }
+                //nombres.Add(dr["Usuario"].ToString());
+                NumInvPrestamo.Items.Add(dr[0].ToString() + "-" + dr[1].ToString() + "-" + dr[2]);
+                
+
             }
         }
 
@@ -973,7 +939,7 @@ namespace Laboratorio_Electronica
             foreach (DataRow dr in dt.Rows)
             {
                 //nombres.Add(dr["Usuario"].ToString());
-                Materia_Asist.Items.Add(dr[0].ToString());
+                //Materia_Asist.Items.Add(dr[0].ToString());
             }
             
         }
@@ -1165,15 +1131,10 @@ namespace Laboratorio_Electronica
             try
             {
                 conexion.Open();
-
-                string consulta = "DELETE FROM Aula.BitacoraEntrega WHERE Id_Prestamo=" + IdPrestamo;
+                
+                string consulta = "DELETE FROM Aula.Prestamo WHERE Id_Prestamo=" + IdPrestamo;
                 SqlCommand comando = new SqlCommand(consulta, conexion);
                 comando.ExecuteNonQuery();
-
-                consulta = "DELETE FROM Aula.Prestamo WHERE Id_Prestamo=" + IdPrestamo;
-                comando = new SqlCommand(consulta, conexion);
-                comando.ExecuteNonQuery();
-
                 conexion.Close();
                 return 0;
             }
@@ -1190,7 +1151,6 @@ namespace Laboratorio_Electronica
             {
                 conexion.Open();
                 muestraVistaEquipo();
-                LlenaNumInv();//para que se actualice el comboBox en prestamo
                 conexion.Close();
                 return 0;
             }
@@ -1321,7 +1281,7 @@ namespace Laboratorio_Electronica
                 string cons = "SELECT NumInv FROM Aula.Equipo WHERE Nombre='" + numinvP[0] + "' AND Modelo='" + numinvP[1] + "' AND Marca='" + numinvP[2] + "'";
                 SqlCommand command = new SqlCommand(cons, conexion);
                 int lastId = Convert.ToInt32(command.ExecuteScalar());
-                //MessageBox.Show(lastId.ToString());
+                MessageBox.Show(lastId.ToString());
                 string cons1 = "Select Clave_Unica FROM Persona.Alumno WHERE Nombre='" + claveP[0] + "' AND Generacion='" + Convert.ToInt32(claveP[1]) + "'";
                 SqlCommand command1 = new SqlCommand(cons1, conexion);
                 int lastId1 = Convert.ToInt32(command1.ExecuteScalar());
@@ -1467,8 +1427,7 @@ namespace Laboratorio_Electronica
 
         private void DatosPrestamo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            IdPrestamo = Convert.ToInt32(DatosPrestamo.Rows[DatosPrestamo.CurrentRow.Index].Cells[0].Value.ToString());            
-            NumInvPrestamo.Items.Add(DatosPrestamo.Rows[DatosPrestamo.CurrentRow.Index].Cells[7].Value.ToString());
+            IdPrestamo = Convert.ToInt32(DatosPrestamo.Rows[DatosPrestamo.CurrentRow.Index].Cells[0].Value.ToString());
             NumInvPrestamo.Text = DatosPrestamo.Rows[DatosPrestamo.CurrentRow.Index].Cells[7].Value.ToString();
             clavesPrestamo.Text = DatosPrestamo.Rows[DatosPrestamo.CurrentRow.Index].Cells[6].Value.ToString();
             RPEPrestamo.Text = DatosPrestamo.Rows[DatosPrestamo.CurrentRow.Index].Cells[3].Value.ToString();
@@ -1486,17 +1445,6 @@ namespace Laboratorio_Electronica
         {
             insertarRegistroPrestamo();
             conectaBD();
-            clearFormPrestamo();
-        }
-        private void clearFormPrestamo()
-        {
-            NumInvPrestamo.SelectedIndex = -1;
-            NumInvPrestamo.Text = "";
-            clavesPrestamo.SelectedIndex = -1;
-            clavesPrestamo.Text = "";
-            RPEPrestamo.SelectedIndex = -1;
-            RPEPrestamo.Text = "";
-            DatosPrestamo.ClearSelection();
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -1514,7 +1462,6 @@ namespace Laboratorio_Electronica
         {
             eliminaRegistroPrestamo();
             conectaBD();
-            clearFormPrestamo();
         }
 
         private void Asistencia_Paint(object sender, PaintEventArgs e)
@@ -1526,7 +1473,7 @@ namespace Laboratorio_Electronica
         {
             modificaPrestamo();
             conectaBD();
-            clearFormPrestamo();
+
         }
 
         private void dgridVistaEmpleado_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -1834,164 +1781,6 @@ namespace Laboratorio_Electronica
         private void hEntradaAsist_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void button15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tablaBitacoraE_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-
-        }
-
-        private void button15_Click_1(object sender, EventArgs e)
-        {
-            insertaRegistroBitacora();
-            conectaBD();
-        }
-        private int insertaRegistroBitacora()
-        {
-            try
-            {
-                //id prestamo, rpe, fecha
-                conexion.Open();
-                string[] numINV = prestamoID.SelectedItem.ToString().Split('-');
-                string cons1 = "Select Id_Prestamo, RPE_Empleado FROM Aula.Prestamo WHERE numInv=" + numINV[0];
-                SqlCommand command1 = new SqlCommand(cons1, conexion);
-                SqlDataAdapter adapter = new SqlDataAdapter(command1);
-                DataTable reg = new DataTable();
-                adapter.Fill(reg);
-                DataRow row = reg.Rows[0];
-                string idPrest = row[0].ToString();
-                string rpe = row[1].ToString();                
-                string consulta = "INSERT INTO Aula.BitacoraEntrega(Id_Prestamo,RPE_Empleado,Fecha_Entrega) VALUES (" + idPrest + "," + rpe + ", '" + entregadoBitacora.Value.ToString("MM/dd/yyyy") + "')";
-
-                SqlCommand cmd = new SqlCommand(consulta, conexion);
-                cmd.ExecuteNonQuery();
-                conexion.Close();
-                return 0;
-            }
-            catch (Exception ex)
-            {
-                conexion.Close();
-
-                MessageBox.Show("Error al insertar datos");
-
-                return 1;
-            }
-        }
-
-        private void button14_Click_1(object sender, EventArgs e)
-        {
-            modificarRegistroBitacora();
-            conectaBD();
-        }
-        private void modificarRegistroBitacora()
-        {
-            try
-            {
-                //id prestamo, rpe, fecha
-                conexion.Open();
-                string[] numInvent = prestamoID.SelectedItem.ToString().Split('-');//numero inventario, fecha
-                string cons1 = "Select Id_Prestamo, RPE_Empleado FROM Aula.Prestamo WHERE NumInv=" + numInvent[0];
-                SqlCommand command1 = new SqlCommand(cons1, conexion);                
-                SqlDataAdapter adapter = new SqlDataAdapter(command1);
-                DataTable reg = new DataTable();
-                adapter.Fill(reg);
-                DataRow row = reg.Rows[0];
-                string idPrest = row[0].ToString();
-                string rpe = row[1].ToString();     
-                
-                string consulta = "UPDATE Aula.BitacoraEntrega SET Id_Prestamo=" + idPrest + ",RPE_Empleado=" + rpe + ", Fecha_Entrega='" + entregadoBitacora.Value.ToString("MM/dd/yyyy") + "'";
-                SqlCommand cmd = new SqlCommand(consulta, conexion);
-                cmd.ExecuteNonQuery();
-                conexion.Close();
-            }
-            catch (Exception ex)
-            {
-                conexion.Close();
-
-                MessageBox.Show("Error al actualizar datos" + ex.Message);
-
-            }
-        }
-
-        private void button13_Click_1(object sender, EventArgs e)
-        {
-            eliminaRegistroBitacora();
-            conectaBD();
-        }
-        private void eliminaRegistroBitacora()
-        {
-            try
-            {
-                conexion.Open();
-
-                string consulta = "DELETE FROM Aula.BitacoraEntrega WHERE Id_Prestamo=" + IdPrestamo;
-                SqlCommand comando = new SqlCommand(consulta, conexion);
-                comando.ExecuteNonQuery();
-
-
-                consulta = "DELETE FROM Aula.Prestamo WHERE Id_Prestamo=" + IdPrestamo;
-                comando = new SqlCommand(consulta, conexion);
-                comando.ExecuteNonQuery();
-                conexion.Close();
-            }
-            catch (Exception ex)
-            {
-                conexion.Close();
-                MessageBox.Show("Error de conexion: " + ex.Message);
-            }
-        }
-
-        private void tablaBitacoraE_CellMouseClick_1(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            IdPrestamo = int.Parse(tablaBitacoraE.CurrentRow.Cells[0].Value.ToString());
-            var cultureInfo = new System.Globalization.CultureInfo("de-DE");
-            var fechaEntr = tablaBitacoraE.Rows[tablaBitacoraE.CurrentRow.Index].Cells[2].Value.ToString();
-            fechaEntr = fechaEntr.Substring(0, fechaEntr.IndexOf(" "));
-            var dateTime = DateTime.ParseExact(fechaEntr, "dd/MM/yyyy", cultureInfo);
-            entregadoBitacora.Value = dateTime;
-            LlenarSelectedIndexBitacora();
-        }
-        private void LlenarSelectedIndexBitacora()
-        {
-            var idPrest = tablaBitacoraE.CurrentRow.Cells[0].Value.ToString();
-            string consulta = "SELECT NumInv FROM Aula.Prestamo WHERE Id_Prestamo=" + idPrest;
-            try
-            {
-                conexion.Open();
-                SqlCommand command1 = new SqlCommand(consulta, conexion);
-                int numInventario = Convert.ToInt32(command1.ExecuteScalar());
-                conexion.Close();
-                int c = 0;
-                foreach (object obj in prestamoID.Items)
-                {
-                    if (obj.ToString().Contains(numInventario.ToString()))
-                    {
-                        prestamoID.SelectedIndex = c;
-                        break;
-                    }
-                    c++;
-                }
-            }
-            catch (Exception e)
-            {
-                conexion.Close();
-                MessageBox.Show("Error de conexión");
-            }
         }
 
         private void DatosAsistencia_CellClick(object sender, DataGridViewCellEventArgs e)
